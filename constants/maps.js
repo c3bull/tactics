@@ -6,47 +6,55 @@ import nukeBg from "../assets/images/maps/nuke.png";
 import vertigoBg from "../assets/images/maps/vertigo.png";
 import anubisBg from "../assets/images/maps/anubis.png";
 import tacticsBg from "../assets/images/maps/tactics.png";
+import {ancientLogo, mirageLogo, infernoLogo, anubisLogo, nukeLogo, vertigoLogo, overpassLogo} from "../assets/images/mapLogos/mapLogos";
 
 const maps = [
-    {
-        name: "Dodaj taktyke",
-        bgImage: tacticsBg,
-        href: "add-tactic",
-    },
+    // {
+    //     name: "Dodaj taktyke",
+    //     bgImage: tacticsBg,
+    //     href: "add-tactic",
+    // },
     {
         name: "Mirage",
         bgImage: mirageBg,
         href: "mirage",
+        logo: mirageLogo,
     },
     {
         name: "Inferno",
         bgImage: infernoBg,
         href: "inferno",
+        logo: infernoLogo,
     },
     {
         name: "Overpass",
         bgImage: overpassBg,
         href: "overpass",
+        logo: overpassLogo,
     },
     {
         name: "Ancient",
         bgImage: ancientBg,
         href: "ancient",
+        logo: ancientLogo,
     },
     {
         name: "Nuke",
         bgImage: nukeBg,
         href: "nuke",
+        logo: nukeLogo,
     },
     {
         name: "Vertigo",
         bgImage: vertigoBg,
         href: "vertigo",
+        logo: vertigoLogo,
     },
     {
         name: "Anubis",
         bgImage: anubisBg,
         href: "anubis",
+        logo: anubisLogo,
     },
 ]
 

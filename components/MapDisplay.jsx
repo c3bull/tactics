@@ -2,11 +2,20 @@ import {ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View} f
 import {maps} from "../constants/maps";
 import {useRouter} from "expo-router";
 
+import tacticsBg from "../assets/images/maps/tactics.png";
+
 const MapDisplay = ({navigation}) => {
     const router = useRouter()
 
     return (
         <ScrollView style={{backgroundColor: "#0F1114", marginBottom: 49, paddingTop: 5}}>
+            <TouchableOpacity style={styles.container} onPress={() => {
+                navigation.navigate('add-tactic')
+            }}>
+                <ImageBackground source={tacticsBg} resizeMode="cover">
+                    <Text style={styles.text}>Dodaj taktyke</Text>
+                </ImageBackground>
+            </TouchableOpacity>
             {maps.map(({bgImage, name, href}, key) => (
                 <TouchableOpacity style={styles.container} key={key} onPress={() => {
                     navigation.navigate(href)
