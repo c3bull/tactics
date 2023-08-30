@@ -16,6 +16,7 @@ const AddTactic = () => {
     const [chosenMap, setChosenMap] = useState(0)
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
+
             <Text style={{color: "#FFF"}}>Wybierz mapę</Text>
             <Carousel
                 loop
@@ -60,7 +61,7 @@ const AddTactic = () => {
                 {chosenMap === 4 && <NukeLayout/>}
                 {chosenMap === 5 && <VertigoLayout/>}
                 {chosenMap === 6 && <AnubisLayout/>}
-                <Text style={{color: "#fff"}}>{chosenMap}</Text>
+                {/*<Text style={{color: "#fff"}}>{chosenMap}</Text>*/}
             </View>
         </ScrollView>
     )
