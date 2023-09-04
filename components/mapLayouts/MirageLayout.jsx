@@ -5,8 +5,12 @@ import smokeImage from "../../assets/images/smokeImg.png"
 import flashImage from "../../assets/images/flashImg.png"
 import molotovImage from "../../assets/images/molotovImg.png"
 import {ButtonGroup} from "@rneui/themed";
+import _ from "lodash";
+import SingleGrenade from "../SingleGrenade";
 
 export default function MirageLayout() {
+    let _ = require('lodash');
+
     const width = Dimensions.get('window').width;
     const height = Dimensions.get('window').height;
     const [ctSmoke, setCtSmoke] = useState(false)
@@ -53,6 +57,35 @@ export default function MirageLayout() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedGrenadeIndex, setSelectedGrenadeIndex] = useState(0);
 
+    const [yellowUtility, setYellowUtility] = useState([]);
+    const [blueUtility, setBlueUtility] = useState([]);
+    const [purpleUtility, setPurpleUtility] = useState([]);
+    const [greenUtility, setGreenUtility] = useState([]);
+    const [orangeUtility, setOrangeUtility] = useState([]);
+
+    const positions = {
+        ctSmoke: "CT",
+        smokeASite: "A Site",
+        jungleSmoke: "Jungle",
+        stairsSmoke: "Stairs",
+        connectorUpSmoke: "Upper Connector",
+        jungleDeepSmoke: "Jungle Deep",
+        connectorDownSmoke: "Down Connector",
+        windowSmoke: "Mid Window",
+        catwalkSmoke: "Short",
+        midCatwalkSmoke: "Catwalk",
+        topMidSmoke: "Top Mid",
+        exitSmoke: "Exit",
+        bWindowSmoke: "B Window",
+        shortLeftSmoke: "B Left Short",
+        shortRightSmoke: "B Right Short",
+    }
+
+    const remapPositions = (type) => {
+        return (
+            positions[type]
+        )
+    };
     return (
         <View>
             <View style={styles.grenades}>
@@ -158,128 +191,170 @@ export default function MirageLayout() {
             <ImageBackground source={mirageLayout} style={{flex: 1, width: 360, height: 272}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <TouchableOpacity style={[styles.smokeCT, ctSmoke && styles.selectedSmoke]}
-                                          onPress={ctSmoke ? () => {
-                                              setCtSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setCtSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeASite, aSiteSmoke && styles.selectedSmoke]}
-                                          onPress={aSiteSmoke ? () => {
-                                              setASiteSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                              smokeAmount < 5 && setASiteSmoke(true);
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeJungle, jungleSmoke && styles.selectedSmoke]}
-                                          onPress={jungleSmoke ? () => {
-                                              setJungleSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setJungleSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeStairs, stairsSmoke && styles.selectedSmoke]}
-                                          onPress={stairsSmoke ? () => {
-                                              setStairsSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setStairsSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeConnectorUp, connectorUpSmoke && styles.selectedSmoke]}
-                                          onPress={connectorUpSmoke ? () => {
-                                              setConnectorUpSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setConnectorUpSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeJungleDeep, jungleDeepSmoke && styles.selectedSmoke]}
-                                          onPress={jungleDeepSmoke ? () => {
-                                              setJungleDeepSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setJungleDeepSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity
-                            style={[styles.smokeConnectorDown, connectorDownSmoke && styles.selectedSmoke]}
-                            onPress={connectorDownSmoke ? () => {
-                                setConnectorDownSmoke(false);
-                                setSmokeAmount(prevState => prevState - 1)
-                            } : () => {
-                                smokeAmount < 5 && setConnectorDownSmoke(true);
-                                smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                            }}/>
-                        <TouchableOpacity style={[styles.smokeWindow, windowSmoke && styles.selectedSmoke]}
-                                          onPress={windowSmoke ? () => {
-                                              setWindowSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setWindowSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeCatwalk, catwalkSmoke && styles.selectedSmoke]}
-                                          onPress={catwalkSmoke ? () => {
-                                              setCatwalkSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setCatwalkSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeMidCatwalk, midCatwalkSmoke && styles.selectedSmoke]}
-                                          onPress={midCatwalkSmoke ? () => {
-                                              setMidCatwalkSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setMidCatwalkSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeTopMid, topMidSmoke && styles.selectedSmoke]}
-                                          onPress={topMidSmoke ? () => {
-                                              setTopMidSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setTopMidSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeExit, exitSmoke && styles.selectedSmoke]}
-                                          onPress={exitSmoke ? () => {
-                                              setExitSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setExitSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeBWindow, bWindowSmoke && styles.selectedSmoke]}
-                                          onPress={bWindowSmoke ? () => {
-                                              setBWindowSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setBWindowSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeShortLeft, shortLeftSmoke && styles.selectedSmoke]}
-                                          onPress={shortLeftSmoke ? () => {
-                                              setShortLeftSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setShortLeftSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.smokeShortRight, shortRightSmoke && styles.selectedSmoke]}
-                                          onPress={shortRightSmoke ? () => {
-                                              setShortRightSmoke(false);
-                                              setSmokeAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              smokeAmount < 5 && setShortRightSmoke(true);
-                                              smokeAmount < 5 && setSmokeAmount(prevState => prevState + 1)
-                                          }}
-                        />
+                        <SingleGrenade mainStyle={styles.smokeCT} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={ctSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCtSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="ctSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeASite} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={aSiteSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="smokeASite"/>
+
+                        <SingleGrenade mainStyle={styles.smokeJungle} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={jungleSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setJungleSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="smokeJungle"/>
+
+                        <SingleGrenade mainStyle={styles.smokeStairs} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={stairsSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setStairsSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="stairsSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeConnectorUp} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={connectorUpSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorUpSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="connectorUpSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeJungleDeep} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={jungleDeepSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setJungleDeepSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="jungleDeepSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeConnectorDown} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={connectorDownSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorDownSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="connectorDownSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeWindow} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={windowSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWindowSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="windowSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeCatwalk} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={catwalkSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCatwalkSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="catwalkSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeMidCatwalk} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={midCatwalkSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidCatwalkSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="midCatwalkSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeTopMid} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={topMidSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTopMidSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="topMidSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeExit} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={exitSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setExitSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="exitSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBWindow} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bWindowSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBWindowSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bWindowSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeShortLeft} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={shortLeftSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setShortLeftSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="shortLeftSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeShortRight} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={shortRightSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setShortRightSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="shortRightSmoke"/>
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
@@ -295,9 +370,11 @@ export default function MirageLayout() {
                                           onPress={aSiteFlash ? () => {
                                               setASiteFlash(false);
                                               setFlashAmount(prevState => prevState - 1)
+                                              selectedIndex === 0 && setYellowUtility(prevState => _.without(prevState, "siteFlash"))
                                           } : () => {
                                               flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
                                               flashAmount < 10 && setASiteFlash(true);
+                                              selectedIndex === 0 && setYellowUtility(prevState => [...prevState, "siteFlash"])
                                           }}/>
                         <TouchableOpacity style={[styles.flashJungle, jungleFlash && styles.selectedFlash]}
                                           onPress={jungleFlash ? () => {
@@ -430,6 +507,27 @@ export default function MirageLayout() {
                 }}>
 
                     <Text style={{color: "#FFF"}}>Tasks:</Text>
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        backgroundColor: "#A49500",
+                        width: '100%',
+                        padding: 5,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5
+                    }}>{yellowUtility.map((item, index) => {
+                            return (
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
+                                </View>
+                            )
+                        }
+                    )}</View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -437,8 +535,9 @@ export default function MirageLayout() {
                             minHeight: 40,
                             width: "100%",
                             maxWidth: "100%",
-                            borderRadius: 5,
-                            marginVertical: 5,
+                            borderBottomLeftRadius: 5,
+                            borderBottomRightRadius: 5,
+                            marginBottom: 5,
                             padding: 5
                         }}
                         multiline
@@ -446,6 +545,27 @@ export default function MirageLayout() {
                         placeholder="Player 1"
                         placeholderTextColor="#CCCCCC"
                     />
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        backgroundColor: "#00567F",
+                        width: '100%',
+                        padding: 5,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5
+                    }}>{blueUtility.map((item, index) => {
+                            return (
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
+                                </View>
+                            )
+                        }
+                    )}</View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -453,8 +573,9 @@ export default function MirageLayout() {
                             minHeight: 40,
                             width: "100%",
                             maxWidth: "100%",
-                            borderRadius: 5,
-                            marginVertical: 5,
+                            borderBottomLeftRadius: 5,
+                            borderBottomRightRadius: 5,
+                            marginBottom: 5,
                             padding: 5
                         }}
                         multiline
@@ -462,6 +583,27 @@ export default function MirageLayout() {
                         placeholder="Player 2"
                         placeholderTextColor="#CCCCCC"
                     />
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        backgroundColor: "#550083",
+                        width: '100%',
+                        padding: 5,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5
+                    }}>{purpleUtility.map((item, index) => {
+                            return (
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
+                                </View>
+                            )
+                        }
+                    )}</View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -469,8 +611,9 @@ export default function MirageLayout() {
                             minHeight: 40,
                             width: "100%",
                             maxWidth: "100%",
-                            borderRadius: 5,
-                            marginVertical: 5,
+                            borderBottomLeftRadius: 5,
+                            borderBottomRightRadius: 5,
+                            marginBottom: 5,
                             padding: 5
                         }}
                         multiline
@@ -478,6 +621,27 @@ export default function MirageLayout() {
                         placeholder="Player 3"
                         placeholderTextColor="#CCCCCC"
                     />
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        backgroundColor: "#0A8300",
+                        width: '100%',
+                        padding: 5,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5
+                    }}>{greenUtility.map((item, index) => {
+                            return (
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
+                                </View>
+                            )
+                        }
+                    )}</View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -485,8 +649,9 @@ export default function MirageLayout() {
                             minHeight: 40,
                             width: "100%",
                             maxWidth: "100%",
-                            borderRadius: 5,
-                            marginVertical: 5,
+                            borderBottomLeftRadius: 5,
+                            borderBottomRightRadius: 5,
+                            marginBottom: 5,
                             padding: 5
                         }}
                         multiline
@@ -494,6 +659,27 @@ export default function MirageLayout() {
                         placeholder="Player 4"
                         placeholderTextColor="#CCCCCC"
                     />
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        backgroundColor: "#CD5A00",
+                        width: '100%',
+                        padding: 5,
+                        borderTopLeftRadius: 5,
+                        borderTopRightRadius: 5
+                    }}>{orangeUtility.map((item, index) => {
+                            return (
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
+                                </View>
+                            )
+                        }
+                    )}</View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -501,8 +687,9 @@ export default function MirageLayout() {
                             minHeight: 40,
                             width: "100%",
                             maxWidth: "100%",
-                            borderRadius: 5,
-                            marginVertical: 5,
+                            borderBottomLeftRadius: 5,
+                            borderBottomRightRadius: 5,
+                            marginBottom: 5,
                             padding: 5
                         }}
                         multiline
