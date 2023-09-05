@@ -5,11 +5,9 @@ import smokeImage from "../../assets/images/smokeImg.png"
 import flashImage from "../../assets/images/flashImg.png"
 import molotovImage from "../../assets/images/molotovImg.png"
 import {ButtonGroup} from "@rneui/themed";
-import _ from "lodash";
 import SingleGrenade from "../SingleGrenade";
 
 export default function MirageLayout() {
-    let _ = require('lodash');
 
     const width = Dimensions.get('window').width;
     const height = Dimensions.get('window').height;
@@ -53,7 +51,6 @@ export default function MirageLayout() {
     const [playerThreeTask, setPlayerThreeTask] = useState("")
     const [playerFourTask, setPlayerFourTask] = useState("")
     const [playerFiveTask, setPlayerFiveTask] = useState("")
-    const [playerSelected, setPlayerSelected] = useState(true)
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedGrenadeIndex, setSelectedGrenadeIndex] = useState(0);
 
@@ -65,7 +62,7 @@ export default function MirageLayout() {
 
     const positions = {
         ctSmoke: "CT",
-        smokeASite: "A Site",
+        aSiteSmoke: "A Site",
         jungleSmoke: "Jungle",
         stairsSmoke: "Stairs",
         connectorUpSmoke: "Upper Connector",
@@ -79,6 +76,19 @@ export default function MirageLayout() {
         bWindowSmoke: "B Window",
         shortLeftSmoke: "B Left Short",
         shortRightSmoke: "B Right Short",
+
+        ctFlash: "CT",
+        aSiteFlash: "A Site",
+        jungleFlash: "Jungle",
+        stairsFlash: "Stairs",
+        connectorDownFlash: "Down Connector",
+        catwalkFlash: "Catwalk",
+        topMidFlash: "Top Mid",
+        bSiteFlash: "B Site",
+
+        underWoodMolotov: "Under Wood",
+        aBenchMolotov: "A Bench",
+        carMolotov: "Car"
     }
 
     const remapPositions = (type) => {
@@ -162,7 +172,7 @@ export default function MirageLayout() {
                     buttonContainerStyle={{backgroundColor: "#0F1114"}}
                 />
             </View>
-            <View style={{display: "flex", alignItems: "center"}}>
+            <View style={{display: "flex", alignItems: "center", marginVertical: 10}}>
                 <ButtonGroup
                     buttons={[
                         "SMOKES", "FLASHES", "MOLOTOV"
@@ -188,7 +198,7 @@ export default function MirageLayout() {
                     buttonContainerStyle={{backgroundColor: "#0F1114"}}
                 />
             </View>
-            <ImageBackground source={mirageLayout} style={{flex: 1, width: 360, height: 272}}>
+            <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
                         <SingleGrenade mainStyle={styles.smokeCT} additionalStyle={styles.selectedSmoke}
@@ -211,7 +221,7 @@ export default function MirageLayout() {
                                        greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
-                                       grenadeName="smokeASite"/>
+                                       grenadeName="aSiteSmoke"/>
 
                         <SingleGrenade mainStyle={styles.smokeJungle} additionalStyle={styles.selectedSmoke}
                                        grenadePosition={jungleSmoke}
@@ -222,7 +232,7 @@ export default function MirageLayout() {
                                        greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
-                                       grenadeName="smokeJungle"/>
+                                       grenadeName="jungleSmoke"/>
 
                         <SingleGrenade mainStyle={styles.smokeStairs} additionalStyle={styles.selectedSmoke}
                                        grenadePosition={stairsSmoke}
@@ -358,101 +368,128 @@ export default function MirageLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <TouchableOpacity style={[styles.flashCT, ctFlash && styles.selectedFlash]}
-                                          onPress={ctFlash ? () => {
-                                              setCtFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setCtFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.flashASite, aSiteFlash && styles.selectedFlash]}
-                                          onPress={aSiteFlash ? () => {
-                                              setASiteFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                              selectedIndex === 0 && setYellowUtility(prevState => _.without(prevState, "siteFlash"))
-                                          } : () => {
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                              flashAmount < 10 && setASiteFlash(true);
-                                              selectedIndex === 0 && setYellowUtility(prevState => [...prevState, "siteFlash"])
-                                          }}/>
-                        <TouchableOpacity style={[styles.flashJungle, jungleFlash && styles.selectedFlash]}
-                                          onPress={jungleFlash ? () => {
-                                              setJungleFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setJungleFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.flashStairs, stairsFlash && styles.selectedFlash]}
-                                          onPress={stairsFlash ? () => {
-                                              setStairsFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setStairsFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity
-                            style={[styles.flashConnectorDown, connectorDownFlash && styles.selectedFlash]}
-                            onPress={connectorDownFlash ? () => {
-                                setConnectorDownFlash(false);
-                                setFlashAmount(prevState => prevState - 1)
-                            } : () => {
-                                flashAmount < 10 && setConnectorDownFlash(true);
-                                flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                            }}/>
-                        <TouchableOpacity style={[styles.flashCatwalk, catwalkFlash && styles.selectedFlash]}
-                                          onPress={catwalkFlash ? () => {
-                                              setCatwalkFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setCatwalkFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.flashTopMid, topMidFlash && styles.selectedFlash]}
-                                          onPress={topMidFlash ? () => {
-                                              setTopMidFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setTopMidFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.flashBSite, bSiteFlash && styles.selectedFlash]}
-                                          onPress={bSiteFlash ? () => {
-                                              setBSiteFlash(false);
-                                              setFlashAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              flashAmount < 10 && setBSiteFlash(true);
-                                              flashAmount < 10 && setFlashAmount(prevState => prevState + 1)
-                                          }}
-                        />
+                        <SingleGrenade mainStyle={styles.flashCT} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={ctFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setCtFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="ctFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={aSiteFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aSiteFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashJungle} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={jungleFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setJungleFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="jungleFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashStairs} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={stairsFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setStairsFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="stairsFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashConnectorDown} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={connectorDownFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setConnectorDownFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="connectorDownFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashCatwalk} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={catwalkFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setCatwalkFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="catwalkFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashTopMid} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={topMidFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setTopMidFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="topMidFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={bSiteFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bSiteFlash"/>
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <TouchableOpacity style={[styles.molotovUnderWood, underWoodMolotov && styles.selectedMolotov]}
-                                          onPress={underWoodMolotov ? () => {
-                                              setUnderWoodMolotov(false);
-                                              setMolotovAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              molotovAmount < 5 && setUnderWoodMolotov(true);
-                                              molotovAmount < 5 && setMolotovAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.molotovABench, aBenchMolotov && styles.selectedMolotov]}
-                                          onPress={aBenchMolotov ? () => {
-                                              setABenchMolotov(false);
-                                              setMolotovAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              molotovAmount < 5 && setABenchMolotov(true);
-                                              molotovAmount < 5 && setMolotovAmount(prevState => prevState + 1)
-                                          }}/>
-                        <TouchableOpacity style={[styles.molotovCar, carMolotov && styles.selectedMolotov]}
-                                          onPress={carMolotov ? () => {
-                                              setCarMolotov(false);
-                                              setMolotovAmount(prevState => prevState - 1)
-                                          } : () => {
-                                              molotovAmount < 5 && setCarMolotov(true);
-                                              molotovAmount < 5 && setMolotovAmount(prevState => prevState + 1)
-                                          }}/>
+                        <SingleGrenade mainStyle={styles.molotovUnderWood} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={underWoodMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setUnderWoodMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="underWoodMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovABench} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={aBenchMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setABenchMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aBenchMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovCar} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={carMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setCarMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="carMolotov"/>
                     </View>)}
 
             </ImageBackground>
@@ -460,7 +497,7 @@ export default function MirageLayout() {
                 backgroundColor: "#272727",
                 flex: 1,
                 alignItems: 'center',
-                marginBottom: 165,
+                marginBottom: 28,
                 padding: 20,
                 borderRadius: 10,
             }}>
@@ -509,16 +546,25 @@ export default function MirageLayout() {
                     <Text style={{color: "#FFF"}}>Tasks:</Text>
                     <View style={{
                         display: "flex",
-                        flexDirection: "row",
                         backgroundColor: "#A49500",
                         width: '100%',
-                        padding: 5,
+                        paddingVertical: 5,
                         borderTopLeftRadius: 5,
                         borderTopRightRadius: 5
                     }}>{yellowUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
                                         width: 20
@@ -547,16 +593,25 @@ export default function MirageLayout() {
                     />
                     <View style={{
                         display: "flex",
-                        flexDirection: "row",
                         backgroundColor: "#00567F",
                         width: '100%',
-                        padding: 5,
+                        paddingVertical: 5,
                         borderTopLeftRadius: 5,
                         borderTopRightRadius: 5
                     }}>{blueUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
                                         width: 20
@@ -585,16 +640,25 @@ export default function MirageLayout() {
                     />
                     <View style={{
                         display: "flex",
-                        flexDirection: "row",
                         backgroundColor: "#550083",
                         width: '100%',
-                        padding: 5,
+                        paddingVertical: 5,
                         borderTopLeftRadius: 5,
                         borderTopRightRadius: 5
                     }}>{purpleUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
                                         width: 20
@@ -623,16 +687,25 @@ export default function MirageLayout() {
                     />
                     <View style={{
                         display: "flex",
-                        flexDirection: "row",
                         backgroundColor: "#0A8300",
                         width: '100%',
-                        padding: 5,
+                        paddingVertical: 5,
                         borderTopLeftRadius: 5,
                         borderTopRightRadius: 5
                     }}>{greenUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
                                         width: 20
@@ -661,16 +734,25 @@ export default function MirageLayout() {
                     />
                     <View style={{
                         display: "flex",
-                        flexDirection: "row",
                         backgroundColor: "#CD5A00",
                         width: '100%',
-                        padding: 5,
+                        paddingVertical: 5,
                         borderTopLeftRadius: 5,
                         borderTopRightRadius: 5
                     }}>{orangeUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
+                                        resizeMode: 'contain',
+                                        height: 15,
+                                        width: 20
+                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
                                         width: 20
