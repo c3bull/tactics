@@ -1,7 +1,9 @@
 import _ from "lodash";
-import {TouchableOpacity, ToastAndroid} from "react-native";
+import {TouchableOpacity, ToastAndroid, StyleSheet, ImageBackground} from "react-native";
 import React from "react";
-
+import smokeImage from "../assets/images/smoke.webp"
+import flashImage from "../assets/images/flash.webp"
+import molotovImage from "../assets/images/molotov.webp"
 export default function SingleGrenade({
                                           mainStyle,
                                           additionalStyle,
@@ -33,7 +35,13 @@ export default function SingleGrenade({
         );
     };
     return (
-        <TouchableOpacity style={[mainStyle, grenadePosition && additionalStyle]}
+        <TouchableOpacity style={[mainStyle, grenadePosition && (
+            yellowUtility.toString().includes(grenadeName) && styles.selectedGrenadeYellow ||
+            blueUtility.toString().includes(grenadeName) && styles.selectedGrenadeBlue ||
+            purpleUtility.toString().includes(grenadeName) && styles.selectedGrenadePurple ||
+            greenUtility.toString().includes(grenadeName) && styles.selectedGrenadeGreen ||
+            orangeUtility.toString().includes(grenadeName) && styles.selectedGrenadeOrange
+        )]}
                           onPress={() => {
                               let flashAmount = 0;
                               if (selectedIndex === 0) {
@@ -276,6 +284,33 @@ export default function SingleGrenade({
                               console.log('purpleUtility ', purpleUtility.map(item => item))
                               console.log('greenUtility ', greenUtility.map(item => item))
                               console.log('orangeUtility ', orangeUtility.map(item => item))
-                          }}/>
+                          }}>
+            {grenadeName.toLowerCase().includes("smoke") && <ImageBackground source={smokeImage} resizeMode="contain" style={styles.image}/>}
+            {grenadeName.toLowerCase().includes("flash") && <ImageBackground source={flashImage} resizeMode="contain" style={styles.image}/>}
+            {grenadeName.toLowerCase().includes("molotov") && <ImageBackground source={molotovImage} resizeMode="contain" style={styles.image}/>}
+        </TouchableOpacity>
     )
 }
+
+const styles = StyleSheet.create({
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+        margin: 2
+    },
+    selectedGrenadeYellow: {
+        backgroundColor: "#D5C200",
+    },
+    selectedGrenadeBlue: {
+        backgroundColor: "#00ACFF",
+    },
+    selectedGrenadePurple: {
+        backgroundColor: "#B600CF",
+    },
+    selectedGrenadeGreen: {
+        backgroundColor: "#0EB900",
+    },
+    selectedGrenadeOrange: {
+        backgroundColor: "#F07400",
+    },
+});

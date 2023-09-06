@@ -1,4 +1,13 @@
-import {Dimensions, ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image, TextInput} from "react-native";
+import {
+    Dimensions,
+    ImageBackground,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    Image,
+    TextInput, ToastAndroid,
+} from "react-native";
 import React, {useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
 import smokeImage from "../../assets/images/smokeImg.png"
@@ -6,6 +15,7 @@ import flashImage from "../../assets/images/flashImg.png"
 import molotovImage from "../../assets/images/molotovImg.png"
 import {ButtonGroup} from "@rneui/themed";
 import SingleGrenade from "../SingleGrenade";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function MirageLayout() {
 
@@ -26,6 +36,12 @@ export default function MirageLayout() {
     const [bWindowSmoke, setBWindowSmoke] = useState(false)
     const [shortLeftSmoke, setShortLeftSmoke] = useState(false)
     const [shortRightSmoke, setShortRightSmoke] = useState(false)
+    const [bSiteOneSmoke, setBSiteOneSmoke] = useState(false)
+    const [bSiteTwoSmoke, setBSiteTwoSmoke] = useState(false)
+    const [bSiteThreeSmoke, setBSiteThreeSmoke] = useState(false)
+    const [bSiteFourSmoke, setBSiteFourSmoke] = useState(false)
+    const [bBenchSmoke, setBBenchSmoke] = useState(false)
+    const [bBalconySmoke, setBBalconySmoke] = useState(false)
 
     const [ctFlash, setCtFlash] = useState(false)
     const [aSiteFlash, setASiteFlash] = useState(false)
@@ -35,10 +51,20 @@ export default function MirageLayout() {
     const [catwalkFlash, setCatwalkFlash] = useState(false)
     const [topMidFlash, setTopMidFlash] = useState(false)
     const [bSiteFlash, setBSiteFlash] = useState(false)
+    const [overAFlash, setOverAFlash] = useState(false)
+    const [overBFlash, setOverBFlash] = useState(false)
+    const [windowFlash, setWindowFlash] = useState(false)
 
     const [underWoodMolotov, setUnderWoodMolotov] = useState(false)
     const [aBenchMolotov, setABenchMolotov] = useState(false)
     const [carMolotov, setCarMolotov] = useState(false)
+    const [bBalconyMolotov, setBBalconyMolotov] = useState(false)
+    const [underAppsMolotov, setUnderAppsMolotov] = useState(false)
+    const [windowMolotov, setWindowMolotov] = useState(false)
+    const [ladderMolotov, setLadderMolotov] = useState(false)
+    const [ninjaMolotov, setNinjaMolotov] = useState(false)
+    const [sandwichMolotov, setSandwichMolotov] = useState(false)
+    const [fireboxMolotov, setFireboxMolotov] = useState(false)
 
     const [smokeAmount, setSmokeAmount] = useState(0)
     const [flashAmount, setFlashAmount] = useState(0)
@@ -76,6 +102,12 @@ export default function MirageLayout() {
         bWindowSmoke: "B Window",
         shortLeftSmoke: "B Left Short",
         shortRightSmoke: "B Right Short",
+        bSiteOneSmoke: "B Site Standard",
+        bSiteTwoSmoke: "B Site Between One and Two Box",
+        bSiteThreeSmoke: "B Site Between Two and Three Box",
+        bSiteFourSmoke: "B Site Between Three and Four Box",
+        bBenchSmoke: "B Bench",
+        bBalconySmoke: "B Balcony",
 
         ctFlash: "CT",
         aSiteFlash: "A Site",
@@ -85,10 +117,20 @@ export default function MirageLayout() {
         catwalkFlash: "Catwalk",
         topMidFlash: "Top Mid",
         bSiteFlash: "B Site",
+        overAFlash: "A Over",
+        overBFlash: "B Over",
+        windowFlash: "Window",
 
         underWoodMolotov: "Under Wood",
         aBenchMolotov: "A Bench",
-        carMolotov: "Car"
+        carMolotov: "Car",
+        bBalconyMolotov: "B Balcony",
+        underAppsMolotov: "Under Apartments",
+        windowMolotov: "Window",
+        ladderMolotov: "Ladder Room",
+        ninjaMolotov: "Ninja",
+        sandwichMolotov: "Sandwich",
+        fireboxMolotov: "Firebox",
     }
 
     const remapPositions = (type) => {
@@ -96,6 +138,76 @@ export default function MirageLayout() {
             positions[type]
         )
     };
+    const showToastWithGravityAndOffset = (text) => {
+        ToastAndroid.showWithGravityAndOffset(
+            text,
+            ToastAndroid.LONG,
+            ToastAndroid.TOP,
+            125,
+            150,
+        );
+    };
+    const saveTactic = () => {
+        if (tacticName !== "" && tacticDescription !== "") {
+            let tacticKey = "map_mirage_" + tacticName.toLowerCase().split(" ").join("").concat(tacticDescription.toLowerCase().split(" ").join(""))
+            let tacticObject = {
+                yellowUtility: yellowUtility,
+                blueUtility: blueUtility,
+                purpleUtility: purpleUtility,
+                greenUtility: greenUtility,
+                orangeUtility: orangeUtility,
+                smokeAmount: smokeAmount,
+                flashAmount: flashAmount,
+                molotovAmount: molotovAmount,
+                tacticName: tacticName,
+                tacticDescription: tacticDescription,
+                playerOneTask: playerOneTask,
+                playerTwoTask: playerTwoTask,
+                playerThreeTask: playerThreeTask,
+                playerFourTask: playerFourTask,
+                playerFiveTask: playerFiveTask,
+            }
+            AsyncStorage.setItem(tacticKey, JSON.stringify(tacticObject), (err) => {
+                if (err) {
+                    console.log("an error");
+                    throw err;
+                }
+                console.log("success");
+            }).catch((err) => {
+                console.log("error is: " + err);
+            });
+            console.log(tacticKey)
+        } else {
+            return showToastWithGravityAndOffset("Tactic Name and Tactic Description must not be empty")
+        }
+        // console.log(tacticObject)
+        // console.log('yu ', yellowUtility);
+        // console.log('bu ', blueUtility);
+        // console.log('pu ', purpleUtility);
+        // console.log('gu ', greenUtility);
+        // console.log('ou ', orangeUtility);
+    }
+    const getTactic = async () => {
+
+        try {
+            const value = await AsyncStorage.getItem(tacticName.split(" ").join("").concat(tacticDescription.split(" ").join("")));
+            if (value !== null) {
+                // We have data!!
+                console.log(JSON.parse(value));
+            }
+        } catch (error) {
+            // Error retrieving data
+        }
+    }
+    const getAllTactics = async () => {
+
+        const keys = await AsyncStorage.getAllKeys();
+        const result = await AsyncStorage.multiGet(keys);
+        console.log('keys ', keys)
+        console.log('res ', result)
+        return result.map(req => JSON.parse(req)).forEach(console.log);
+    }
+
     return (
         <View>
             <View style={styles.grenades}>
@@ -365,6 +477,72 @@ export default function MirageLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="shortRightSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBSiteOne} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bSiteOneSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteOneSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bSiteOneSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBSiteTwo} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bSiteTwoSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteTwoSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bSiteTwoSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBSiteThree} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bSiteThreeSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteThreeSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bSiteThreeSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBSiteFour} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bSiteFourSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteFourSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bSiteFourSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBBench} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bBalconySmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBBalconySmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bBalconySmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBBalcony} additionalStyle={styles.selectedSmoke}
+                                       grenadePosition={bBenchSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBBenchSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bBenchSmoke"/>
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
@@ -455,6 +633,38 @@ export default function MirageLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashOverA} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={overAFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setOverAFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="overAFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashOverB} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={overBFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setOverBFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="overBFlash"/>
+                        <SingleGrenade mainStyle={styles.flashWindow} additionalStyle={styles.selectedFlash}
+                                       grenadePosition={windowFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setWindowFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="windowFlash"/>
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
@@ -490,6 +700,84 @@ export default function MirageLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="carMolotov"/>
+
+
+                        <SingleGrenade mainStyle={styles.molotovBBalcony} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={bBalconyMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBBalconyMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bBalconyMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovUnderApps} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={underAppsMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setUnderAppsMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="underAppsMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovWindow} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={windowMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWindowMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="windowMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovLadder} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={ladderMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setLadderMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="ladderMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovNinja} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={ninjaMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setNinjaMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="ninjaMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovSandwich} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={sandwichMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSandwichMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="sandwichMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovFirebox} additionalStyle={styles.selectedMolotov}
+                                       grenadePosition={fireboxMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setFireboxMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="fireboxMolotov"/>
                     </View>)}
 
             </ImageBackground>
@@ -553,7 +841,7 @@ export default function MirageLayout() {
                         borderTopRightRadius: 5
                     }}>{yellowUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
@@ -564,11 +852,12 @@ export default function MirageLayout() {
                                         height: 15,
                                         width: 20
                                     }}/>}
-                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") &&
+                                        <Image alt="smoke" source={molotovImage} style={{
+                                            resizeMode: 'contain',
+                                            height: 15,
+                                            width: 20
+                                        }}/>}
                                     <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
                                 </View>
                             )
@@ -600,7 +889,7 @@ export default function MirageLayout() {
                         borderTopRightRadius: 5
                     }}>{blueUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
@@ -611,16 +900,18 @@ export default function MirageLayout() {
                                         height: 15,
                                         width: 20
                                     }}/>}
-                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") &&
+                                        <Image alt="smoke" source={molotovImage} style={{
+                                            resizeMode: 'contain',
+                                            height: 15,
+                                            width: 20
+                                        }}/>}
                                     <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
                                 </View>
                             )
                         }
-                    )}</View>
+                    )}
+                    </View>
                     <TextInput
                         style={{
                             color: "#FFF",
@@ -647,7 +938,7 @@ export default function MirageLayout() {
                         borderTopRightRadius: 5
                     }}>{purpleUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
@@ -658,11 +949,12 @@ export default function MirageLayout() {
                                         height: 15,
                                         width: 20
                                     }}/>}
-                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") &&
+                                        <Image alt="smoke" source={molotovImage} style={{
+                                            resizeMode: 'contain',
+                                            height: 15,
+                                            width: 20
+                                        }}/>}
                                     <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
                                 </View>
                             )
@@ -694,7 +986,7 @@ export default function MirageLayout() {
                         borderTopRightRadius: 5
                     }}>{greenUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
@@ -705,11 +997,12 @@ export default function MirageLayout() {
                                         height: 15,
                                         width: 20
                                     }}/>}
-                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") &&
+                                        <Image alt="smoke" source={molotovImage} style={{
+                                            resizeMode: 'contain',
+                                            height: 15,
+                                            width: 20
+                                        }}/>}
                                     <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
                                 </View>
                             )
@@ -741,7 +1034,7 @@ export default function MirageLayout() {
                         borderTopRightRadius: 5
                     }}>{orangeUtility.map((item, index) => {
                             return (
-                                <View style={{display: "flex", flexDirection:"row", alignItems: "center"}} key={index}>
+                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
                                     {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
                                         resizeMode: 'contain',
                                         height: 15,
@@ -752,11 +1045,12 @@ export default function MirageLayout() {
                                         height: 15,
                                         width: 20
                                     }}/>}
-                                    {item.toLowerCase().includes("molotov") && <Image alt="smoke" source={molotovImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
+                                    {item.toLowerCase().includes("molotov") &&
+                                        <Image alt="smoke" source={molotovImage} style={{
+                                            resizeMode: 'contain',
+                                            height: 15,
+                                            width: 20
+                                        }}/>}
                                     <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
                                 </View>
                             )
@@ -781,8 +1075,26 @@ export default function MirageLayout() {
                     />
                 </View>
                 <TouchableOpacity
-                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}><Text
-                    style={{color: "#FFF", textAlign: "center", fontSize: 22}}>Add Tactic!</Text></TouchableOpacity>
+                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
+                    onPress={() => saveTactic()}>
+                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
+                        Add Tactic!
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
+                    onPress={() => getTactic()}>
+                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
+                        Get Tactic!
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
+                    onPress={() => getAllTactics()}>
+                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
+                        Get All Tactics!
+                    </Text>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -852,7 +1164,34 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 215,
         left: 184,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashOverB: {
+        position: 'absolute',
+        top: 25,
+        left: 90,
+        backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashOverA: {
+        position: 'absolute',
+        top: 200,
+        left: 200,
+        backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashWindow: {
+        position: 'absolute',
+        top: 109,
+        left: 127,
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -861,7 +1200,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 215,
         left: 220,
-        backgroundColor: "#FFB3B3",
+        backgroundColor: "#FFECEC",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -879,7 +1218,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 200,
         left: 163,
-        backgroundColor: "#FFB3B3",
+        backgroundColor: "#FFECEC",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -888,7 +1227,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 180,
         left: 166,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -906,7 +1245,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 180,
         left: 184,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -924,7 +1263,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 130,
         left: 165,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -960,7 +1299,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 70,
         left: 155,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -978,7 +1317,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 95,
         left: 215,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1001,6 +1340,60 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeBSiteOne: {
+        position: 'absolute',
+        top: 30,
+        left: 60,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBSiteTwo: {
+        position: 'absolute',
+        top: 43,
+        left: 75,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBSiteThree: {
+        position: 'absolute',
+        top: 56,
+        left: 60,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBBench: {
+        position: 'absolute',
+        top: 2,
+        left: 61,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBBalcony: {
+        position: 'absolute',
+        top: 23,
+        left: 38,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBSiteFour: {
+        position: 'absolute',
+        top: 43,
+        left: 45,
+        backgroundColor: "#fff",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     smokeShortRight: {
         position: 'absolute',
         top: 25,
@@ -1012,9 +1405,9 @@ const styles = StyleSheet.create({
     },
     flashBSite: {
         position: 'absolute',
-        top: 25,
-        left: 80,
-        backgroundColor: "#F6FFB8",
+        top: 20,
+        left: 72,
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1032,7 +1425,70 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 2,
         left: 45,
-        backgroundColor: "#FFB3B3",
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovFirebox: {
+        position: 'absolute',
+        top: 225,
+        left: 160,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBBalcony: {
+        position: 'absolute',
+        top: 2,
+        left: 63,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovUnderApps: {
+        position: 'absolute',
+        top: 16,
+        left: 92,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovWindow: {
+        position: 'absolute',
+        top: 109,
+        left: 127,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovLadder: {
+        position: 'absolute',
+        top: 72,
+        left: 134,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovNinja: {
+        position: 'absolute',
+        top: 239,
+        left: 203,
+        backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovSandwich: {
+        position: 'absolute',
+        top: 180,
+        left: 193,
+        backgroundColor: "#FFECEC",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1059,7 +1515,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 245,
         left: 145,
-        backgroundColor: "#F6FFB8",
+        backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
