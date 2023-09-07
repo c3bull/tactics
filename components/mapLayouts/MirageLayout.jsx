@@ -16,9 +16,11 @@ import molotovImage from "../../assets/images/molotovImg.png"
 import {ButtonGroup} from "@rneui/themed";
 import SingleGrenade from "../SingleGrenade";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import AwesomeAlert from "react-native-awesome-alerts";
+import {useNavigation} from '@react-navigation/native';
 
 export default function MirageLayout() {
-
+    const navigation = useNavigation();
     const width = Dimensions.get('window').width;
     const height = Dimensions.get('window').height;
     const [ctSmoke, setCtSmoke] = useState(false)
@@ -138,6 +140,7 @@ export default function MirageLayout() {
             positions[type]
         )
     };
+
     const showToastWithGravityAndOffset = (text) => {
         ToastAndroid.showWithGravityAndOffset(
             text,
@@ -147,6 +150,9 @@ export default function MirageLayout() {
             150,
         );
     };
+
+    const [showAlert, setShowAlert] = useState(false)
+
     const saveTactic = () => {
         if (tacticName !== "" && tacticDescription !== "") {
             let tacticKey = "map_mirage_" + tacticName.toLowerCase().split(" ").join("").concat(tacticDescription.toLowerCase().split(" ").join(""))
@@ -173,39 +179,17 @@ export default function MirageLayout() {
                     throw err;
                 }
                 console.log("success");
+                setShowAlert(true)
+                setTimeout(function () {
+                    setShowAlert(false)
+                    navigation.navigate('mirage', {'paramPropKey': 'paramPropValue'})
+                }, 1500);
             }).catch((err) => {
                 console.log("error is: " + err);
             });
-            console.log(tacticKey)
         } else {
             return showToastWithGravityAndOffset("Tactic Name and Tactic Description must not be empty")
         }
-        // console.log(tacticObject)
-        // console.log('yu ', yellowUtility);
-        // console.log('bu ', blueUtility);
-        // console.log('pu ', purpleUtility);
-        // console.log('gu ', greenUtility);
-        // console.log('ou ', orangeUtility);
-    }
-    const getTactic = async () => {
-
-        try {
-            const value = await AsyncStorage.getItem(tacticName.split(" ").join("").concat(tacticDescription.split(" ").join("")));
-            if (value !== null) {
-                // We have data!!
-                console.log(JSON.parse(value));
-            }
-        } catch (error) {
-            // Error retrieving data
-        }
-    }
-    const getAllTactics = async () => {
-
-        const keys = await AsyncStorage.getAllKeys();
-        const result = await AsyncStorage.multiGet(keys);
-        console.log('keys ', keys)
-        console.log('res ', result)
-        return result.map(req => JSON.parse(req)).forEach(console.log);
     }
 
     return (
@@ -1081,21 +1065,13 @@ export default function MirageLayout() {
                         Add Tactic!
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
-                    onPress={() => getTactic()}>
-                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
-                        Get Tactic!
-                    </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
-                    onPress={() => getAllTactics()}>
-                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
-                        Get All Tactics!
-                    </Text>
-                </TouchableOpacity>
             </View>
+            <AwesomeAlert
+                show={showAlert}
+                showProgress={false}
+                title="Success!"
+                message="Your tactic was added!"
+            />
         </View>
     )
 }

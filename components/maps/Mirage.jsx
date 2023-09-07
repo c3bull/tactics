@@ -3,13 +3,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect, useState} from "react";
 import MirageTactic from "../mapTactics/MirageTactic";
 
-const Mirage = () => {
+const Mirage = ({route}) => {
     const [allMirageTactics, setAllMirageTactics] = useState([])
     const getAllTactics = async () => {
         setAllMirageTactics([])
         const keys = await AsyncStorage.getAllKeys();
-        const result = await AsyncStorage.multiGet(keys);
-
         for (let i = 0; i < keys.length; i++) {
             if (keys[i].includes("map_mirage_")) {
                 setAllMirageTactics(prevState => [...prevState, keys[i]])
@@ -21,16 +19,24 @@ const Mirage = () => {
 
     useEffect(() => {
         getAllTactics()
-    }, [])
+    }, [route])
+
+
+    // useEffect(() => {
+    //     // do something
+    //     console.log("rut dion")
+    // }, [route]);
+
 
     return (
-        <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
+                    contentContainerStyle={styles.contentContainer}>
             {allMirageTactics.length > 0 ?
                 allMirageTactics.map((tactic, key) => (
                         // console.log('tak ', tactic)
-                    <View key={key}>
-                        <MirageTactic tactic={tactic}/>
-                    </View>
+                        <View key={key}>
+                            <MirageTactic tactic={tactic}/>
+                        </View>
                     )
                 )
                 : <Text style={{color: "#FFF"}}>Refresh</Text>}
@@ -41,7 +47,7 @@ const Mirage = () => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        paddingVertical: 20,
+        // padding: 10,
         display: "flex",
         alignItems: 'center'
     }
