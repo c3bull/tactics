@@ -1,4 +1,13 @@
-import {Image, ImageBackground, StyleSheet, Text, TouchableWithoutFeedback, View} from "react-native";
+import {
+    Image,
+    ImageBackground,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
+    ActivityIndicator
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
@@ -7,16 +16,21 @@ import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
 import smokeImage from "../../assets/images/smokeImg.png";
 import flashImage from "../../assets/images/flashImg.png";
 import molotovImage from "../../assets/images/molotovImg.png";
+import deleteImage from "../../assets/images/delete.webp";
 import {CollapsableContainer} from "../CollapsableContainer";
 
-export default function MirageTactic({tactic}) {
+export default function MirageTactic({tactic, refresh}) {
     let _ = require('lodash');
     const [mirageTactic, setMirageTactic] = useState([])
+    const [showSmokes, setShowSmokes] = useState(true)
+    const [showFlashes, setShowFlashes] = useState(true)
+    const [showMolotov, setShowMolotov] = useState(true)
     const getTactic = async () => {
 
         try {
             const value = await AsyncStorage.getItem(tactic);
             if (value !== null) {
+                console.log('nazwa tatkiyty ', tactic)
                 // We have data!!
                 setMirageTactic(JSON.parse(value));
                 console.log(JSON.parse(value));
@@ -35,19 +49,41 @@ export default function MirageTactic({tactic}) {
     const onItemPress = () => {
         setExpanded(!expanded);
     };
+
+
+    const removeItemValue = async (key) => {
+        try {
+            await AsyncStorage.removeItem(key);
+            await refresh(prevState => !prevState)
+            return true;
+        } catch (exception) {
+            return false;
+        }
+    }
+
     return (
         _.isEmpty(mirageTactic) ? (
             <View>
-                <Text style={{color: "#FFF"}}>Nie załadowało</Text>
+                <ActivityIndicator size="small" color="#00ff00"/>
             </View>
         ) : (
             <View key={mirageTactic.tacticName}>
                 <TouchableWithoutFeedback onPress={onItemPress}>
                     <View style={styles.container}>
                         <View style={styles.textContainer}>
-                            <Text style={{color: "#FFF", fontSize: 24, padding: 12, fontWeight: "bold"}}>{mirageTactic.tacticName}</Text>
+                            <Text style={{
+                                color: "#FFF",
+                                fontSize: 24,
+                                padding: 12,
+                                fontWeight: "bold"
+                            }}>{mirageTactic.tacticName}</Text>
+
                             {/*<Text style={{color: "#FFF", flex: 1, flexWrap: 'wrap', backgroundColor:"red"}}>{mirageTactic.tacticDescription}xxx</Text>*/}
                         </View>
+                        <TouchableOpacity style={styles.removeTactic} onPress={() => removeItemValue(tactic)}>
+                            <Image alt="smoke" source={deleteImage}
+                                   style={{resizeMode: 'contain', height: 25, width: 22}}/>
+                        </TouchableOpacity>
                     </View>
                 </TouchableWithoutFeedback>
                 <CollapsableContainer expanded={expanded}>
@@ -64,116 +100,130 @@ export default function MirageTactic({tactic}) {
                         textAlign: "center"
                     }}>{mirageTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>
-                        <View style={styles.singleGrenade}>
+                        <TouchableOpacity style={[styles.singleGrenade, showSmokes && styles.selectedGrenade]}
+                                          onPress={() => setShowSmokes(prevState => !prevState)}>
                             <Text style={{color: "#fff", fontSize: 30}}>{mirageTactic.smokeAmount}</Text>
                             <Image alt="smoke" source={smokeImage}
-                                   style={{resizeMode: 'contain', height: 25, width: 30}}/>
-                        </View>
-                        <View style={styles.singleGrenade}>
+                                   style={{resizeMode: 'contain', height: 25, width: 22}}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.singleGrenade, showFlashes && styles.selectedGrenade]}
+                                          onPress={() => setShowFlashes(prevState => !prevState)}>
                             <Text style={{color: "#fff", fontSize: 30}}>{mirageTactic.flashAmount}</Text>
                             <Image alt="flash" source={flashImage}
-                                   style={{resizeMode: 'contain', height: 25, width: 30}}/>
-                        </View>
-                        <View style={styles.singleGrenade}>
+                                   style={{resizeMode: 'contain', height: 25, width: 22}}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.singleGrenade, showMolotov && styles.selectedGrenade]}
+                                          onPress={() => setShowMolotov(prevState => !prevState)}>
                             <Text style={{color: "#fff", fontSize: 30}}>{mirageTactic.molotovAmount}</Text>
                             <Image alt="molotov" source={molotovImage}
-                                   style={{resizeMode: 'contain', height: 25, width: 30}}/>
-                        </View>
+                                   style={{resizeMode: 'contain', height: 25, width: 22}}/>
+                        </TouchableOpacity>
                     </View>
                     <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctSmoke"}
-                                              grenadeStyle={styles.smokeCT}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteSmoke"}
-                                              grenadeStyle={styles.smokeASite}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleSmoke"}
-                                              grenadeStyle={styles.smokeJungle}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsSmoke"}
-                                              grenadeStyle={styles.smokeStairs}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorUpSmoke"}
-                                              grenadeStyle={styles.smokeConnectorUp}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleDeepSmoke"}
-                                              grenadeStyle={styles.smokeJungleDeep}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownSmoke"}
-                                              grenadeStyle={styles.smokeConnectorDown}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowSmoke"}
-                                              grenadeStyle={styles.smokeWindow}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkSmoke"}
-                                              grenadeStyle={styles.smokeCatwalk}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"midCatwalkSmoke"}
-                                              grenadeStyle={styles.smokeMidCatwalk}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidSmoke"}
-                                              grenadeStyle={styles.smokeTopMid}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"exitSmoke"}
-                                              grenadeStyle={styles.smokeExit}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bWindowSmoke"}
-                                              grenadeStyle={styles.smokeBWindow}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortLeftSmoke"}
-                                              grenadeStyle={styles.smokeShortLeft}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortRightSmoke"}
-                                              grenadeStyle={styles.smokeShortRight}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteOneSmoke"}
-                                              grenadeStyle={styles.smokeBSiteOne}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteTwoSmoke"}
-                                              grenadeStyle={styles.smokeBSiteTwo}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteThreeSmoke"}
-                                              grenadeStyle={styles.smokeBSiteThree}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFourSmoke"}
-                                              grenadeStyle={styles.smokeBSiteFour}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconySmoke"}
-                                              grenadeStyle={styles.smokeBBench}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBenchSmoke"}
-                                              grenadeStyle={styles.smokeBBalcony}/>
-
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctFlash"}
-                                              grenadeStyle={styles.flashCT}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteFlash"}
-                                              grenadeStyle={styles.flashASite}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleFlash"}
-                                              grenadeStyle={styles.flashJungle}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsFlash"}
-                                              grenadeStyle={styles.flashStairs}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownFlash"}
-                                              grenadeStyle={styles.flashConnectorDown}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkFlash"}
-                                              grenadeStyle={styles.flashCatwalk}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidFlash"}
-                                              grenadeStyle={styles.flashTopMid}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFlash"}
-                                              grenadeStyle={styles.flashBSite}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overAFlash"}
-                                              grenadeStyle={styles.flashOverA}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overBFlash"}
-                                              grenadeStyle={styles.flashOverB}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowFlash"}
-                                              grenadeStyle={styles.flashWindow}/>
-
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underWoodMolotov"}
-                                              grenadeStyle={styles.molotovUnderWood}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aBenchMolotov"}
-                                              grenadeStyle={styles.molotovABench}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"carMolotov"}
-                                              grenadeStyle={styles.molotovCar}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconyMolotov"}
-                                              grenadeStyle={styles.molotovBBalcony}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underAppsMolotov"}
-                                              grenadeStyle={styles.molotovUnderApps}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowMolotov"}
-                                              grenadeStyle={styles.molotovWindow}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ladderMolotov"}
-                                              grenadeStyle={styles.molotovLadder}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ninjaMolotov"}
-                                              grenadeStyle={styles.molotovNinja}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"sandwichMolotov"}
-                                              grenadeStyle={styles.molotovSandwich}/>
-                        <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"fireboxMolotov"}
-                                              grenadeStyle={styles.molotovFirebox}/>
-
+                        {showSmokes && (
+                            <View>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctSmoke"}
+                                                      grenadeStyle={styles.smokeCT}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteSmoke"}
+                                                      grenadeStyle={styles.smokeASite}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleSmoke"}
+                                                      grenadeStyle={styles.smokeJungle}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsSmoke"}
+                                                      grenadeStyle={styles.smokeStairs}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorUpSmoke"}
+                                                      grenadeStyle={styles.smokeConnectorUp}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleDeepSmoke"}
+                                                      grenadeStyle={styles.smokeJungleDeep}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownSmoke"}
+                                                      grenadeStyle={styles.smokeConnectorDown}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowSmoke"}
+                                                      grenadeStyle={styles.smokeWindow}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkSmoke"}
+                                                      grenadeStyle={styles.smokeCatwalk}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"midCatwalkSmoke"}
+                                                      grenadeStyle={styles.smokeMidCatwalk}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidSmoke"}
+                                                      grenadeStyle={styles.smokeTopMid}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"exitSmoke"}
+                                                      grenadeStyle={styles.smokeExit}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bWindowSmoke"}
+                                                      grenadeStyle={styles.smokeBWindow}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortLeftSmoke"}
+                                                      grenadeStyle={styles.smokeShortLeft}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortRightSmoke"}
+                                                      grenadeStyle={styles.smokeShortRight}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteOneSmoke"}
+                                                      grenadeStyle={styles.smokeBSiteOne}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteTwoSmoke"}
+                                                      grenadeStyle={styles.smokeBSiteTwo}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteThreeSmoke"}
+                                                      grenadeStyle={styles.smokeBSiteThree}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFourSmoke"}
+                                                      grenadeStyle={styles.smokeBSiteFour}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconySmoke"}
+                                                      grenadeStyle={styles.smokeBBench}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBenchSmoke"}
+                                                      grenadeStyle={styles.smokeBBalcony}/>
+                            </View>)}
+                        {showFlashes && (
+                            <View>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctFlash"}
+                                                      grenadeStyle={styles.flashCT}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteFlash"}
+                                                      grenadeStyle={styles.flashASite}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleFlash"}
+                                                      grenadeStyle={styles.flashJungle}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsFlash"}
+                                                      grenadeStyle={styles.flashStairs}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownFlash"}
+                                                      grenadeStyle={styles.flashConnectorDown}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkFlash"}
+                                                      grenadeStyle={styles.flashCatwalk}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidFlash"}
+                                                      grenadeStyle={styles.flashTopMid}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFlash"}
+                                                      grenadeStyle={styles.flashBSite}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overAFlash"}
+                                                      grenadeStyle={styles.flashOverA}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overBFlash"}
+                                                      grenadeStyle={styles.flashOverB}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowFlash"}
+                                                      grenadeStyle={styles.flashWindow}/>
+                            </View>)}
+                        {showMolotov && (
+                            <View>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underWoodMolotov"}
+                                                      grenadeStyle={styles.molotovUnderWood}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aBenchMolotov"}
+                                                      grenadeStyle={styles.molotovABench}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"carMolotov"}
+                                                      grenadeStyle={styles.molotovCar}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconyMolotov"}
+                                                      grenadeStyle={styles.molotovBBalcony}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underAppsMolotov"}
+                                                      grenadeStyle={styles.molotovUnderApps}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowMolotov"}
+                                                      grenadeStyle={styles.molotovWindow}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ladderMolotov"}
+                                                      grenadeStyle={styles.molotovLadder}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ninjaMolotov"}
+                                                      grenadeStyle={styles.molotovNinja}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"sandwichMolotov"}
+                                                      grenadeStyle={styles.molotovSandwich}/>
+                                <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"fireboxMolotov"}
+                                                      grenadeStyle={styles.molotovFirebox}/>
+                            </View>)}
                     </ImageBackground>
-                    <Text style={{color: "#D5C200", fontSize: 15, padding: 10}}>{mirageTactic.playerOneTask}</Text>
-                    <Text style={{color: "#00ACFF", fontSize: 15, padding: 10}}>{mirageTactic.playerTwoTask}</Text>
-                    <Text style={{color: "#B600CF", fontSize: 15, padding: 10}}>{mirageTactic.playerThreeTask}</Text>
-                    <Text style={{color: "#0EB900", fontSize: 15, padding: 10}}>{mirageTactic.playerFourTask}</Text>
-                    <Text style={{color: "#F07400", fontSize: 15, padding: 10}}>{mirageTactic.playerFiveTask}</Text>
+                    {mirageTactic.playerOneTask &&
+                        <Text style={{color: "#D5C200", fontSize: 15, padding: 10}}>{mirageTactic.playerOneTask}</Text>}
+                    {mirageTactic.playerTwoTask &&
+                        <Text style={{color: "#00ACFF", fontSize: 15, padding: 10}}>{mirageTactic.playerTwoTask}</Text>}
+                    {mirageTactic.playerThreeTask && <Text
+                        style={{color: "#B600CF", fontSize: 15, padding: 10}}>{mirageTactic.playerThreeTask}</Text>}
+                    {mirageTactic.playerFourTask && <Text
+                        style={{color: "#0EB900", fontSize: 15, padding: 10}}>{mirageTactic.playerFourTask}</Text>}
+                    {mirageTactic.playerFiveTask && <Text
+                        style={{color: "#F07400", fontSize: 15, padding: 10}}>{mirageTactic.playerFiveTask}</Text>}
                 </CollapsableContainer>
             </View>
 
@@ -190,31 +240,65 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: "#fff",
         shadowColor: "#000",
-        shadowOffset: { width: 3, height: 3 },
+        shadowOffset: {width: 3, height: 3},
         shadowOpacity: 0.2,
     },
-    container: { flexDirection: "row", maxWidth: 360, backgroundColor:"#272727", margin: 2, borderRadius: 5 },
-    image: { width: 50, height: 50, margin: 10, borderRadius: 5 },
-    textContainer: { justifyContent: "space-around" },
-    details: { margin: 10 },
-    text: { opacity: 0.7 },
+    container: {
+        flexDirection: "row",
+        width: 360,
+        backgroundColor: "#272727",
+        margin: 2,
+        borderRadius: 5,
+    },
+    image: {
+        width: 50,
+        height: 50,
+        margin: 10,
+        borderRadius: 5
+    },
+    textContainer: {
+        width: '85%'
+    },
+    removeTactic: {
+        borderLeftWidth: 2,
+        borderLeftColor: "#000",
+        display: "flex",
+        justifyContent: "center",
+        width: '15%',
+        alignItems: 'center',
+        backgroundColor: "#A80000"
+    },
+    details: {
+        margin: 10
+    },
+    text: {
+        opacity: 0.7
+    },
     grenades: {
         display: "flex",
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 40,
         marginVertical: 15,
-        paddingLeft: 25,
-        borderRadius: 10,
         gap: 25,
-        backgroundColor: "#272727"
+    },
+    selectedGrenade: {
+        backgroundColor: "#097100",
+        borderRadius: 100,
+        borderColor: "#FFF",
+        borderWidth: 1,
+        padding: 10
     },
     singleGrenade: {
         display: "flex",
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: "#272727",
+        borderRadius: 100,
+        borderColor: "#FFF",
+        borderWidth: 1,
+        padding: 10
     },
     smokeCT: {
         position: 'absolute',

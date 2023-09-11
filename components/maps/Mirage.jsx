@@ -5,6 +5,7 @@ import MirageTactic from "../mapTactics/MirageTactic";
 
 const Mirage = ({route}) => {
     const [allMirageTactics, setAllMirageTactics] = useState([])
+    const [refresh, setRefresh] = useState(false)
     const getAllTactics = async () => {
         setAllMirageTactics([])
         const keys = await AsyncStorage.getAllKeys();
@@ -14,12 +15,13 @@ const Mirage = ({route}) => {
             }
         }
         console.log('amt ', allMirageTactics.length)
+        console.log('amtx ', allMirageTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
-    }, [route])
+    }, [route, refresh])
 
 
     // useEffect(() => {
@@ -35,7 +37,7 @@ const Mirage = ({route}) => {
                 allMirageTactics.map((tactic, key) => (
                         // console.log('tak ', tactic)
                         <View key={key}>
-                            <MirageTactic tactic={tactic}/>
+                            <MirageTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
                     )
                 )
