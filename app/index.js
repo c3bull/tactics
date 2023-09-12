@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {NavigationContainer, DarkTheme, DefaultTheme} from '@react-navigation/native';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import TabNavigation from "../components/TabNavigation";
-import {SafeAreaView, StatusBar, View} from "react-native";
+import {SafeAreaView, StatusBar} from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -16,15 +15,16 @@ export function Navigation() {
 
     return (
         <SafeAreaView style={{flex: 1}}>
+            <StatusBar backgroundColor="transparent"
+                       translucent={true} />
+
             <Stack.Navigator initialRouteName="TabNavigation"
                              options={{
-                                 header: null,
+                                 header: false,
                                  headerShown: false,
                                  headerShadowVisible: false,
-                             }} screenOptions={{headerShown: false, headerTitle: "lawl"}}>
-                <Stack.Screen name="TabNavigation" component={TabNavigation}
-
-                />
+                             }} screenOptions={{headerShown: false, headerTitle: ""}}>
+                <Stack.Screen name="TabNavigation" component={TabNavigation}/>
             </Stack.Navigator>
         </SafeAreaView>
     );

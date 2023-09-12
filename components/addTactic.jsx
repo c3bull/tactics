@@ -17,16 +17,16 @@ const AddTactic = () => {
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
 
-            <Text style={{color: "#FFF"}}>Wybierz mapę</Text>
+            <Text style={{color: "#00fFFF"}}>Swipe to change map</Text>
             <Carousel
                 loop
-                width={width - 80}
+                width={width}
                 height={200}
                 autoPlay={false}
                 data={maps}
                 scrollAnimationDuration={1000}
                 mode="parallax"
-                modeConfig={{parallaxScrollingOffset: 90, parallaxAdjacentItemScale: Math.pow(0.73, 2)}}
+                modeConfig={{parallaxScrollingOffset: 105, parallaxAdjacentItemScale: Math.pow(0.73, 2)}}
                 onSnapToItem={(index) => setChosenMap(index)}
                 renderItem={({index}) => (
                     <View
@@ -35,10 +35,20 @@ const AddTactic = () => {
                             justifyContent: 'center',
                             backgroundColor: '#272727',
                             display: "flex",
+                            borderColor: "#00ffff",
                             alignItems: 'center',
                             borderRadius: 10,
-                            borderWidth: 1,
-                            padding: 10
+                            borderWidth: 2,
+                            padding: 10,
+                            shadowColor: "#00ffff",
+                            shadowOffset: {
+                                width: 0,
+                                height: 12,
+                            },
+                            shadowOpacity: 0.58,
+                            shadowRadius: 16.00,
+
+                            elevation: 18,
                         }}
                     >
                         <ImageBackground source={maps[index].logo} style={{flex: 1, width: 150, height: 150}}>

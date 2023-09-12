@@ -201,11 +201,11 @@ export default function MirageLayout() {
                 </View>
                 <View style={styles.singleGrenade}>
                     <Text style={{color: "#fff", fontSize: 30}}>{flashAmount}/10</Text>
-                    <Image alt="flash" source={flashImage} style={{resizeMode: 'contain', height: 35, width: 35}}/>
+                    <Image alt="flash" source={flashImage} style={{resizeMode: 'contain', height: 25, width: 30}}/>
                 </View>
                 <View style={styles.singleGrenade}>
                     <Text style={{color: "#fff", fontSize: 30}}>{molotovAmount}/5</Text>
-                    <Image alt="molotov" source={molotovImage} style={{resizeMode: 'contain', height: 35, width: 40}}/>
+                    <Image alt="molotov" source={molotovImage} style={{resizeMode: 'contain', height: 25, width: 30}}/>
                 </View>
             </View>
             <View style={styles.playerButtons}>
@@ -286,7 +286,7 @@ export default function MirageLayout() {
                         gap: -1
                     }}
                     selectedButtonStyle={{
-                        backgroundColor: "#272727",
+                        backgroundColor: "#003636",
                         borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 1
@@ -815,7 +815,7 @@ export default function MirageLayout() {
                     padding: 10,
                 }}>
 
-                    <Text style={{color: "#FFF"}}>Tasks:</Text>
+                    <Text style={{color: "#FFF", paddingBottom: 10}}>Tasks:</Text>
                     <View style={{
                         display: "flex",
                         backgroundColor: "#A49500",
@@ -856,7 +856,7 @@ export default function MirageLayout() {
                             maxWidth: "100%",
                             borderBottomLeftRadius: 5,
                             borderBottomRightRadius: 5,
-                            marginBottom: 5,
+                            marginBottom: 10,
                             padding: 5
                         }}
                         multiline
@@ -905,7 +905,7 @@ export default function MirageLayout() {
                             maxWidth: "100%",
                             borderBottomLeftRadius: 5,
                             borderBottomRightRadius: 5,
-                            marginBottom: 5,
+                            marginBottom: 10,
                             padding: 5
                         }}
                         multiline
@@ -953,7 +953,7 @@ export default function MirageLayout() {
                             maxWidth: "100%",
                             borderBottomLeftRadius: 5,
                             borderBottomRightRadius: 5,
-                            marginBottom: 5,
+                            marginBottom: 10,
                             padding: 5
                         }}
                         multiline
@@ -1001,7 +1001,7 @@ export default function MirageLayout() {
                             maxWidth: "100%",
                             borderBottomLeftRadius: 5,
                             borderBottomRightRadius: 5,
-                            marginBottom: 5,
+                            marginBottom: 10,
                             padding: 5
                         }}
                         multiline
@@ -1049,7 +1049,7 @@ export default function MirageLayout() {
                             maxWidth: "100%",
                             borderBottomLeftRadius: 5,
                             borderBottomRightRadius: 5,
-                            marginBottom: 5,
+                            //marginBottom: 5,
                             padding: 5
                         }}
                         multiline
@@ -1083,11 +1083,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 40,
+        marginHorizontal: 10,
         marginBottom: 35,
-        paddingLeft: 25,
+        paddingLeft: 20,
         borderRadius: 10,
         gap: 25,
-        backgroundColor: "#272727"
+        backgroundColor: "#003636",
     },
     playerButtons: {
         display: "flex",
