@@ -25,6 +25,11 @@ export default function MirageTactic({tactic, refresh}) {
     const [showSmokes, setShowSmokes] = useState(true)
     const [showFlashes, setShowFlashes] = useState(true)
     const [showMolotov, setShowMolotov] = useState(true)
+    const [showYellowUtility, setShowYellowUtility] = useState(true)
+    const [showBlueUtility, setShowBlueUtility] = useState(true)
+    const [showPurpleUtility, setShowPurpleUtility] = useState(true)
+    const [showGreenUtility, setShowGreenUtility] = useState(true)
+    const [showOrangeUtility, setShowOrangeUtility] = useState(true)
     const getTactic = async () => {
 
         try {
@@ -119,99 +124,326 @@ export default function MirageTactic({tactic, refresh}) {
                                    style={{resizeMode: 'contain', height: 25, width: 22}}/>
                         </TouchableOpacity>
                     </View>
+                    <View style={styles.playerButtons}>
+                        <TouchableOpacity
+                            style={[styles.playerButton, {backgroundColor: "#A49500"}, showYellowUtility && styles.selectedPlayer]}
+                            onPress={() => setShowYellowUtility(prevState => !prevState)}/>
+                        <TouchableOpacity
+                            style={[styles.playerButton, {backgroundColor: "#00567F"}, showBlueUtility && styles.selectedPlayer]}
+                            onPress={() => setShowBlueUtility(prevState => !prevState)}/>
+                        <TouchableOpacity
+                            style={[styles.playerButton, {backgroundColor: "#550083"}, showPurpleUtility && styles.selectedPlayer]}
+                            onPress={() => setShowPurpleUtility(prevState => !prevState)}/>
+                        <TouchableOpacity
+                            style={[styles.playerButton, {backgroundColor: "#0A8300"}, showGreenUtility && styles.selectedPlayer]}
+                            onPress={() => setShowGreenUtility(prevState => !prevState)}/>
+                        <TouchableOpacity
+                            style={[styles.playerButton, {backgroundColor: "#CD5A00"}, showOrangeUtility && styles.selectedPlayer]}
+                            onPress={() => setShowOrangeUtility(prevState => !prevState)}/>
+                    </View>
                     <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
                         {showSmokes && (
                             <View>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctSmoke"}
-                                                      grenadeStyle={styles.smokeCT}/>
+                                                      grenadeStyle={styles.smokeCT}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteSmoke"}
-                                                      grenadeStyle={styles.smokeASite}/>
+                                                      grenadeStyle={styles.smokeASite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleSmoke"}
-                                                      grenadeStyle={styles.smokeJungle}/>
+                                                      grenadeStyle={styles.smokeJungle}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsSmoke"}
-                                                      grenadeStyle={styles.smokeStairs}/>
+                                                      grenadeStyle={styles.smokeStairs}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorUpSmoke"}
-                                                      grenadeStyle={styles.smokeConnectorUp}/>
+                                                      grenadeStyle={styles.smokeConnectorUp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleDeepSmoke"}
-                                                      grenadeStyle={styles.smokeJungleDeep}/>
+                                                      grenadeStyle={styles.smokeJungleDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownSmoke"}
-                                                      grenadeStyle={styles.smokeConnectorDown}/>
+                                                      grenadeStyle={styles.smokeConnectorDown}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowSmoke"}
-                                                      grenadeStyle={styles.smokeWindow}/>
+                                                      grenadeStyle={styles.smokeWindow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkSmoke"}
-                                                      grenadeStyle={styles.smokeCatwalk}/>
+                                                      grenadeStyle={styles.smokeCatwalk}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"midCatwalkSmoke"}
-                                                      grenadeStyle={styles.smokeMidCatwalk}/>
+                                                      grenadeStyle={styles.smokeMidCatwalk}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidSmoke"}
-                                                      grenadeStyle={styles.smokeTopMid}/>
+                                                      grenadeStyle={styles.smokeTopMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"exitSmoke"}
-                                                      grenadeStyle={styles.smokeExit}/>
+                                                      grenadeStyle={styles.smokeExit}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bWindowSmoke"}
-                                                      grenadeStyle={styles.smokeBWindow}/>
+                                                      grenadeStyle={styles.smokeBWindow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortLeftSmoke"}
-                                                      grenadeStyle={styles.smokeShortLeft}/>
+                                                      grenadeStyle={styles.smokeShortLeft}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"shortRightSmoke"}
-                                                      grenadeStyle={styles.smokeShortRight}/>
+                                                      grenadeStyle={styles.smokeShortRight}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteOneSmoke"}
-                                                      grenadeStyle={styles.smokeBSiteOne}/>
+                                                      grenadeStyle={styles.smokeBSiteOne}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteTwoSmoke"}
-                                                      grenadeStyle={styles.smokeBSiteTwo}/>
+                                                      grenadeStyle={styles.smokeBSiteTwo}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteThreeSmoke"}
-                                                      grenadeStyle={styles.smokeBSiteThree}/>
+                                                      grenadeStyle={styles.smokeBSiteThree}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFourSmoke"}
-                                                      grenadeStyle={styles.smokeBSiteFour}/>
+                                                      grenadeStyle={styles.smokeBSiteFour}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconySmoke"}
-                                                      grenadeStyle={styles.smokeBBench}/>
+                                                      grenadeStyle={styles.smokeBBench}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBenchSmoke"}
-                                                      grenadeStyle={styles.smokeBBalcony}/>
+                                                      grenadeStyle={styles.smokeBBalcony}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctFlash"}
-                                                      grenadeStyle={styles.flashCT}/>
+                                                      grenadeStyle={styles.flashCT}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aSiteFlash"}
-                                                      grenadeStyle={styles.flashASite}/>
+                                                      grenadeStyle={styles.flashASite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"jungleFlash"}
-                                                      grenadeStyle={styles.flashJungle}/>
+                                                      grenadeStyle={styles.flashJungle}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"stairsFlash"}
-                                                      grenadeStyle={styles.flashStairs}/>
+                                                      grenadeStyle={styles.flashStairs}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"connectorDownFlash"}
-                                                      grenadeStyle={styles.flashConnectorDown}/>
+                                                      grenadeStyle={styles.flashConnectorDown}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"catwalkFlash"}
-                                                      grenadeStyle={styles.flashCatwalk}/>
+                                                      grenadeStyle={styles.flashCatwalk}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"topMidFlash"}
-                                                      grenadeStyle={styles.flashTopMid}/>
+                                                      grenadeStyle={styles.flashTopMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bSiteFlash"}
-                                                      grenadeStyle={styles.flashBSite}/>
+                                                      grenadeStyle={styles.flashBSite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overAFlash"}
-                                                      grenadeStyle={styles.flashOverA}/>
+                                                      grenadeStyle={styles.flashOverA}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"overBFlash"}
-                                                      grenadeStyle={styles.flashOverB}/>
+                                                      grenadeStyle={styles.flashOverB}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowFlash"}
-                                                      grenadeStyle={styles.flashWindow}/>
+                                                      grenadeStyle={styles.flashWindow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showMolotov && (
                             <View>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underWoodMolotov"}
-                                                      grenadeStyle={styles.molotovUnderWood}/>
+                                                      grenadeStyle={styles.molotovUnderWood}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"aBenchMolotov"}
-                                                      grenadeStyle={styles.molotovABench}/>
+                                                      grenadeStyle={styles.molotovABench}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"carMolotov"}
-                                                      grenadeStyle={styles.molotovCar}/>
+                                                      grenadeStyle={styles.molotovCar}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"bBalconyMolotov"}
-                                                      grenadeStyle={styles.molotovBBalcony}/>
+                                                      grenadeStyle={styles.molotovBBalcony}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"underAppsMolotov"}
-                                                      grenadeStyle={styles.molotovUnderApps}/>
+                                                      grenadeStyle={styles.molotovUnderApps}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"windowMolotov"}
-                                                      grenadeStyle={styles.molotovWindow}/>
+                                                      grenadeStyle={styles.molotovWindow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ladderMolotov"}
-                                                      grenadeStyle={styles.molotovLadder}/>
+                                                      grenadeStyle={styles.molotovLadder}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ninjaMolotov"}
-                                                      grenadeStyle={styles.molotovNinja}/>
+                                                      grenadeStyle={styles.molotovNinja}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"sandwichMolotov"}
-                                                      grenadeStyle={styles.molotovSandwich}/>
+                                                      grenadeStyle={styles.molotovSandwich}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"fireboxMolotov"}
-                                                      grenadeStyle={styles.molotovFirebox}/>
+                                                      grenadeStyle={styles.molotovFirebox}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                     </ImageBackground>
                     {mirageTactic.playerOneTask &&
@@ -286,8 +518,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#097100",
         borderRadius: 100,
         borderColor: "#FFF",
-        borderWidth: 1,
+        borderWidth: 3,
         padding: 10
+    },
+    selectedPlayer: {
+        borderColor: "#FFF",
+        borderWidth: 3
     },
     singleGrenade: {
         display: "flex",
@@ -297,7 +533,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#272727",
         borderRadius: 100,
         borderColor: "#FFF",
-        borderWidth: 1,
+        borderWidth: 3,
         padding: 10
     },
     smokeCT: {
@@ -677,5 +913,19 @@ const styles = StyleSheet.create({
         width: 18,
         height: 18,
         borderRadius: 100
+    },
+    playerButtons: {
+        display: "flex",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 40,
+        marginBottom: 15,
+        gap: 10
+    },
+    playerButton: {
+        width: 50,
+        height: 50,
+        borderRadius: 50,
     },
 })

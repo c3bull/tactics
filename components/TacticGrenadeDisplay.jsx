@@ -16,50 +16,53 @@ import molotovPurple from "../assets/images/molotovPurple.png";
 import molotovGreen from "../assets/images/molotovGreen.png";
 import molotovOrange from "../assets/images/molotovOrange.png";
 
-export default function TacticGrenadeDisplay({tactic, grenadeName, grenadeStyle}) {
+export default function TacticGrenadeDisplay({
+                                                 tactic,
+                                                 grenadeName,
+                                                 grenadeStyle,
+                                                 showYellowUtility,
+                                                 showBlueUtility,
+                                                 showPurpleUtility,
+                                                 showGreenUtility,
+                                                 showOrangeUtility
+                                             }) {
     return (
         <View>
-            {JSON.stringify(tactic).includes(grenadeName) && <View style={[grenadeStyle,
-            //     grenadeName && (
-            //     tactic.yellowUtility.toString().includes(grenadeName) && styles.selectedGrenadeYellow ||
-            //     tactic.blueUtility.toString().includes(grenadeName) && styles.selectedGrenadeBlue ||
-            //     tactic.purpleUtility.toString().includes(grenadeName) && styles.selectedGrenadePurple ||
-            //     tactic.greenUtility.toString().includes(grenadeName) && styles.selectedGrenadeGreen ||
-            //     tactic.orangeUtility.toString().includes(grenadeName) && styles.selectedGrenadeOrange
-            // )
-            ]}>
-                {grenadeName.toLowerCase().includes("smoke") && tactic.yellowUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={smokeYellow} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("smoke") && tactic.blueUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={smokeBlue} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("smoke") && tactic.purpleUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={smokePurple} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("smoke") && tactic.greenUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={smokeGreen} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("smoke") && tactic.orangeUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={smokeOrange} resizeMode="contain" style={styles.image}/>}
+            {JSON.stringify(tactic).includes(grenadeName) && <View style={[grenadeStyle]}>
+                <View style={{width: '100%', height: '100%', overflow: 'hidden', borderRadius: 100}}>
+                    {grenadeName.toLowerCase().includes("smoke") && tactic.yellowUtility.toString().includes(grenadeName) && showYellowUtility &&
+                        <ImageBackground source={smokeYellow} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("smoke") && tactic.blueUtility.toString().includes(grenadeName) && showBlueUtility &&
+                        <ImageBackground source={smokeBlue} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("smoke") && tactic.purpleUtility.toString().includes(grenadeName) && showPurpleUtility &&
+                        <ImageBackground source={smokePurple} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("smoke") && tactic.greenUtility.toString().includes(grenadeName) && showGreenUtility &&
+                        <ImageBackground source={smokeGreen} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("smoke") && tactic.orangeUtility.toString().includes(grenadeName) && showOrangeUtility &&
+                        <ImageBackground source={smokeOrange} resizeMode="contain" style={styles.image}/>}
 
-                {grenadeName.toLowerCase().includes("flash") && tactic.yellowUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={flashImage} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("flash") && tactic.blueUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={flashBlueImage} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("flash") && tactic.purpleUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={flashPurpleImage} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("flash") && tactic.greenUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={flashGreenImage} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("flash") && tactic.orangeUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={flashOrangeImage} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("flash") && tactic.yellowUtility.toString().includes(grenadeName) && showYellowUtility &&
+                        <ImageBackground source={flashImage} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("flash") && tactic.blueUtility.toString().includes(grenadeName) && showBlueUtility &&
+                        <ImageBackground source={flashBlueImage} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("flash") && tactic.purpleUtility.toString().includes(grenadeName) && showPurpleUtility &&
+                        <ImageBackground source={flashPurpleImage} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("flash") && tactic.greenUtility.toString().includes(grenadeName) && showGreenUtility &&
+                        <ImageBackground source={flashGreenImage} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("flash") && tactic.orangeUtility.toString().includes(grenadeName) && showOrangeUtility &&
+                        <ImageBackground source={flashOrangeImage} resizeMode="contain" style={styles.image}/>}
 
-                {grenadeName.toLowerCase().includes("molotov") && tactic.yellowUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={molotovYellow} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("molotov") && tactic.blueUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={molotovBlue} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("molotov") && tactic.purpleUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={molotovPurple} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("molotov") && tactic.greenUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={molotovGreen} resizeMode="contain" style={styles.image}/>}
-                {grenadeName.toLowerCase().includes("molotov") && tactic.orangeUtility.toString().includes(grenadeName) &&
-                    <ImageBackground source={molotovOrange} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("molotov") && tactic.yellowUtility.toString().includes(grenadeName) && showYellowUtility &&
+                        <ImageBackground source={molotovYellow} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("molotov") && tactic.blueUtility.toString().includes(grenadeName) && showBlueUtility &&
+                        <ImageBackground source={molotovBlue} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("molotov") && tactic.purpleUtility.toString().includes(grenadeName) && showPurpleUtility &&
+                        <ImageBackground source={molotovPurple} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("molotov") && tactic.greenUtility.toString().includes(grenadeName) && showGreenUtility &&
+                        <ImageBackground source={molotovGreen} resizeMode="contain" style={styles.image}/>}
+                    {grenadeName.toLowerCase().includes("molotov") && tactic.orangeUtility.toString().includes(grenadeName) && showOrangeUtility &&
+                        <ImageBackground source={molotovOrange} resizeMode="contain" style={styles.image}/>}
+                </View>
             </View>}
         </View>
     )
