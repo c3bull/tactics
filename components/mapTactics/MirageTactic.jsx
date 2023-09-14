@@ -18,6 +18,7 @@ import flashImage from "../../assets/images/flashImg.png";
 import molotovImage from "../../assets/images/molotovImg.png";
 import deleteImage from "../../assets/images/delete.webp";
 import {CollapsableContainer} from "../CollapsableContainer";
+import PlayerTasks from "../PlayerTasks";
 
 export default function MirageTactic({tactic, refresh}) {
     let _ = require('lodash');
@@ -101,7 +102,7 @@ export default function MirageTactic({tactic, refresh}) {
                     <Text style={{
                         color: "#FFF",
                         fontSize: 16,
-                        fontWeight: "bold",
+                        fontWeight: '500',
                         textAlign: "center"
                     }}>{mirageTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>
@@ -141,7 +142,7 @@ export default function MirageTactic({tactic, refresh}) {
                             style={[styles.playerButton, {backgroundColor: "#CD5A00"}, showOrangeUtility && styles.selectedPlayer]}
                             onPress={() => setShowOrangeUtility(prevState => !prevState)}/>
                     </View>
-                    <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
+                    <ImageBackground source={mirageLayout} style={{marginVertical: 20, width: 360, height: 272}}>
                         {showSmokes && (
                             <View>
                                 <TacticGrenadeDisplay tactic={mirageTactic} grenadeName={"ctSmoke"}
@@ -446,16 +447,27 @@ export default function MirageTactic({tactic, refresh}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                     </ImageBackground>
-                    {mirageTactic.playerOneTask &&
-                        <Text style={{color: "#D5C200", fontSize: 15, padding: 10}}>{mirageTactic.playerOneTask}</Text>}
-                    {mirageTactic.playerTwoTask &&
-                        <Text style={{color: "#00ACFF", fontSize: 15, padding: 10}}>{mirageTactic.playerTwoTask}</Text>}
-                    {mirageTactic.playerThreeTask && <Text
-                        style={{color: "#B600CF", fontSize: 15, padding: 10}}>{mirageTactic.playerThreeTask}</Text>}
-                    {mirageTactic.playerFourTask && <Text
-                        style={{color: "#0EB900", fontSize: 15, padding: 10}}>{mirageTactic.playerFourTask}</Text>}
-                    {mirageTactic.playerFiveTask && <Text
-                        style={{color: "#F07400", fontSize: 15, padding: 10}}>{mirageTactic.playerFiveTask}</Text>}
+                    <View>
+                        <View style={{
+                            // backgroundColor: "#3B3B3B",
+                            width: '100%',
+                            alignItems: 'center',
+                            borderRadius: 10,
+                            // marginVertical: 20,
+                            padding: 10,
+                        }}>
+                            <PlayerTasks player={mirageTactic.playerOneTask} utility={mirageTactic.yellowUtility}
+                                         color="#A49500"/>
+                            <PlayerTasks player={mirageTactic.playerTwoTask} utility={mirageTactic.blueUtility}
+                                         color="#00567F"/>
+                            <PlayerTasks player={mirageTactic.playerThreeTask} utility={mirageTactic.purpleUtility}
+                                         color="#550083"/>
+                            <PlayerTasks player={mirageTactic.playerFourTask} utility={mirageTactic.greenUtility}
+                                         color="#0A8300"/>
+                            <PlayerTasks player={mirageTactic.playerFiveTask} utility={mirageTactic.orangeUtility}
+                                         color="#CD5A00"/>
+                        </View>
+                    </View>
                 </CollapsableContainer>
             </View>
 

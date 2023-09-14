@@ -1,7 +1,10 @@
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect, useState} from "react";
 import MirageTactic from "../mapTactics/MirageTactic";
+import mirageBg from "../../assets/images/maps/mirage.png";
+import {LinearGradient} from "expo-linear-gradient";
+import {mirageLogo} from "../../assets/images/mapLogos/mapLogos";
 
 const Mirage = ({route}) => {
     const [allMirageTactics, setAllMirageTactics] = useState([])
@@ -33,6 +36,19 @@ const Mirage = ({route}) => {
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
                     contentContainerStyle={styles.contentContainer}>
+            <View style={styles.header}>
+                <ImageBackground source={mirageBg} resizeMode="cover" style={styles.imgBackground}>
+                    <LinearGradient
+                        colors={["#0F1114", "#000"]}
+                        start={[-1, 1]}
+                        end={[-1, 0.1]}
+                        style={styles.linearGradient}
+                    >
+                        <Image source={mirageLogo} style={styles.tacticImage}/>
+                    </LinearGradient>
+                </ImageBackground>
+            </View>
+
             {allMirageTactics.length > 0 ?
                 allMirageTactics.map((tactic, key) => (
                         // console.log('tak ', tactic)
@@ -51,8 +67,34 @@ const styles = StyleSheet.create({
     contentContainer: {
         // padding: 10,
         display: "flex",
+        alignItems: 'center',
+    },
+    header: {
+        height: 300,
+        overflow: "hidden",
+        display: "flex",
+        width: '100%',
+        marginBottom: 2,
+    },
+    imgBackground: {
+        flex: 1,
+        width: "100%",
+        alignItems: "center",
+    },
+    linearGradient: {
+        width: '100%',
+        height: '100%',
+        opacity: 0.7,
+        justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    tacticImage: {
+        height: '50%',
+        resizeMode: "contain",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: 'center',
+    },
 });
 
 export default Mirage

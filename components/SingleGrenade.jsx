@@ -1,10 +1,9 @@
 import _ from "lodash";
-import {TouchableOpacity, ToastAndroid, StyleSheet, ImageBackground, Text, View} from "react-native";
-import React, {useState} from "react";
+import {TouchableOpacity, ToastAndroid, StyleSheet, ImageBackground, View} from "react-native";
+import React from "react";
 import smokeImage from "../assets/images/smoke.webp"
 import flashImage from "../assets/images/flash.webp"
 import molotovImage from "../assets/images/molotov.webp"
-import {LinearGradient} from "expo-linear-gradient";
 
 export default function SingleGrenade({
                                           mainStyle,

@@ -46,10 +46,17 @@ const MapDisplay = ({navigation}) => {
                     <TouchableOpacity style={styles.singleTactic} key={key} onPress={() => {
                         navigation.navigate(href)
                     }}>
-                        <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
-                            <Image source={logo} style={styles.tacticImage}/>
-                            <Text style={styles.text}>{name}</Text>
-                        </View>
+                        <LinearGradient
+                            colors={["#00A4A4", "#0F1114"]}
+                            start={[-1, 1]}
+                            end={[-1, 0.3]}
+                            style={styles.linearGradientButtons}
+                        >
+                            <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
+                                <Image source={logo} style={styles.tacticImage}/>
+                                <Text style={styles.text}>{name}</Text>
+                            </View>
+                        </LinearGradient>
                     </TouchableOpacity>
                 ))}
             </View>
@@ -61,52 +68,41 @@ const MapDisplay = ({navigation}) => {
                 <View style={styles.stratsRouletteButtonsWrapper}>
                     <View style={styles.stratsRouletteClientButtons}>
                         <TouchableOpacity style={styles.stratsRouletteClientSingleButton}>
-                            <Text style={styles.stratsText}>Add Funny Strat</Text>
+                            <LinearGradient
+                                colors={["#00A4A4", "#0F1114"]}
+                                start={[-1, 1]}
+                                end={[-1, 0.3]}
+                                style={styles.linearGradientButtons}
+                            >
+                                <Text style={styles.stratsText}>Add Funny Strat</Text>
+                            </LinearGradient>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.stratsRouletteClientSingleButton}>
-                            <Text style={styles.stratsText}>Your Funny Strats</Text>
+                            <LinearGradient
+                                colors={["#00A4A4", "#0F1114"]}
+                                start={[-1, 1]}
+                                end={[-1, 0.3]}
+                                style={styles.linearGradientButtons}
+                            >
+                                <Text style={styles.stratsText}>Your Funny Strats</Text>
+                            </LinearGradient>
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity style={styles.stratsRouletteMoreTactics}>
-                        <Text style={styles.stratsText}>More funny strats</Text>
+                        <LinearGradient
+                            colors={["#00A4A4", "#0F1114"]}
+                            start={[-1, 1]}
+                            end={[-1, 0.3]}
+                            style={styles.linearGradientButtons}
+                        >
+                            <Text style={styles.stratsText}>More funny strats</Text>
+                        </LinearGradient>
                     </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>
     );
-    // } else {
-    //     return (
-    //         <AppLoading
-    //             startAsync={getFonts}
-    //             onFinish={() => {
-    //                 setFontsLoaded(true);
-    //             }}
-    //             onError={console.warn}
-    //         />
-    //     );
-    // }
 }
-// return (
-//     <ScrollView style={{backgroundColor: "#0F1114", marginBottom: 49, paddingTop: 5}}>
-//         <TouchableOpacity style={styles.container} onPress={() => {
-//             navigation.navigate('add-tactic')
-//         }}>
-//             <ImageBackground source={tacticsBg} resizeMode="cover">
-//                 <Text style={styles.text}>Dodaj taktyke</Text>
-//             </ImageBackground>
-//         </TouchableOpacity>
-//         {maps.map(({bgImage, name, href}, key) => (
-//             <TouchableOpacity style={styles.container} key={key} onPress={() => {
-//                 navigation.navigate(href)
-//             }}>
-//                 <ImageBackground source={bgImage} resizeMode="cover">
-//                     <Text style={styles.text}>{name}</Text>
-//                 </ImageBackground>
-//             </TouchableOpacity>
-//         ))}
-//     </ScrollView>
-// )
-// }
 
 const styles = StyleSheet.create({
     linearGradient: {
@@ -115,6 +111,12 @@ const styles = StyleSheet.create({
         opacity: 0.9,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    linearGradientButtons: {
+        width: '100%',
+        height: '100%',
+        opacity: 0.9,
+        padding: 3,
     },
     contentContainer: {
         minHeight: 970,
@@ -154,10 +156,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: "hidden",
         display: "flex",
-        justifyContent: "center",
+        // justifyContent: "center",
         backgroundColor: "#003636",
         width: "45%",
-        padding: 3,
+        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",
@@ -199,7 +201,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         gap: 10,
         borderRadius: 10,
-        marginTop: 40,
+        marginTop: 20,
     },
     stratsRouletteButtonsWrapper: {
         backgroundColor: "#202020",
@@ -235,12 +237,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#003636",
         width: "45%",
-        padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",
     },
     stratsRouletteMoreTactics: {
+        textAlignVertical: 'center',
         borderRadius: 10,
         overflow: "hidden",
         display: "flex",
@@ -248,7 +250,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#003636",
         width: "86%",
-        padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",
@@ -258,7 +259,8 @@ const styles = StyleSheet.create({
         display: "flex",
         color: 'white',
         fontSize: 17,
-        textAlignVertical:"center",
+        height: '100%',
+        textAlignVertical: "center",
         // padding: 3,
         fontWeight: '600',
         textTransform: "uppercase",

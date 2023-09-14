@@ -52,7 +52,6 @@ const AddTactic = () => {
                         }}
                     >
                         <ImageBackground source={maps[index].logo} style={{flex: 1, width: 150, height: 150}}>
-                            {/*<Text style={{textAlign: 'center', fontSize: 30, color: "#FFF"}}>{maps[index].name}</Text>*/}
                         </ImageBackground>
                         <Text style={{
                             textAlign: 'center',
@@ -71,7 +70,6 @@ const AddTactic = () => {
                 {chosenMap === 4 && <NukeLayout/>}
                 {chosenMap === 5 && <VertigoLayout/>}
                 {chosenMap === 6 && <AnubisLayout/>}
-                {/*<Text style={{color: "#fff"}}>{chosenMap}</Text>*/}
             </View>
         </ScrollView>
     )

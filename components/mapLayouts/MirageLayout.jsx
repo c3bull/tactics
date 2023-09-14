@@ -10,14 +10,15 @@ import {
 } from "react-native";
 import React, {useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
-import smokeImage from "../../assets/images/smokeImg.png"
-import flashImage from "../../assets/images/flashImg.png"
-import molotovImage from "../../assets/images/molotovImg.png"
+import smokeImage from "../../assets/images/smokeWhite.png"
+import flashImage from "../../assets/images/flashWhite.png"
+import molotovImage from "../../assets/images/molotovWhite.png"
 import {ButtonGroup} from "@rneui/themed";
 import SingleGrenade from "../SingleGrenade";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AwesomeAlert from "react-native-awesome-alerts";
 import {useNavigation} from '@react-navigation/native';
+import AddPlayerTask from "../addPlayerTask";
 
 export default function MirageLayout() {
     const navigation = useNavigation();
@@ -88,59 +89,6 @@ export default function MirageLayout() {
     const [greenUtility, setGreenUtility] = useState([]);
     const [orangeUtility, setOrangeUtility] = useState([]);
 
-    const positions = {
-        ctSmoke: "CT",
-        aSiteSmoke: "A Site",
-        jungleSmoke: "Jungle",
-        stairsSmoke: "Stairs",
-        connectorUpSmoke: "Upper Connector",
-        jungleDeepSmoke: "Jungle Deep",
-        connectorDownSmoke: "Down Connector",
-        windowSmoke: "Mid Window",
-        catwalkSmoke: "Short",
-        midCatwalkSmoke: "Catwalk",
-        topMidSmoke: "Top Mid",
-        exitSmoke: "Exit",
-        bWindowSmoke: "B Window",
-        shortLeftSmoke: "B Left Short",
-        shortRightSmoke: "B Right Short",
-        bSiteOneSmoke: "B Site Standard",
-        bSiteTwoSmoke: "B Site Between One and Two Box",
-        bSiteThreeSmoke: "B Site Between Two and Three Box",
-        bSiteFourSmoke: "B Site Between Three and Four Box",
-        bBenchSmoke: "B Bench",
-        bBalconySmoke: "B Balcony",
-
-        ctFlash: "CT",
-        aSiteFlash: "A Site",
-        jungleFlash: "Jungle",
-        stairsFlash: "Stairs",
-        connectorDownFlash: "Down Connector",
-        catwalkFlash: "Catwalk",
-        topMidFlash: "Top Mid",
-        bSiteFlash: "B Site",
-        overAFlash: "A Over",
-        overBFlash: "B Over",
-        windowFlash: "Window",
-
-        underWoodMolotov: "Under Wood",
-        aBenchMolotov: "A Bench",
-        carMolotov: "Car",
-        bBalconyMolotov: "B Balcony",
-        underAppsMolotov: "Under Apartments",
-        windowMolotov: "Window",
-        ladderMolotov: "Ladder Room",
-        ninjaMolotov: "Ninja",
-        sandwichMolotov: "Sandwich",
-        fireboxMolotov: "Firebox",
-    }
-
-    const remapPositions = (type) => {
-        return (
-            positions[type]
-        )
-    };
-
     const showToastWithGravityAndOffset = (text) => {
         ToastAndroid.showWithGravityAndOffset(
             text,
@@ -197,7 +145,8 @@ export default function MirageLayout() {
             <View style={styles.grenades}>
                 <View style={styles.singleGrenade}>
                     <Text style={{color: "#fff", fontSize: 30}}>{smokeAmount}/5</Text>
-                    <Image alt="smoke" source={smokeImage} style={{resizeMode: 'contain', height: 25, width: 30}}/>
+                    <Image alt="smoke" source={smokeImage}
+                           style={{resizeMode: 'stretch', height: 20, width: 30, marginLeft: 5}}/>
                 </View>
                 <View style={styles.singleGrenade}>
                     <Text style={{color: "#fff", fontSize: 30}}>{flashAmount}/10</Text>
@@ -685,7 +634,6 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="carMolotov"/>
 
-
                         <SingleGrenade mainStyle={styles.molotovBBalcony} additionalStyle={styles.selectedMolotov}
                                        grenadePosition={bBalconyMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBBalconyMolotov}
@@ -763,7 +711,6 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="fireboxMolotov"/>
                     </View>)}
-
             </ImageBackground>
             <View style={{
                 backgroundColor: "#272727",
@@ -780,10 +727,12 @@ export default function MirageLayout() {
                         minHeight: 40,
                         width: '100%',
                         maxWidth: '100%',
-                        padding: 5,
+                        paddingHorizontal: 10,
                         display: "flex",
                         justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        borderLeftWidth: 1,
+                        borderLeftColor: "#00ffff"
                     }}
                     multiline
                     onChangeText={(e) => setTacticName(e)}
@@ -796,10 +745,13 @@ export default function MirageLayout() {
                         minHeight: 40,
                         width: '100%',
                         maxWidth: '100%',
-                        padding: 5,
+                        paddingHorizontal: 10,
                         display: "flex",
                         justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        borderLeftWidth: 1,
+                        borderLeftColor: "#00FF00",
+                        marginTop: 5,
                     }}
                     multiline
                     onChangeText={(e) => setTacticDescription(e)}
@@ -807,256 +759,23 @@ export default function MirageLayout() {
                     placeholderTextColor="#CCCCCC"
                 />
                 <View style={{
-                    backgroundColor: "#3B3B3B",
+                    // backgroundColor: "#3B3B3B",
                     width: '100%',
                     alignItems: 'center',
                     borderRadius: 10,
-                    marginBottom: 20,
-                    padding: 10,
+                    marginVertical: 20,
+                    // padding: 10,
                 }}>
-
-                    <Text style={{color: "#FFF", paddingBottom: 10}}>Tasks:</Text>
-                    <View style={{
-                        display: "flex",
-                        backgroundColor: "#A49500",
-                        width: '100%',
-                        paddingVertical: 5,
-                        borderTopLeftRadius: 5,
-                        borderTopRightRadius: 5
-                    }}>{yellowUtility.map((item, index) => {
-                            return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
-                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("molotov") &&
-                                        <Image alt="smoke" source={molotovImage} style={{
-                                            resizeMode: 'contain',
-                                            height: 15,
-                                            width: 20
-                                        }}/>}
-                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
-                                </View>
-                            )
-                        }
-                    )}</View>
-                    <TextInput
-                        style={{
-                            color: "#FFF",
-                            backgroundColor: "#A49500",
-                            minHeight: 40,
-                            width: "100%",
-                            maxWidth: "100%",
-                            borderBottomLeftRadius: 5,
-                            borderBottomRightRadius: 5,
-                            marginBottom: 10,
-                            padding: 5
-                        }}
-                        multiline
-                        onChangeText={(e) => setPlayerOneTask(e)}
-                        placeholder="Player 1"
-                        placeholderTextColor="#CCCCCC"
-                    />
-                    <View style={{
-                        display: "flex",
-                        backgroundColor: "#00567F",
-                        width: '100%',
-                        paddingVertical: 5,
-                        borderTopLeftRadius: 5,
-                        borderTopRightRadius: 5
-                    }}>{blueUtility.map((item, index) => {
-                            return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
-                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("molotov") &&
-                                        <Image alt="smoke" source={molotovImage} style={{
-                                            resizeMode: 'contain',
-                                            height: 15,
-                                            width: 20
-                                        }}/>}
-                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
-                                </View>
-                            )
-                        }
-                    )}
-                    </View>
-                    <TextInput
-                        style={{
-                            color: "#FFF",
-                            backgroundColor: "#00567F",
-                            minHeight: 40,
-                            width: "100%",
-                            maxWidth: "100%",
-                            borderBottomLeftRadius: 5,
-                            borderBottomRightRadius: 5,
-                            marginBottom: 10,
-                            padding: 5
-                        }}
-                        multiline
-                        onChangeText={(e) => setPlayerTwoTask(e)}
-                        placeholder="Player 2"
-                        placeholderTextColor="#CCCCCC"
-                    />
-                    <View style={{
-                        display: "flex",
-                        backgroundColor: "#550083",
-                        width: '100%',
-                        paddingVertical: 5,
-                        borderTopLeftRadius: 5,
-                        borderTopRightRadius: 5
-                    }}>{purpleUtility.map((item, index) => {
-                            return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
-                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("molotov") &&
-                                        <Image alt="smoke" source={molotovImage} style={{
-                                            resizeMode: 'contain',
-                                            height: 15,
-                                            width: 20
-                                        }}/>}
-                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
-                                </View>
-                            )
-                        }
-                    )}</View>
-                    <TextInput
-                        style={{
-                            color: "#FFF",
-                            backgroundColor: "#550083",
-                            minHeight: 40,
-                            width: "100%",
-                            maxWidth: "100%",
-                            borderBottomLeftRadius: 5,
-                            borderBottomRightRadius: 5,
-                            marginBottom: 10,
-                            padding: 5
-                        }}
-                        multiline
-                        onChangeText={(e) => setPlayerThreeTask(e)}
-                        placeholder="Player 3"
-                        placeholderTextColor="#CCCCCC"
-                    />
-                    <View style={{
-                        display: "flex",
-                        backgroundColor: "#0A8300",
-                        width: '100%',
-                        paddingVertical: 5,
-                        borderTopLeftRadius: 5,
-                        borderTopRightRadius: 5
-                    }}>{greenUtility.map((item, index) => {
-                            return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
-                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("molotov") &&
-                                        <Image alt="smoke" source={molotovImage} style={{
-                                            resizeMode: 'contain',
-                                            height: 15,
-                                            width: 20
-                                        }}/>}
-                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
-                                </View>
-                            )
-                        }
-                    )}</View>
-                    <TextInput
-                        style={{
-                            color: "#FFF",
-                            backgroundColor: "#0A8300",
-                            minHeight: 40,
-                            width: "100%",
-                            maxWidth: "100%",
-                            borderBottomLeftRadius: 5,
-                            borderBottomRightRadius: 5,
-                            marginBottom: 10,
-                            padding: 5
-                        }}
-                        multiline
-                        onChangeText={(e) => setPlayerFourTask(e)}
-                        placeholder="Player 4"
-                        placeholderTextColor="#CCCCCC"
-                    />
-                    <View style={{
-                        display: "flex",
-                        backgroundColor: "#CD5A00",
-                        width: '100%',
-                        paddingVertical: 5,
-                        borderTopLeftRadius: 5,
-                        borderTopRightRadius: 5
-                    }}>{orangeUtility.map((item, index) => {
-                            return (
-                                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}} key={index}>
-                                    {item.toLowerCase().includes("smoke") && <Image alt="smoke" source={smokeImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("flash") && <Image alt="smoke" source={flashImage} style={{
-                                        resizeMode: 'contain',
-                                        height: 15,
-                                        width: 20
-                                    }}/>}
-                                    {item.toLowerCase().includes("molotov") &&
-                                        <Image alt="smoke" source={molotovImage} style={{
-                                            resizeMode: 'contain',
-                                            height: 15,
-                                            width: 20
-                                        }}/>}
-                                    <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(item)}</Text>
-                                </View>
-                            )
-                        }
-                    )}</View>
-                    <TextInput
-                        style={{
-                            color: "#FFF",
-                            backgroundColor: "#CD5A00",
-                            minHeight: 40,
-                            width: "100%",
-                            maxWidth: "100%",
-                            borderBottomLeftRadius: 5,
-                            borderBottomRightRadius: 5,
-                            //marginBottom: 5,
-                            padding: 5
-                        }}
-                        multiline
-                        onChangeText={(e) => setPlayerFiveTask(e)}
-                        placeholder="Player 5"
-                        placeholderTextColor="#CCCCCC"
-                    />
+                    <AddPlayerTask setTaskHook={setPlayerOneTask} utility={yellowUtility} placeholder="Player 1"
+                                   color="#A49500"/>
+                    <AddPlayerTask setTaskHook={setPlayerTwoTask} utility={blueUtility} placeholder="Player 2"
+                                   color="#00567F"/>
+                    <AddPlayerTask setTaskHook={setPlayerThreeTask} utility={purpleUtility} placeholder="Player 3"
+                                   color="#550083"/>
+                    <AddPlayerTask setTaskHook={setPlayerFourTask} utility={greenUtility} placeholder="Player 4"
+                                   color="#0A8300"/>
+                    <AddPlayerTask setTaskHook={setPlayerFiveTask} utility={orangeUtility} placeholder="Player 5"
+                                   color="#CD5A00"/>
                 </View>
                 <TouchableOpacity
                     style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
@@ -1085,7 +804,7 @@ const styles = StyleSheet.create({
         height: 40,
         marginHorizontal: 10,
         marginBottom: 35,
-        paddingLeft: 20,
+        paddingLeft: 10,
         borderRadius: 10,
         gap: 25,
         backgroundColor: "#003636",
