@@ -19,6 +19,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AwesomeAlert from "react-native-awesome-alerts";
 import {useNavigation} from '@react-navigation/native';
 import AddPlayerTask from "../addPlayerTask";
+import {miragePositions} from "../common/positions";
 
 export default function MirageLayout() {
     const navigation = useNavigation();
@@ -767,15 +768,15 @@ export default function MirageLayout() {
                     // padding: 10,
                 }}>
                     <AddPlayerTask setTaskHook={setPlayerOneTask} utility={yellowUtility} placeholder="Player 1"
-                                   color="#A49500"/>
+                                   color="#A49500" positions={miragePositions}/>
                     <AddPlayerTask setTaskHook={setPlayerTwoTask} utility={blueUtility} placeholder="Player 2"
-                                   color="#00567F"/>
+                                   color="#00567F" positions={miragePositions}/>
                     <AddPlayerTask setTaskHook={setPlayerThreeTask} utility={purpleUtility} placeholder="Player 3"
-                                   color="#550083"/>
+                                   color="#550083" positions={miragePositions}/>
                     <AddPlayerTask setTaskHook={setPlayerFourTask} utility={greenUtility} placeholder="Player 4"
-                                   color="#0A8300"/>
+                                   color="#0A8300" positions={miragePositions}/>
                     <AddPlayerTask setTaskHook={setPlayerFiveTask} utility={orangeUtility} placeholder="Player 5"
-                                   color="#CD5A00"/>
+                                   color="#CD5A00" positions={miragePositions}/>
                 </View>
                 <TouchableOpacity
                     style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}

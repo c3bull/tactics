@@ -166,10 +166,12 @@ const styles = StyleSheet.create({
     },
     tacticImage: {
         height: '100%',
-        width: 41,
+        width: 20,
         display: "flex",
         justifyContent: "center",
         alignItems: 'center',
+        padding: 17,
+        resizeMode: "contain"
     },
     imgBackground: {
         flex: 1,

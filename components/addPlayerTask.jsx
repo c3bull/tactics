@@ -3,10 +3,9 @@ import smokeImage from "../assets/images/smokeWhite.png";
 import flashImage from "../assets/images/flashWhite.png";
 import molotovImage from "../assets/images/molotovWhite.png";
 import {remapPositions} from "./common/remap";
-import {miragePositions} from "./common/positions";
 import React from "react";
 
-export default function AddPlayerTask({color, utility, placeholder, setTaskHook}) {
+export default function AddPlayerTask({color, utility, placeholder, setTaskHook, positions}) {
     return (
         <>
             <View style={{
@@ -38,7 +37,7 @@ export default function AddPlayerTask({color, utility, placeholder, setTaskHook}
                                     width: 20,
                                     marginHorizontal: 5,
                                 }}/>}
-                            <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(miragePositions, item)}</Text>
+                            <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(positions, item)}</Text>
                         </View>
                     )
                 }
