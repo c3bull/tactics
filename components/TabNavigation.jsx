@@ -53,17 +53,17 @@ export default function TabNavigation() {
                     if (route.name === 'overpass') {
                         return <Image source={overpassLogo} style={{height: 30, width: 30}} name="mirage"/>
                     }
-                    if (route.name === 'vertigo') {
-                        return <Image source={vertigoLogo} style={{height: 30, width: 30}} name="mirage"/>
+                    if (route.name === 'ancient') {
+                        return <Image source={ancientLogo} style={{height: 30, width: 30}} name="mirage"/>
                     }
                     if (route.name === 'nuke') {
                         return <Image source={nukeLogo} style={{height: 30, width: 30}} name="mirage"/>
                     }
+                    if (route.name === 'vertigo') {
+                        return <Image source={vertigoLogo} style={{height: 30, width: 30}} name="mirage"/>
+                    }
                     if (route.name === 'anubis') {
                         return <Image source={anubisLogo} style={{height: 30, width: 30}} name="mirage"/>
-                    }
-                    if (route.name === 'ancient') {
-                        return <Image source={ancientLogo} style={{height: 30, width: 30}} name="mirage"/>
                     }
                 },
                 tabBarStyle: {
@@ -80,10 +80,10 @@ export default function TabNavigation() {
             <Tab.Screen name="mirage" component={Mirage} options={{headerShown: false}}/>
             <Tab.Screen name="inferno" component={Inferno} options={{headerShown: false}}/>
             <Tab.Screen name="overpass" component={Overpass} options={{headerShown: false}}/>
-            <Tab.Screen name="vertigo" component={Vertigo} options={{headerShown: false}}/>
-            <Tab.Screen name="nuke" component={Nuke} options={{headerShown: false, headerTitle: ""}}/>
-            <Tab.Screen name="anubis" component={Anubis} options={{headerShown: false}}/>
             <Tab.Screen name="ancient" component={Ancient} options={{headerShown: false}}/>
+            <Tab.Screen name="nuke" component={Nuke} options={{headerShown: false, headerTitle: ""}}/>
+            <Tab.Screen name="vertigo" component={Vertigo} options={{headerShown: false}}/>
+            <Tab.Screen name="anubis" component={Anubis} options={{headerShown: false}}/>
             <Tab.Screen name="add-tactic" component={AddTactic} options={{headerShown: false}}/>
         </Tab.Navigator>
     );
