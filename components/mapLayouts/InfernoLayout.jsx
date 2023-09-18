@@ -760,7 +760,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 58,
         left: 210,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -769,7 +769,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 25,
         left: 172,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -778,7 +778,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 60,
         left: 180,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -787,7 +787,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 50,
         left: 245,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -796,7 +796,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 107,
         left: 184,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -805,7 +805,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 216,
         left: 224,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -814,7 +814,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 190,
         left: 240,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -823,7 +823,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 240,
         left: 240,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -832,7 +832,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 155,
         left: 269,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -841,7 +841,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 173,
         left: 285,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -850,7 +850,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 170,
         left: 320,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -859,7 +859,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 193,
         left: 303,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -868,7 +868,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 230,
         left: 303,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -877,7 +877,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 258,
         left: 280,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -886,7 +886,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 258,
         left: 295,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -895,7 +895,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 258,
         left: 310,
-        backgroundColor: "#fff",
+        backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -904,7 +904,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 61,
         left: 210,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -913,7 +913,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 80,
         left: 195,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -922,7 +922,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 110,
         left: 155,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -931,7 +931,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 66,
         left: 170,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -940,7 +940,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 215,
         left: 239,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -949,7 +949,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 175,
         left: 245,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -958,7 +958,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 275,
         left: 230,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -967,7 +967,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 232,
         left: 279,
-        backgroundColor: "#FDFFF2",
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -976,7 +976,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 102,
         left: 172,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -985,7 +985,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 70,
         left: 172,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -994,7 +994,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 70,
         left: 155,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1003,7 +1003,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 62,
         left: 140,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1012,7 +1012,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 27,
         left: 140,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1021,7 +1021,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 25,
         left: 172,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1030,7 +1030,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 172,
         left: 243,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1039,7 +1039,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 253,
         left: 225,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1048,7 +1048,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 253,
         left: 244,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1057,7 +1057,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 273,
         left: 290,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -1066,7 +1066,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 263,
         left: 322,
-        backgroundColor: "#FFECEC",
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
