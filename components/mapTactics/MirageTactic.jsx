@@ -71,7 +71,7 @@ export default function MirageTactic({tactic, refresh}) {
     return (
         _.isEmpty(mirageTactic) ? (
             <View>
-                <ActivityIndicator size="small" color="#00ff00"/>
+                <ActivityIndicator size="small" color="#00ffff"/>
             </View>
         ) : (
             <View key={mirageTactic.tacticName}>

@@ -1,7 +1,7 @@
-import {Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Dimensions, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {maps} from "../constants/maps";
 import {SplashScreen, useRouter} from "expo-router";
-
+import dot from "../assets/images/dot.png"
 import tacticsBg from "../assets/images/maps/tactics.png";
 import {useCallback, useState} from "react";
 import {useFonts} from "expo-font";
@@ -15,6 +15,8 @@ const getFonts = () =>
         PoppinsSemiBold: require("../assets/fonts/PoppinsSemiBold.ttf"),
     });
 
+const width = Dimensions.get('window').width;
+
 const MapDisplay = ({navigation}) => {
 
     const router = useRouter()
@@ -24,82 +26,52 @@ const MapDisplay = ({navigation}) => {
         // <ScrollView style={{backgroundColor: "#0F1114", paddingBottom: 200}}>
 
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
-            <TouchableOpacity style={styles.addTactic} onPress={() => {
-                navigation.navigate('add-tactic')
-            }}>
+            <ImageBackground source={dot} imageStyle={{resizeMode: 'repeat', opacity: 0.2}}>
+                <TouchableOpacity style={styles.addTactic} onPress={() => {
+                    navigation.navigate('add-tactic')
+                }}>
 
-                <ImageBackground source={tacticsBg} resizeMode="cover" style={styles.imgBackground}>
-                    <LinearGradient
-                        colors={["#00A4A4", "#0F1114"]}
-                        start={[0.1, 0.1]}
-                        end={[0.3, 0.89]}
-                        style={styles.linearGradient}
-                    >
-                        <Text style={styles.addTacticText}>Add Tactic</Text>
-                        <Text style={styles.addTacticSubText}>Click to create your own tactic!</Text>
-                    </LinearGradient>
-                </ImageBackground>
-            </TouchableOpacity>
-            <Text style={styles.headerText}>My Tactics</Text>
-            <View style={styles.tacticsWrapper}>
-                {maps.map(({logo, name, href}, key) => (
-                    <TouchableOpacity style={styles.singleTactic} key={key} onPress={() => {
-                        navigation.navigate(href)
-                    }}>
+                    <ImageBackground source={tacticsBg} resizeMode="cover" style={styles.imgBackground}>
                         <LinearGradient
-                            colors={["#00A4A4", "#0F1114"]}
-                            start={[-1, 1]}
-                            end={[-1, 0.3]}
-                            style={styles.linearGradientButtons}
+                            colors={["#00A4A4", "#ffffff00"]}
+                            start={[1, -1]}
+                            end={[1, 1]}
+                            locations={[0.3, 0.98]}
+                            style={styles.linearGradient}
                         >
-                            <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
-                                <Image source={logo} style={styles.tacticImage}/>
-                                <Text style={styles.text}>{name}</Text>
-                            </View>
+                            {/*<Text style={styles.addTacticText}>Add Tactic</Text>*/}
+                            <Text style={styles.addTacticSubText}>Click to create your own tactic!</Text>
                         </LinearGradient>
-                    </TouchableOpacity>
-                ))}
-            </View>
-            {/*<Text style={styles.headerText}>Smokes guide</Text>*/}
-            <View style={styles.stratsRoulette}>
-                <Text style={styles.headerText}>Strats Roulette</Text>
-                <Text style={styles.stratsRouletteSubText}>Don't respect your enemies?</Text>
-                <Text style={styles.stratsRouletteSubText}>Want to have more fun with friends?</Text>
-                <View style={styles.stratsRouletteButtonsWrapper}>
-                    <View style={styles.stratsRouletteClientButtons}>
-                        <TouchableOpacity style={styles.stratsRouletteClientSingleButton}>
+                    </ImageBackground>
+                </TouchableOpacity>
+                <Text style={styles.headerText}>My Tactics</Text>
+                <View style={styles.tacticsWrapper}>
+                    {maps.map(({logo, name, href}, key) => (
+                        <TouchableOpacity style={styles.singleTactic} key={key} onPress={() => {
+                            navigation.navigate(href)
+                        }}>
                             <LinearGradient
                                 colors={["#00A4A4", "#0F1114"]}
                                 start={[-1, 1]}
                                 end={[-1, 0.3]}
                                 style={styles.linearGradientButtons}
                             >
-                                <Text style={styles.stratsText}>Add Funny Strat</Text>
+                                <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
+                                    <Image source={logo} style={styles.tacticImage}/>
+                                    <Text style={styles.text}>{name}</Text>
+                                </View>
                             </LinearGradient>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.stratsRouletteClientSingleButton}>
-                            <LinearGradient
-                                colors={["#00A4A4", "#0F1114"]}
-                                start={[-1, 1]}
-                                end={[-1, 0.3]}
-                                style={styles.linearGradientButtons}
-                            >
-                                <Text style={styles.stratsText}>Your Funny Strats</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity style={styles.stratsRouletteMoreTactics}>
-                        <LinearGradient
-                            colors={["#00A4A4", "#0F1114"]}
-                            start={[-1, 1]}
-                            end={[-1, 0.3]}
-                            style={styles.linearGradientButtons}
-                        >
-                            <Text style={styles.stratsText}>More funny strats</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
+                    ))}
                 </View>
-            </View>
+                {/*<Text style={styles.headerText}>Smokes guide</Text>*/}
+                <TouchableOpacity style={styles.stratsRoulette}>
+                    <Text style={styles.headerText}>Strats Roulette</Text>
+                    <Text style={styles.stratsRouletteSubText}>Don't respect your enemies?</Text>
+                    <Text style={styles.stratsRouletteSubText}>Want to have more fun with friends?</Text>
+                    <Text style={styles.addTacticSubText}>Click here to diversify your game!</Text>
+                </TouchableOpacity>
+            </ImageBackground>
         </ScrollView>
     );
 }
@@ -108,7 +80,7 @@ const styles = StyleSheet.create({
     linearGradient: {
         width: '100%',
         height: '100%',
-        opacity: 0.9,
+        // opacity: 0.7,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -119,7 +91,7 @@ const styles = StyleSheet.create({
         padding: 3,
     },
     contentContainer: {
-        minHeight: 970,
+        minHeight: 871,
     },
     addTactic: {
         height: 300,
@@ -134,6 +106,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     tacticsWrapper: {
+        backgroundRepeat: "repeat",
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
@@ -158,7 +131,8 @@ const styles = StyleSheet.create({
         display: "flex",
         // justifyContent: "center",
         backgroundColor: "#003636",
-        width: "45%",
+        // width: "45%",
+        width: width / 2 - 25,
         // padding: 3,
         height: 50,
         borderWidth: 1,
@@ -195,7 +169,7 @@ const styles = StyleSheet.create({
         textTransform: "uppercase"
     },
     stratsRoulette: {
-        backgroundColor: "#202020",
+        backgroundColor: 'rgba(32, 32, 32,0.7)',
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
@@ -204,6 +178,7 @@ const styles = StyleSheet.create({
         gap: 10,
         borderRadius: 10,
         marginTop: 20,
+        paddingBottom: 30,
     },
     stratsRouletteButtonsWrapper: {
         backgroundColor: "#202020",
@@ -215,12 +190,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     stratsRouletteSubText: {
-        color: '#000',
+        color: '#fff',
         fontSize: 20,
         fontWeight: "500",
         textAlign: 'center',
-        backgroundColor: "#00ffff",
-        padding: 8,
+        // backgroundColor: "#00ffff",
+        // padding: 2,
         borderRadius: 5,
     },
     stratsRouletteClientButtons: {
@@ -238,7 +213,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        width: "45%",
+        width: width / 2 - 25,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",
@@ -251,7 +226,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        width: "86%",
+        width: width - 40,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

@@ -142,7 +142,7 @@ export default function MirageLayout() {
     }
 
     return (
-        <View>
+        <View style={{width: width}}>
             <View style={styles.grenades}>
                 <View style={styles.singleGrenade}>
                     <Text style={{color: "#fff", fontSize: 30}}>{smokeAmount}/5</Text>
@@ -205,7 +205,7 @@ export default function MirageLayout() {
                     containerStyle={{
                         width: '90%',
                         height: 65,
-                        backgroundColor: "#0F1114",
+                        backgroundColor: "#0F111400",
                         borderWidth: 0,
                         gap: -1
                     }}
@@ -215,7 +215,7 @@ export default function MirageLayout() {
                         borderColor: "#FFF",
                         borderWidth: 1
                     }}
-                    buttonContainerStyle={{backgroundColor: "#0F1114"}}
+                    buttonContainerStyle={{backgroundColor: "#0F111400", borderWidth: 2, borderColor: "#ffffff00"}}
                 />
             </View>
             <View style={{display: "flex", alignItems: "center", marginVertical: 10}}>
@@ -231,17 +231,17 @@ export default function MirageLayout() {
                     containerStyle={{
                         width: '90%',
                         height: 65,
-                        backgroundColor: "#0F1114",
+                        backgroundColor: "#0F111400",
                         borderWidth: 0,
                         gap: -1
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        borderRadius: 10,
+                        // borderRadius: 10,
                         borderColor: "#FFF",
-                        borderWidth: 1
+                        borderWidth: 2
                     }}
-                    buttonContainerStyle={{backgroundColor: "#0F1114"}}
+                    buttonContainerStyle={{backgroundColor: "#0F1114BB", borderWidth: 1, borderColor: "#0F1114" }}
                 />
             </View>
             <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
@@ -714,7 +714,7 @@ export default function MirageLayout() {
                     </View>)}
             </ImageBackground>
             <View style={{
-                backgroundColor: "#272727",
+                backgroundColor: 'rgba(32, 32, 32,0.7)',
                 flex: 1,
                 alignItems: 'center',
                 marginBottom: 28,
