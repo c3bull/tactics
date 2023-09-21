@@ -11,7 +11,6 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
-import _, {isEmpty} from "lodash";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
 import smokeImage from "../../assets/images/smokeImg.png";
 import flashImage from "../../assets/images/flashImg.png";
@@ -82,7 +81,7 @@ export default function MirageTactic({tactic, refresh}) {
                                 color: "#FFF",
                                 fontSize: 24,
                                 padding: 12,
-                                fontWeight: "bold"
+                                fontFamily: 'PoppinsSemiBold'
                             }}>{mirageTactic.tacticName}</Text>
 
                             {/*<Text style={{color: "#FFF", flex: 1, flexWrap: 'wrap', backgroundColor:"red"}}>{mirageTactic.tacticDescription}xxx</Text>*/}
@@ -96,15 +95,16 @@ export default function MirageTactic({tactic, refresh}) {
                 <CollapsableContainer expanded={expanded}>
                     <Text style={{
                         color: "#FFF",
-                        fontSize: 25,
-                        fontWeight: "bold",
+                        fontSize: 22,
+                        fontFamily: 'PoppinsMedium',
                         textAlign: "center"
                     }}>{mirageTactic.tacticName}</Text>
                     <Text style={{
                         color: "#FFF",
                         fontSize: 16,
-                        fontWeight: '500',
-                        textAlign: "center"
+                        fontFamily: 'PoppinsRegular',
+                        textAlign: "center",
+                        marginHorizontal: 20,
                     }}>{mirageTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>
                         <TouchableOpacity style={[styles.singleGrenade, showSmokes && styles.selectedGrenade]}
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     textContainer: {
-        width: '85%'
+        width: '85%',
     },
     removeTactic: {
         borderLeftWidth: 2,

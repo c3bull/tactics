@@ -641,7 +641,6 @@ export default function InfernoLayout() {
                 <TextInput
                     style={{
                         color: "#FFF",
-                        fontWeight: "bold",
                         minHeight: 40,
                         width: '100%',
                         maxWidth: '100%',
@@ -650,7 +649,8 @@ export default function InfernoLayout() {
                         justifyContent: 'center',
                         alignItems: 'center',
                         borderLeftWidth: 1,
-                        borderLeftColor: "#00ffff"
+                        borderLeftColor: "#00ffff",
+                        fontFamily: 'PoppinsSemiBold'
                     }}
                     multiline
                     onChangeText={(e) => setTacticName(e)}
@@ -670,6 +670,7 @@ export default function InfernoLayout() {
                         borderLeftWidth: 1,
                         borderLeftColor: "#00FF00",
                         marginTop: 5,
+                        fontFamily: 'PoppinsRegular'
                     }}
                     multiline
                     onChangeText={(e) => setTacticDescription(e)}

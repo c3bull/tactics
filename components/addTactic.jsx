@@ -18,7 +18,8 @@ const AddTactic = () => {
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
             <ImageBackground source={dot} imageStyle={{resizeMode: 'repeat', opacity: 0.2}}>
-                <Text style={{color: "#00fFFF", textAlign: "center"}}>Swipe to change map</Text>
+                <Text style={{color: "#00fFFF", textAlign: "center",
+                    fontFamily: 'PoppinsRegular'}}>Swipe to change map</Text>
                 <Carousel
                     loop
                     width={width}
@@ -56,7 +57,8 @@ const AddTactic = () => {
                             </ImageBackground>
                             <Text style={{
                                 textAlign: 'center',
-                                fontSize: 24,
+                                fontSize: 18,
+                                fontFamily: 'PoppinsSemiBold',
                                 color: "#fff",
                                 textTransform: 'uppercase'
                             }}>{maps[index].name}</Text>

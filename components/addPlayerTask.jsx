@@ -37,7 +37,7 @@ export default function AddPlayerTask({color, utility, placeholder, setTaskHook,
                                     width: 20,
                                     marginHorizontal: 5,
                                 }}/>}
-                            <Text style={{fontWeight: "bold", color: "#FFF"}}>{remapPositions(positions, item)}</Text>
+                            <Text style={{fontFamily: 'PoppinsMedium', color: "#FFF", paddingTop: 3}}>{remapPositions(positions, item)}</Text>
                         </View>
                     )
                 }
@@ -52,7 +52,8 @@ export default function AddPlayerTask({color, utility, placeholder, setTaskHook,
                     borderBottomLeftRadius: 5,
                     borderBottomRightRadius: 5,
                     marginBottom: 10,
-                    padding: 5
+                    padding: 5,
+                    fontFamily: 'PoppinsRegular'
                 }}
                 multiline
                 onChangeText={(e) => setTaskHook(e)}

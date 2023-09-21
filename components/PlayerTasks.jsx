@@ -42,7 +42,8 @@ export default function PlayerTasks({utility, player, color, positions}) {
                                 marginHorizontal: 5,
                             }}/>}
                         <Text style={{
-                            fontWeight: "bold",
+                            fontFamily: "PoppinsSemiBold",
+                            paddingTop: 3,
                             color: "#FFF"
                         }}>{remapPositions(positions, item)}</Text>
                     </View>
@@ -53,6 +54,7 @@ export default function PlayerTasks({utility, player, color, positions}) {
                 <Text style={{
                     color: "#fff",
                     fontSize: 15,
+                    fontFamily: "PoppinsRegular",
                     padding: 10
                 }}>{player}</Text>}
         </View>

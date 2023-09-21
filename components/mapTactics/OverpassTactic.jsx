@@ -11,7 +11,6 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import overpassLayout from "../../assets/images/mapLayouts/overpassLayout.png";
-import _, {isEmpty} from "lodash";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
 import smokeImage from "../../assets/images/smokeImg.png";
 import flashImage from "../../assets/images/flashImg.png";
@@ -82,7 +81,7 @@ export default function OverpassTactic({tactic, refresh}) {
                                 color: "#FFF",
                                 fontSize: 24,
                                 padding: 12,
-                                fontWeight: "bold"
+                                fontFamily: 'PoppinsSemiBold'
                             }}>{overpassTactic.tacticName}</Text>
 
                         </View>
@@ -95,14 +94,14 @@ export default function OverpassTactic({tactic, refresh}) {
                 <CollapsableContainer expanded={expanded}>
                     <Text style={{
                         color: "#FFF",
-                        fontSize: 25,
-                        fontWeight: "bold",
+                        fontSize: 22,
+                        fontFamily: 'PoppinsMedium',
                         textAlign: "center"
                     }}>{overpassTactic.tacticName}</Text>
                     <Text style={{
                         color: "#FFF",
                         fontSize: 16,
-                        fontWeight: '500',
+                        fontFamily: 'PoppinsRegular',
                         textAlign: "center"
                     }}>{overpassTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>

@@ -1,30 +1,14 @@
 import {Dimensions, Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {maps} from "../constants/maps";
-import {SplashScreen, useRouter} from "expo-router";
 import dot from "../assets/images/dot.png"
 import tacticsBg from "../assets/images/maps/tactics.png";
-import {useCallback, useState} from "react";
-import {useFonts} from "expo-font";
-import * as Font from "expo-font";
-import AppLoading from "expo-app-loading";
 import {LinearGradient} from "expo-linear-gradient";
-
-const getFonts = () =>
-    Font.loadAsync({
-        PoppinsRegular: require("../assets/fonts/PoppinsRegular.ttf"),
-        PoppinsSemiBold: require("../assets/fonts/PoppinsSemiBold.ttf"),
-    });
 
 const width = Dimensions.get('window').width;
 
 const MapDisplay = ({navigation}) => {
 
-    const router = useRouter()
-    const [fontsloaded, setFontsLoaded] = useState(false);
-    // if (fontsloaded) {
     return (
-        // <ScrollView style={{backgroundColor: "#0F1114", paddingBottom: 200}}>
-
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
             <ImageBackground source={dot} imageStyle={{resizeMode: 'repeat', opacity: 0.2}}>
                 <TouchableOpacity style={styles.addTactic} onPress={() => {
@@ -39,7 +23,6 @@ const MapDisplay = ({navigation}) => {
                             locations={[0.3, 0.98]}
                             style={styles.linearGradient}
                         >
-                            {/*<Text style={styles.addTacticText}>Add Tactic</Text>*/}
                             <Text style={styles.addTacticSubText}>Click to create your own tactic!</Text>
                         </LinearGradient>
                     </ImageBackground>
@@ -64,8 +47,6 @@ const MapDisplay = ({navigation}) => {
                         </TouchableOpacity>
                     ))}
                 </View>
-                {/*<Text style={styles.headerText}>Smokes guide</Text>*/}
-
                 <TouchableOpacity style={styles.stratsRoulette} onPress={() => {
                     navigation.navigate('strats-roulette')
                 }}>
@@ -76,7 +57,7 @@ const MapDisplay = ({navigation}) => {
                 </TouchableOpacity>
             </ImageBackground>
         </ScrollView>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -94,7 +75,7 @@ const styles = StyleSheet.create({
         padding: 3,
     },
     contentContainer: {
-        minHeight: 871,
+        minHeight: 890,
     },
     addTactic: {
         height: 300,
@@ -120,13 +101,14 @@ const styles = StyleSheet.create({
     addTacticSubText: {
         color: '#000',
         fontSize: 20,
-        fontWeight: "500",
         textAlign: 'center',
         backgroundColor: "#00ffff",
         padding: 8,
+        paddingTop: 10,
         borderRadius: 5,
         transform: [{rotate: '-5 deg'}],
         marginTop: 15,
+        fontFamily: 'PoppinsSemiBold',
     },
     singleTactic: {
         borderRadius: 10,
@@ -135,7 +117,7 @@ const styles = StyleSheet.create({
         // justifyContent: "center",
         backgroundColor: "#003636",
         // width: "45%",
-        width: width / 2 - 25,
+        width: width / 2 - 17,
         // padding: 3,
         height: 50,
         borderWidth: 1,
@@ -162,13 +144,15 @@ const styles = StyleSheet.create({
         height: '100%',
         textAlignVertical: 'center',
         padding: 5,
-        fontWeight: '500'
+        fontFamily: 'PoppinsRegular',
+        // fontWeight: '500'
     },
     headerText: {
         color: 'white',
         fontSize: 24,
         textAlign: 'center',
-        fontWeight: "600",
+        // fontWeight: "600",
+        fontFamily: 'PoppinsSemiBold',
         textTransform: "uppercase"
     },
     stratsRoulette: {
@@ -194,9 +178,10 @@ const styles = StyleSheet.create({
     },
     stratsRouletteSubText: {
         color: '#fff',
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: "500",
         textAlign: 'center',
+        fontFamily: 'PoppinsRegular',
         // backgroundColor: "#00ffff",
         // padding: 2,
         borderRadius: 5,

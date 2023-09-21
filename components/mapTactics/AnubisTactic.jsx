@@ -81,7 +81,7 @@ export default function AnubisTactic({tactic, refresh}) {
                                 color: "#FFF",
                                 fontSize: 24,
                                 padding: 12,
-                                fontWeight: "bold"
+                                fontFamily: 'PoppinsSemiBold'
                             }}>{anubisTactic.tacticName}</Text>
 
                             {/*<Text style={{color: "#FFF", flex: 1, flexWrap: 'wrap', backgroundColor:"red"}}>{anubisTactic.tacticDescription}xxx</Text>*/}
@@ -95,14 +95,14 @@ export default function AnubisTactic({tactic, refresh}) {
                 <CollapsableContainer expanded={expanded}>
                     <Text style={{
                         color: "#FFF",
-                        fontSize: 25,
-                        fontWeight: "bold",
+                        fontSize: 22,
+                        fontFamily: 'PoppinsMedium',
                         textAlign: "center"
                     }}>{anubisTactic.tacticName}</Text>
                     <Text style={{
                         color: "#FFF",
                         fontSize: 16,
-                        fontWeight: '500',
+                        fontFamily: 'PoppinsRegular',
                         textAlign: "center"
                     }}>{anubisTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>

@@ -11,7 +11,6 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import infernoLayout from "../../assets/images/mapLayouts/infernoLayout.png";
-import _, {isEmpty} from "lodash";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
 import smokeImage from "../../assets/images/smokeImg.png";
 import flashImage from "../../assets/images/flashImg.png";
@@ -19,7 +18,6 @@ import molotovImage from "../../assets/images/molotovImg.png";
 import deleteImage from "../../assets/images/delete.webp";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
-import SingleGrenade from "../SingleGrenade";
 import {infernoPositions} from "../common/positions";
 
 export default function InfernoTactic({tactic, refresh}) {
@@ -83,7 +81,7 @@ export default function InfernoTactic({tactic, refresh}) {
                                 color: "#FFF",
                                 fontSize: 24,
                                 padding: 12,
-                                fontWeight: "bold"
+                                fontFamily: 'PoppinsSemiBold'
                             }}>{infernoTactic.tacticName}</Text>
 
                         </View>
@@ -96,14 +94,14 @@ export default function InfernoTactic({tactic, refresh}) {
                 <CollapsableContainer expanded={expanded}>
                     <Text style={{
                         color: "#FFF",
-                        fontSize: 25,
-                        fontWeight: "bold",
+                        fontSize: 22,
+                        fontFamily: 'PoppinsMedium',
                         textAlign: "center"
                     }}>{infernoTactic.tacticName}</Text>
                     <Text style={{
                         color: "#FFF",
                         fontSize: 16,
-                        fontWeight: '500',
+                        fontFamily: 'PoppinsRegular',
                         textAlign: "center"
                     }}>{infernoTactic.tacticDescription}</Text>
                     <View style={styles.grenades}>
