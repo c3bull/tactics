@@ -18,7 +18,7 @@ const AddTactic = () => {
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1}} contentContainerStyle={styles.contentContainer}>
             <ImageBackground source={dot} imageStyle={{resizeMode: 'repeat', opacity: 0.2}}>
-                <Text style={{color: "#00fFFF"}}>Swipe to change map</Text>
+                <Text style={{color: "#00fFFF", textAlign: "center"}}>Swipe to change map</Text>
                 <Carousel
                     loop
                     width={width}
@@ -79,7 +79,7 @@ const AddTactic = () => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        paddingVertical: 20,
+        paddingBottom: 20,
         display: "flex",
         alignItems: 'center',
         width: width,

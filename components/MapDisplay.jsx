@@ -65,7 +65,10 @@ const MapDisplay = ({navigation}) => {
                     ))}
                 </View>
                 {/*<Text style={styles.headerText}>Smokes guide</Text>*/}
-                <TouchableOpacity style={styles.stratsRoulette}>
+
+                <TouchableOpacity style={styles.stratsRoulette} onPress={() => {
+                    navigation.navigate('strats-roulette')
+                }}>
                     <Text style={styles.headerText}>Strats Roulette</Text>
                     <Text style={styles.stratsRouletteSubText}>Don't respect your enemies?</Text>
                     <Text style={styles.stratsRouletteSubText}>Want to have more fun with friends?</Text>

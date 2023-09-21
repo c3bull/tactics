@@ -24,6 +24,7 @@ import Ancient from "./maps/Ancient";
 import {Image} from "react-native";
 import nuke from "./maps/Nuke";
 import AddTactic from "./addTactic";
+import StratsRoulette from "./StratsRoulette";
 
 export default function TabNavigation() {
 
@@ -35,7 +36,7 @@ export default function TabNavigation() {
             screenOptions={({route}) => ({
                 tabBarButton: [
                     "add-tactic",
-                    "czego nie pokazywac2",
+                    "strats-roulette",
                 ].includes(route.name)
                     ? () => {
                         return null;
@@ -85,6 +86,7 @@ export default function TabNavigation() {
             <Tab.Screen name="vertigo" component={Vertigo} options={{headerShown: false}}/>
             <Tab.Screen name="anubis" component={Anubis} options={{headerShown: false}}/>
             <Tab.Screen name="add-tactic" component={AddTactic} options={{headerShown: false}}/>
+            <Tab.Screen name="strats-roulette" component={StratsRoulette} options={{headerShown: false}}/>
         </Tab.Navigator>
     );
 }

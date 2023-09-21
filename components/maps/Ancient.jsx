@@ -1,14 +1,26 @@
-import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
+import {
+    ActivityIndicator,
+    Image,
+    ImageBackground,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import ancientBg from "../../assets/images/maps/ancient.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {ancientLogo} from "../../assets/images/mapLogos/mapLogos";
 import AncientTactic from "../mapTactics/AncientTactic";
 
-const Ancient = ({route}) => {
+const Ancient = ({route, navigation}) => {
     const [allAncientTactics, setAllAncientTactics] = useState([])
     const [refresh, setRefresh] = useState(false)
+    const [noTactics, setNoTactics] = useState(false);
+    const [noTacticsSpinner, setNoTacticsSpinner] = useState(true);
+
     const getAllTactics = async () => {
         setAllAncientTactics([])
         const keys = await AsyncStorage.getAllKeys();
@@ -57,7 +69,36 @@ const Ancient = ({route}) => {
                         </View>
                     )
                 )
-                : <Text style={{color: "#FFF"}}>Refresh</Text>}
+                :
+                <View>
+                    <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
+                    <Text style={styles.hidden}>  {setTimeout(() => setNoTacticsSpinner(false), 1000)}</Text>
+                    {noTactics && (
+                        <View style={styles.noTactics}>
+                            <Text style={{color: "#FFF", fontSize: 22, textTransform: 'uppercase', fontWeight: '500'}}>
+                                No Tactics yet :(</Text>
+                            <TouchableOpacity style={styles.singleTactic} onPress={() => {
+                                navigation.navigate('add-tactic')
+                            }}>
+                                <LinearGradient
+                                    colors={["#00A4A4", "#0F1114"]}
+                                    start={[-1, 1]}
+                                    end={[-1, 0.3]}
+                                    style={styles.linearGradientButtons}
+                                >
+                                    <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
+                                        <Text style={styles.text}>Add Tactic!</Text>
+                                    </View>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                        </View>
+                    )}
+                    {noTacticsSpinner && (
+                        <ActivityIndicator size="large" color="#00ffff"/>
+                    )}
+
+                </View>
+            }
         </ScrollView>
 
     )
@@ -94,6 +135,44 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: 'center',
+    },
+    hidden: {
+        display: "none"
+    },
+    addTactic: {
+        height: 300,
+        overflow: "hidden",
+        display: "flex",
+    },
+    singleTactic: {
+        borderRadius: 10,
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#003636",
+        // width: "45%",
+        width: '80%',
+        // padding: 3,
+        height: 50,
+        borderWidth: 1,
+        borderColor: "#00A4A4",
+    },
+    noTactics: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 20,
+    },
+    text: {
+        color: "#FFF",
+        textAlign: "center",
+        width: '100%',
+        height: '100%',
+        textAlignVertical: "center",
+        textTransform: "uppercase",
+        fontWeight: '500',
+        fontSize: 20,
     },
 });
 
