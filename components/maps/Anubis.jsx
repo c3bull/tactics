@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
-import MirageTactic from "../mapTactics/MirageTactic";
 import anubisBg from "../../assets/images/maps/anubis.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {anubisLogo} from "../../assets/images/mapLogos/mapLogos";
@@ -30,21 +29,12 @@ const Anubis = ({route, navigation}) => {
                 setAllAnubisTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allAnubisTactics.length)
-        console.log('amtx ', allAnubisTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
     }, [route, refresh])
-
-
-    // useEffect(() => {
-    //     // do something
-    //     console.log("rut dion")
-    // }, [route]);
-
 
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
@@ -64,7 +54,6 @@ const Anubis = ({route, navigation}) => {
 
             {allAnubisTactics.length > 0 ?
                 allAnubisTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <AnubisTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -107,7 +96,6 @@ const Anubis = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -152,9 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

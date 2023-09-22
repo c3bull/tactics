@@ -12,10 +12,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import nukeLayout from "../../assets/images/mapLayouts/nukeLayout.png";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
-import smokeImage from "../../assets/images/smokeImg.png";
-import flashImage from "../../assets/images/flashImg.png";
-import molotovImage from "../../assets/images/molotovImg.png";
-import deleteImage from "../../assets/images/delete.webp";
+import smokeImage from "../../assets/images/smoke.png";
+import flashImage from "../../assets/images/flash.png";
+import molotovImage from "../../assets/images/molotov.png";
+import deleteImage from "../../assets/images/delete.png";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {nukePositions} from "../common/positions";
@@ -36,12 +36,8 @@ export default function NukeTactic({tactic, refresh}) {
         try {
             const value = await AsyncStorage.getItem(tactic);
             if (value !== null) {
-                console.log('nazwa tatkiyty ', tactic)
                 // We have data!!
                 setNukeTactic(JSON.parse(value));
-                console.log(JSON.parse(value));
-                console.log('mt ', JSON.stringify(nukeTactic));
-
             }
         } catch (error) {
             // Error retrieving data

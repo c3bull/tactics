@@ -53,7 +53,7 @@ const MapDisplay = ({navigation}) => {
                     <Text style={styles.headerText}>Strats Roulette</Text>
                     <Text style={styles.stratsRouletteSubText}>Don't respect your enemies?</Text>
                     <Text style={styles.stratsRouletteSubText}>Want to have more fun with friends?</Text>
-                    <Text style={styles.addTacticSubText}>Click here to diversify your game!</Text>
+                    <Text style={styles.addTacticSubText}>Click to diversify your game!</Text>
                 </TouchableOpacity>
             </ImageBackground>
         </ScrollView>
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     linearGradient: {
         width: '100%',
         height: '100%',
-        // opacity: 0.7,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -114,11 +113,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: "hidden",
         display: "flex",
-        // justifyContent: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: width / 2 - 17,
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",
@@ -144,14 +140,12 @@ const styles = StyleSheet.create({
         height: '100%',
         textAlignVertical: 'center',
         padding: 5,
-        fontFamily: 'PoppinsRegular',
-        // fontWeight: '500'
+        fontFamily: 'PoppinsMedium',
     },
     headerText: {
         color: 'white',
         fontSize: 24,
         textAlign: 'center',
-        // fontWeight: "600",
         fontFamily: 'PoppinsSemiBold',
         textTransform: "uppercase"
     },

@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {anubisPositions} from "../common/positions";
 
 export default function AnubisLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [streetSmoke, setStreetSmoke] = useState(false)
     const [palaceSmoke, setPalaceSmoke] = useState(false)
     const [bSiteSmoke, setBSiteSmoke] = useState(false)
@@ -191,7 +188,6 @@ export default function AnubisLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -217,7 +213,6 @@ export default function AnubisLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -228,7 +223,6 @@ export default function AnubisLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -238,8 +232,7 @@ export default function AnubisLayout() {
             <ImageBackground source={anubisLayout} style={{marginBottom: 20, width: 360, height: 340}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeStreet} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={streetSmoke}
+                        <SingleGrenade mainStyle={styles.smokeStreet} grenadePosition={streetSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setStreetSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -249,8 +242,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="streetSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokePalace} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={palaceSmoke}
+                        <SingleGrenade mainStyle={styles.smokePalace} grenadePosition={palaceSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setPalaceSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -260,8 +252,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="palaceSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSite} grenadePosition={bSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -271,8 +262,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBacksiteB} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={backsiteBSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBacksiteB} grenadePosition={backsiteBSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBacksiteBSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -282,8 +272,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="backsiteBSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnectorUp} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorUpSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnectorUp} grenadePosition={connectorUpSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorUpSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -293,8 +282,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorUpSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnectorDown} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorDownSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnectorDown} grenadePosition={connectorDownSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorDownSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -304,8 +292,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorDownSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBridge} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bridgeSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBridge} grenadePosition={bridgeSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBridgeSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -315,8 +302,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bridgeSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeWindow} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={windowSmoke}
+                        <SingleGrenade mainStyle={styles.smokeWindow} grenadePosition={windowSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWindowSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -326,8 +312,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMidPalace} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={midPalaceSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMidPalace} grenadePosition={midPalaceSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidPalaceSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -337,8 +322,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midPalaceSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeWalkway} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={walkwaySmoke}
+                        <SingleGrenade mainStyle={styles.smokeWalkway} grenadePosition={walkwaySmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWalkwaySmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -348,8 +332,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="walkwaySmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={heavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeaven} grenadePosition={heavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -359,8 +342,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokePlatform} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={platformSmoke}
+                        <SingleGrenade mainStyle={styles.smokePlatform} grenadePosition={platformSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setPlatformSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -370,8 +352,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="platformSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeAStairs} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aStairsSmoke}
+                        <SingleGrenade mainStyle={styles.smokeAStairs} grenadePosition={aStairsSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAStairsSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -381,8 +362,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aStairsSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeAMain} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aMainSmoke}
+                        <SingleGrenade mainStyle={styles.smokeAMain} grenadePosition={aMainSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAMainSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -394,8 +374,7 @@ export default function AnubisLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -405,8 +384,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBEntrance} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bEntranceFlash}
+                        <SingleGrenade mainStyle={styles.flashBEntrance} grenadePosition={bEntranceFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBEntranceFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -416,8 +394,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bEntranceFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBridge} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bridgeFlash}
+                        <SingleGrenade mainStyle={styles.flashBridge} grenadePosition={bridgeFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBridgeFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -427,8 +404,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bridgeFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashCanals} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={canalsFlash}
+                        <SingleGrenade mainStyle={styles.flashCanals} grenadePosition={canalsFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setCanalsFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -438,8 +414,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="canalsFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashConnector} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={connectorFlash}
+                        <SingleGrenade mainStyle={styles.flashConnector} grenadePosition={connectorFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setConnectorFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -449,8 +424,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashAMain} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aMainFlash}
+                        <SingleGrenade mainStyle={styles.flashAMain} grenadePosition={aMainFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setAMainFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -460,8 +434,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aMainFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -473,8 +446,7 @@ export default function AnubisLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovBPillar} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bPillarMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBPillar} grenadePosition={bPillarMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBPillarMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -484,8 +456,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bPillarMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBBacksite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bBacksiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBBacksite} grenadePosition={bBacksiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBBacksiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -495,8 +466,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bBacksiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovNinja} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ninjaMolotov}
+                        <SingleGrenade mainStyle={styles.molotovNinja} grenadePosition={ninjaMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setNinjaMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -506,8 +476,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ninjaMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovPalace} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={palaceMolotov}
+                        <SingleGrenade mainStyle={styles.molotovPalace} grenadePosition={palaceMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setPalaceMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -517,8 +486,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="palaceMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWindow} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={windowMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWindow} grenadePosition={windowMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWindowMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -528,8 +496,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovDoubleDoors} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={doubleDoorsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovDoubleDoors} grenadePosition={doubleDoorsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setDoubleDoorsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -539,8 +506,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="doubleDoorsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWalkway} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={walkwayMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWalkway} grenadePosition={walkwayMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWalkwayMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -550,8 +516,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="walkwayMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovPlatform} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={platformMolotov}
+                        <SingleGrenade mainStyle={styles.molotovPlatform} grenadePosition={platformMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setPlatformMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -561,8 +526,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="platformMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovAStairs} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={aStairsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovAStairs} grenadePosition={aStairsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setAStairsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -572,8 +536,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aStairsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovASite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={aSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovASite} grenadePosition={aSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setASiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -583,8 +546,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovHeaven} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={heavenMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHeaven} grenadePosition={heavenMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHeavenMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -594,8 +556,7 @@ export default function AnubisLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovFountain} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={fountainMolotov}
+                        <SingleGrenade mainStyle={styles.molotovFountain} grenadePosition={fountainMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setFountainMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

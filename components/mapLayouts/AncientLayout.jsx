@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {ancientPositions} from "../common/positions";
 
 export default function AncientLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [platformSmoke, setPlatformSmoke] = useState(false)
     const [templeSmoke, setTempleSmoke] = useState(false)
     const [aSiteSmoke, setASiteSmoke] = useState(false)
@@ -189,7 +186,6 @@ export default function AncientLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -215,7 +211,6 @@ export default function AncientLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -226,7 +221,6 @@ export default function AncientLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -236,8 +230,7 @@ export default function AncientLayout() {
             <ImageBackground source={ancientLayout} style={{marginBottom: 20, width: 360, height: 335}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokePlatform} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={platformSmoke}
+                        <SingleGrenade mainStyle={styles.smokePlatform} grenadePosition={platformSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setPlatformSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -247,8 +240,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="platformSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTemple} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={templeSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTemple} grenadePosition={templeSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTempleSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -258,8 +250,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="templeSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASite} grenadePosition={aSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -269,8 +260,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeACT} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aCTSmoke}
+                        <SingleGrenade mainStyle={styles.smokeACT} grenadePosition={aCTSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setACTSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -280,8 +270,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aCTSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeDonut} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={donutSmoke}
+                        <SingleGrenade mainStyle={styles.smokeDonut} grenadePosition={donutSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setDonutSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -291,8 +280,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="donutSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeWindow} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={windowSmoke}
+                        <SingleGrenade mainStyle={styles.smokeWindow} grenadePosition={windowSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWindowSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -302,8 +290,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTomb} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={tombSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTomb} grenadePosition={tombSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTombSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -313,8 +300,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="tombSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={heavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeaven} grenadePosition={heavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -324,8 +310,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeCave} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={caveSmoke}
+                        <SingleGrenade mainStyle={styles.smokeCave} grenadePosition={caveSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCaveSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -335,8 +320,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="caveSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeCaveBSite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={caveBSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeCaveBSite} grenadePosition={caveBSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCaveBSiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -346,8 +330,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="caveBSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBShort} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bShortSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBShort} grenadePosition={bShortSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBShortSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -357,8 +340,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bShortSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBLong} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bLongSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBLong} grenadePosition={bLongSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBLongSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -368,8 +350,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bLongSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBAlley} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bAlleySmoke}
+                        <SingleGrenade mainStyle={styles.smokeBAlley} grenadePosition={bAlleySmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBAlleySmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -379,8 +360,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bAlleySmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHouse} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={houseSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHouse} grenadePosition={houseSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHouseSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -392,8 +372,7 @@ export default function AncientLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashAEntrance} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aEntranceFlash}
+                        <SingleGrenade mainStyle={styles.flashAEntrance} grenadePosition={aEntranceFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setAEntranceFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -403,8 +382,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aEntranceFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -414,8 +392,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashMidFirst} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={midFirstFlash}
+                        <SingleGrenade mainStyle={styles.flashMidFirst} grenadePosition={midFirstFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMidFirstFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -425,8 +402,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midFirstFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashMidSecond} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={midSecondFlash}
+                        <SingleGrenade mainStyle={styles.flashMidSecond} grenadePosition={midSecondFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMidSecondFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -436,8 +412,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midSecondFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashCave} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={caveFlash}
+                        <SingleGrenade mainStyle={styles.flashCave} grenadePosition={caveFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setCaveFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -447,8 +422,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="caveFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -458,8 +432,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashWindow} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={windowFlash}
+                        <SingleGrenade mainStyle={styles.flashWindow} grenadePosition={windowFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setWindowFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -469,8 +442,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashLong} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={longFlash}
+                        <SingleGrenade mainStyle={styles.flashLong} grenadePosition={longFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setLongFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -482,8 +454,7 @@ export default function AncientLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovCubby} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={cubbyMolotov}
+                        <SingleGrenade mainStyle={styles.molotovCubby} grenadePosition={cubbyMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setCubbyMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -493,8 +464,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="cubbyMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBehindASite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={behindASiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBehindASite} grenadePosition={behindASiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBehindASiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -504,8 +474,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="behindASiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovTemple} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={templeMolotov}
+                        <SingleGrenade mainStyle={styles.molotovTemple} grenadePosition={templeMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setTempleMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -515,8 +484,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="templeMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovPlatform} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={platformMolotov}
+                        <SingleGrenade mainStyle={styles.molotovPlatform} grenadePosition={platformMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setPlatformMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -526,8 +494,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="platformMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWideBox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={wideBoxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWideBox} grenadePosition={wideBoxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWideBoxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -537,8 +504,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="wideBoxMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWindow} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={windowMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWindow} grenadePosition={windowMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWindowMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -548,8 +514,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovNinja} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ninjaMolotov}
+                        <SingleGrenade mainStyle={styles.molotovNinja} grenadePosition={ninjaMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setNinjaMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -559,8 +524,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ninjaMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBSite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSite} grenadePosition={bSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -570,8 +534,7 @@ export default function AncientLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovLong} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={longMolotov}
+                        <SingleGrenade mainStyle={styles.molotovLong} grenadePosition={longMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setLongMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

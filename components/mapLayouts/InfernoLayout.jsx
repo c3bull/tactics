@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {infernoPositions} from "../common/positions";
 
 export default function InfernoLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [bCTSmoke, setBCTSmoke] = useState(false)
     const [bSpoolsSmoke, setBSpoolsSmoke] = useState(false)
     const [bSiteSmoke, setBSiteSmoke] = useState(false)
@@ -193,7 +190,6 @@ export default function InfernoLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -219,7 +215,6 @@ export default function InfernoLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -230,7 +225,6 @@ export default function InfernoLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -240,8 +234,7 @@ export default function InfernoLayout() {
             <ImageBackground source={infernoLayout} style={{marginBottom: 20, width: 360, height: 320}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeBCT} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bCTSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBCT} grenadePosition={bCTSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBCTSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -251,8 +244,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCTSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSpools} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSpoolsSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSpools} grenadePosition={bSpoolsSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSpoolsSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -262,8 +254,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSpoolsSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSite} grenadePosition={bSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -273,8 +264,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBCTDeep} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bCTDeepSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBCTDeep} grenadePosition={bCTDeepSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBCTDeepSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -284,8 +274,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCTDeepSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTopBanana} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={topBananaSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTopBanana} grenadePosition={topBananaSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTopBananaSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -295,8 +284,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topBananaSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTopMid} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={topMidSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTopMid} grenadePosition={topMidSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTopMidSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -306,8 +294,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topMidSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMidLong} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={midLongSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMidLong} grenadePosition={midLongSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidLongSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -317,8 +304,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midLongSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMidShort} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={midShortSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMidShort} grenadePosition={midShortSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidShortSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -328,8 +314,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midShortSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnector} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnector} grenadePosition={connectorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -339,8 +324,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeFarLong} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={farLongSmoke}
+                        <SingleGrenade mainStyle={styles.smokeFarLong} grenadePosition={farLongSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setFarLongSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -350,8 +334,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="farLongSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeLibrary} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={librarySmoke}
+                        <SingleGrenade mainStyle={styles.smokeLibrary} grenadePosition={librarySmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setLibrarySmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -361,8 +344,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="librarySmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBehindASite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={behindASiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBehindASite} grenadePosition={behindASiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBehindASiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -372,8 +354,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="behindASiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeGraveyard} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={graveyardSmoke}
+                        <SingleGrenade mainStyle={styles.smokeGraveyard} grenadePosition={graveyardSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setGraveyardSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -383,8 +364,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="graveyardSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTruck} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={truckSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTruck} grenadePosition={truckSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTruckSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -394,8 +374,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="truckSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMiniPit} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={miniPitSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMiniPit} grenadePosition={miniPitSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMiniPitSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -405,8 +384,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="miniPitSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokePit} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={pitSmoke}
+                        <SingleGrenade mainStyle={styles.smokePit} grenadePosition={pitSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setPitSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -418,8 +396,7 @@ export default function InfernoLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashBCT} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bCTFlash}
+                        <SingleGrenade mainStyle={styles.flashBCT} grenadePosition={bCTFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBCTFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -429,8 +406,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCTFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBEntrance} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bEntranceFlash}
+                        <SingleGrenade mainStyle={styles.flashBEntrance} grenadePosition={bEntranceFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBEntranceFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -440,8 +416,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bEntranceFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashTopBanana} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={topBananaFlash}
+                        <SingleGrenade mainStyle={styles.flashTopBanana} grenadePosition={topBananaFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setTopBananaFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -451,8 +426,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topBananaFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -462,8 +436,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashTopMid} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={topMidFlash}
+                        <SingleGrenade mainStyle={styles.flashTopMid} grenadePosition={topMidFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setTopMidFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setTopMidFlash}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -473,8 +446,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topMidFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashLong} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={longFlash}
+                        <SingleGrenade mainStyle={styles.flashLong} grenadePosition={longFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setLongFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -484,8 +456,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="longFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashAApps} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aAppsFlash}
+                        <SingleGrenade mainStyle={styles.flashAApps} grenadePosition={aAppsFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setAAppsFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -495,8 +466,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aAppsFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -508,8 +478,7 @@ export default function InfernoLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovBCar} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bCarMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBCar} grenadePosition={bCarMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBCarMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -519,8 +488,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCarMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBFirstBox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bFirstBoxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBFirstBox} grenadePosition={bFirstBoxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBFirstBoxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -530,8 +498,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bFirstBoxMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBSecondBox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSecondBoxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSecondBox} grenadePosition={bSecondBoxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSecondBoxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -541,8 +508,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSecondBoxMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBThirdBox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bThirdBoxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBThirdBox} grenadePosition={bThirdBoxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBThirdBoxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -552,8 +518,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bThirdBoxMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBDark} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bDarkMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBDark} grenadePosition={bDarkMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBDarkMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -563,8 +528,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bDarkMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBSpools} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSpoolsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSpools} grenadePosition={bSpoolsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSpoolsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -574,8 +538,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSpoolsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovLong} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={longMolotov}
+                        <SingleGrenade mainStyle={styles.molotovLong} grenadePosition={longMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setLongMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -585,8 +548,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="longMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovApps} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={appsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovApps} grenadePosition={appsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setAppsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -596,8 +558,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="appsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovRoof} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={roofMolotov}
+                        <SingleGrenade mainStyle={styles.molotovRoof} grenadePosition={roofMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setRoofMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -607,8 +568,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="roofMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovMiniPit} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={miniPitMolotov}
+                        <SingleGrenade mainStyle={styles.molotovMiniPit} grenadePosition={miniPitMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setMiniPitMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -618,8 +578,7 @@ export default function InfernoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="miniPitMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovPit} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={pitMolotov}
+                        <SingleGrenade mainStyle={styles.molotovPit} grenadePosition={pitMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setPitMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

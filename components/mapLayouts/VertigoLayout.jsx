@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {vertigoPositions} from "../common/positions";
 
 export default function VertigoLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [generatorSmoke, setGeneratorSmoke] = useState(false)
     const [generatorLeftSmoke, setGeneratorLeftSmoke] = useState(false)
     const [bCTSmoke, setBCTSmoke] = useState(false)
@@ -188,7 +185,6 @@ export default function VertigoLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -214,7 +210,6 @@ export default function VertigoLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -225,7 +220,6 @@ export default function VertigoLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -235,8 +229,7 @@ export default function VertigoLayout() {
             <ImageBackground source={vertigoLayout} style={{marginBottom: 20, width: 360, height: 310}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeGenerator} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={generatorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeGenerator} grenadePosition={generatorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setGeneratorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -246,8 +239,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="generatorSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeGeneratorLeft} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={generatorLeftSmoke}
+                        <SingleGrenade mainStyle={styles.smokeGeneratorLeft} grenadePosition={generatorLeftSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setGeneratorLeftSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -257,8 +249,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="generatorLeftSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBCT} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bCTSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBCT} grenadePosition={bCTSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBCTSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -268,8 +259,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCTSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeWindow} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={windowSmoke}
+                        <SingleGrenade mainStyle={styles.smokeWindow} grenadePosition={windowSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWindowSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -279,8 +269,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMidElevator} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={midElevatorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMidElevator} grenadePosition={midElevatorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidElevatorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -290,8 +279,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midElevatorSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeAElevator} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aElevatorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeAElevator} grenadePosition={aElevatorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAElevatorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -301,8 +289,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aElevatorSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASite} grenadePosition={aSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -312,8 +299,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASiteLeft} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteLeftSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASiteLeft} grenadePosition={aSiteLeftSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteLeftSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -323,8 +309,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteLeftSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASiteRight} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteRightSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASiteRight} grenadePosition={aSiteRightSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteRightSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -334,8 +319,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteRightSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHeadshot} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={headshotSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeadshot} grenadePosition={headshotSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeadshotSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -345,8 +329,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="headshotSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={heavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeaven} grenadePosition={heavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -356,8 +339,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeACT} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aCTSmoke}
+                        <SingleGrenade mainStyle={styles.smokeACT} grenadePosition={aCTSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setACTSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -367,8 +349,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aCTSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeGap} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={gapSmoke}
+                        <SingleGrenade mainStyle={styles.smokeGap} grenadePosition={gapSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setGapSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -380,8 +361,7 @@ export default function VertigoLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -391,8 +371,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashWindow} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={windowFlash}
+                        <SingleGrenade mainStyle={styles.flashWindow} grenadePosition={windowFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setWindowFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -402,8 +381,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBStairs} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bStairsFlash}
+                        <SingleGrenade mainStyle={styles.flashBStairs} grenadePosition={bStairsFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBStairsFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -413,8 +391,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bStairsFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashMid} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={midFlash}
+                        <SingleGrenade mainStyle={styles.flashMid} grenadePosition={midFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMidFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -424,8 +401,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashGap} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={gapFlash}
+                        <SingleGrenade mainStyle={styles.flashGap} grenadePosition={gapFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setGapFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -435,8 +411,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="gapFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashRamp} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={rampFlash}
+                        <SingleGrenade mainStyle={styles.flashRamp} grenadePosition={rampFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setRampFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -446,8 +421,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="rampFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -459,8 +433,7 @@ export default function VertigoLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovBSite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSite} grenadePosition={bSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -470,8 +443,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovTetris} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={tetrisMolotov}
+                        <SingleGrenade mainStyle={styles.molotovTetris} grenadePosition={tetrisMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setTetrisMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -481,8 +453,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="tetrisMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBCorner} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bCornerMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBCorner} grenadePosition={bCornerMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBCornerMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -492,8 +463,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bCornerMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWindow} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={windowMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWindow} grenadePosition={windowMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWindowMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -503,8 +473,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovCTSpawn} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ctSpawnMolotov}
+                        <SingleGrenade mainStyle={styles.molotovCTSpawn} grenadePosition={ctSpawnMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setCtSpawnMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -514,8 +483,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ctSpawnMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovMidElevator} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={elevatorMidMolotov}
+                        <SingleGrenade mainStyle={styles.molotovMidElevator} grenadePosition={elevatorMidMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setElevatorMidMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -525,8 +493,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="elevatorMidMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovGap} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={gapMolotov}
+                        <SingleGrenade mainStyle={styles.molotovGap} grenadePosition={gapMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setGapMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -536,8 +503,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="gapMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovSidewalk} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={sidewalkMolotov}
+                        <SingleGrenade mainStyle={styles.molotovSidewalk} grenadePosition={sidewalkMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSidewalkMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -547,8 +513,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="sidewalkMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovHeadshot} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={headshotMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHeadshot} grenadePosition={headshotMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHeadshotMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -558,8 +523,7 @@ export default function VertigoLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="headshotMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovHeaven} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={heavenMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHeaven} grenadePosition={heavenMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHeavenMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

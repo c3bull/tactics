@@ -29,21 +29,12 @@ const Mirage = ({route, navigation}) => {
                 setAllMirageTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allMirageTactics.length)
-        console.log('amtx ', allMirageTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
     }, [route, refresh])
-
-
-    // useEffect(() => {
-    //     // do something
-    //     console.log("rut dion")
-    // }, [route]);
-
 
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
@@ -63,7 +54,6 @@ const Mirage = ({route, navigation}) => {
 
             {allMirageTactics.length > 0 ?
                 allMirageTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <MirageTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -105,7 +95,6 @@ const Mirage = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -150,9 +139,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

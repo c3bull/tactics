@@ -24,7 +24,6 @@ import {miragePositions} from "../common/positions";
 export default function MirageLayout() {
     const navigation = useNavigation();
     const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [ctSmoke, setCtSmoke] = useState(false)
     const [aSiteSmoke, setASiteSmoke] = useState(false)
     const [jungleSmoke, setJungleSmoke] = useState(false)
@@ -200,7 +199,6 @@ export default function MirageLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -226,7 +224,6 @@ export default function MirageLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -237,7 +234,6 @@ export default function MirageLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -247,8 +243,7 @@ export default function MirageLayout() {
             <ImageBackground source={mirageLayout} style={{marginBottom: 20, width: 360, height: 272}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeCT} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={ctSmoke}
+                        <SingleGrenade mainStyle={styles.smokeCT} grenadePosition={ctSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCtSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -258,8 +253,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ctSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASite} grenadePosition={aSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -269,8 +263,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeJungle} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={jungleSmoke}
+                        <SingleGrenade mainStyle={styles.smokeJungle} grenadePosition={jungleSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setJungleSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -280,8 +273,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="jungleSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeStairs} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={stairsSmoke}
+                        <SingleGrenade mainStyle={styles.smokeStairs} grenadePosition={stairsSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setStairsSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -291,8 +283,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="stairsSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnectorUp} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorUpSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnectorUp} grenadePosition={connectorUpSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorUpSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -302,8 +293,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorUpSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeJungleDeep} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={jungleDeepSmoke}
+                        <SingleGrenade mainStyle={styles.smokeJungleDeep} grenadePosition={jungleDeepSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setJungleDeepSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -313,8 +303,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="jungleDeepSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnectorDown} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorDownSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnectorDown} grenadePosition={connectorDownSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorDownSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -324,8 +313,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorDownSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeWindow} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={windowSmoke}
+                        <SingleGrenade mainStyle={styles.smokeWindow} grenadePosition={windowSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setWindowSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -335,8 +323,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeCatwalk} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={catwalkSmoke}
+                        <SingleGrenade mainStyle={styles.smokeCatwalk} grenadePosition={catwalkSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCatwalkSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -346,8 +333,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="catwalkSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMidCatwalk} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={midCatwalkSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMidCatwalk} grenadePosition={midCatwalkSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidCatwalkSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -357,8 +343,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midCatwalkSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTopMid} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={topMidSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTopMid} grenadePosition={topMidSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTopMidSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -368,8 +353,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topMidSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeExit} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={exitSmoke}
+                        <SingleGrenade mainStyle={styles.smokeExit} grenadePosition={exitSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setExitSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -379,8 +363,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="exitSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBWindow} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bWindowSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBWindow} grenadePosition={bWindowSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBWindowSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -390,8 +373,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bWindowSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeShortLeft} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={shortLeftSmoke}
+                        <SingleGrenade mainStyle={styles.smokeShortLeft} grenadePosition={shortLeftSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setShortLeftSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -401,8 +383,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="shortLeftSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeShortRight} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={shortRightSmoke}
+                        <SingleGrenade mainStyle={styles.smokeShortRight} grenadePosition={shortRightSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setShortRightSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -412,8 +393,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="shortRightSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSiteOne} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteOneSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSiteOne} grenadePosition={bSiteOneSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteOneSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -423,8 +403,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteOneSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSiteTwo} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteTwoSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSiteTwo} grenadePosition={bSiteTwoSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteTwoSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -434,8 +413,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteTwoSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSiteThree} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteThreeSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSiteThree} grenadePosition={bSiteThreeSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteThreeSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -445,8 +423,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteThreeSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSiteFour} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteFourSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSiteFour} grenadePosition={bSiteFourSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteFourSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -456,8 +433,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFourSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBBench} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bBalconySmoke}
+                        <SingleGrenade mainStyle={styles.smokeBBench} grenadePosition={bBalconySmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBBalconySmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -467,8 +443,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bBalconySmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBBalcony} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bBenchSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBBalcony} grenadePosition={bBenchSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBBenchSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -480,8 +455,7 @@ export default function MirageLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashCT} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={ctFlash}
+                        <SingleGrenade mainStyle={styles.flashCT} grenadePosition={ctFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setCtFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -491,8 +465,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ctFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -502,8 +475,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashJungle} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={jungleFlash}
+                        <SingleGrenade mainStyle={styles.flashJungle} grenadePosition={jungleFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setJungleFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -513,8 +485,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="jungleFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashStairs} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={stairsFlash}
+                        <SingleGrenade mainStyle={styles.flashStairs} grenadePosition={stairsFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setStairsFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -524,8 +495,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="stairsFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashConnectorDown} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={connectorDownFlash}
+                        <SingleGrenade mainStyle={styles.flashConnectorDown} grenadePosition={connectorDownFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setConnectorDownFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -535,8 +505,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="connectorDownFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashCatwalk} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={catwalkFlash}
+                        <SingleGrenade mainStyle={styles.flashCatwalk} grenadePosition={catwalkFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setCatwalkFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -546,8 +515,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="catwalkFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashTopMid} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={topMidFlash}
+                        <SingleGrenade mainStyle={styles.flashTopMid} grenadePosition={topMidFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setTopMidFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -557,8 +525,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="topMidFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -568,8 +535,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashOverA} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={overAFlash}
+                        <SingleGrenade mainStyle={styles.flashOverA} grenadePosition={overAFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setOverAFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -579,8 +545,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="overAFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashOverB} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={overBFlash}
+                        <SingleGrenade mainStyle={styles.flashOverB} grenadePosition={overBFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setOverBFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -589,8 +554,7 @@ export default function MirageLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="overBFlash"/>
-                        <SingleGrenade mainStyle={styles.flashWindow} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={windowFlash}
+                        <SingleGrenade mainStyle={styles.flashWindow} grenadePosition={windowFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setWindowFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -602,8 +566,7 @@ export default function MirageLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovUnderWood} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={underWoodMolotov}
+                        <SingleGrenade mainStyle={styles.molotovUnderWood} grenadePosition={underWoodMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setUnderWoodMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -613,8 +576,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="underWoodMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovABench} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={aBenchMolotov}
+                        <SingleGrenade mainStyle={styles.molotovABench} grenadePosition={aBenchMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setABenchMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -624,8 +586,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aBenchMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovCar} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={carMolotov}
+                        <SingleGrenade mainStyle={styles.molotovCar} grenadePosition={carMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setCarMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -635,8 +596,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="carMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBBalcony} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bBalconyMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBBalcony} grenadePosition={bBalconyMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBBalconyMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -646,8 +606,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bBalconyMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovUnderApps} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={underAppsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovUnderApps} grenadePosition={underAppsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setUnderAppsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -657,8 +616,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="underAppsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWindow} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={windowMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWindow} grenadePosition={windowMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWindowMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -668,8 +626,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="windowMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovLadder} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ladderMolotov}
+                        <SingleGrenade mainStyle={styles.molotovLadder} grenadePosition={ladderMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setLadderMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -679,8 +636,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ladderMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovNinja} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ninjaMolotov}
+                        <SingleGrenade mainStyle={styles.molotovNinja} grenadePosition={ninjaMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setNinjaMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -690,8 +646,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ninjaMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovSandwich} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={sandwichMolotov}
+                        <SingleGrenade mainStyle={styles.molotovSandwich} grenadePosition={sandwichMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSandwichMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -701,8 +656,7 @@ export default function MirageLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="sandwichMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovFirebox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={fireboxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovFirebox} grenadePosition={fireboxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setFireboxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

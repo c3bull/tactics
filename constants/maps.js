@@ -5,15 +5,9 @@ import ancientBg from "../assets/images/maps/ancient.png";
 import nukeBg from "../assets/images/maps/nuke.png";
 import vertigoBg from "../assets/images/maps/vertigo.png";
 import anubisBg from "../assets/images/maps/anubis.png";
-import tacticsBg from "../assets/images/maps/tactics.png";
 import {ancientLogo, mirageLogo, infernoLogo, anubisLogo, nukeLogo, vertigoLogo, overpassLogo} from "../assets/images/mapLogos/mapLogos";
 
 const maps = [
-    // {
-    //     name: "Dodaj taktyke",
-    //     bgImage: tacticsBg,
-    //     href: "add-tactic",
-    // },
     {
         name: "Mirage",
         bgImage: mirageBg,

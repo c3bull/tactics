@@ -5,7 +5,7 @@ import smokeBlue from "../assets/images/smokeBlue.png";
 import smokePurple from "../assets/images/smokePurple.png";
 import smokeGreen from "../assets/images/smokeGreen.png";
 import smokeOrange from "../assets/images/smokeOrange.png";
-import flashImage from "../assets/images/flash.webp";
+import flashImage from "../assets/images/flash.png";
 import flashBlueImage from "../assets/images/flashBlue.png";
 import flashPurpleImage from "../assets/images/flashPurple.png";
 import flashGreenImage from "../assets/images/flashGreen.png";

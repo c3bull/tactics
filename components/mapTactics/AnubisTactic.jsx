@@ -12,10 +12,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import anubisLayout from "../../assets/images/mapLayouts/anubisLayout.png";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
-import smokeImage from "../../assets/images/smokeImg.png";
-import flashImage from "../../assets/images/flashImg.png";
-import molotovImage from "../../assets/images/molotovImg.png";
-import deleteImage from "../../assets/images/delete.webp";
+import smokeImage from "../../assets/images/smoke.png";
+import flashImage from "../../assets/images/flash.png";
+import molotovImage from "../../assets/images/molotov.png";
+import deleteImage from "../../assets/images/delete.png";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {anubisPositions} from "../common/positions";
@@ -36,12 +36,8 @@ export default function AnubisTactic({tactic, refresh}) {
         try {
             const value = await AsyncStorage.getItem(tactic);
             if (value !== null) {
-                console.log('nazwa tatkiyty ', tactic)
                 // We have data!!
                 setAnubisTactic(JSON.parse(value));
-                console.log(JSON.parse(value));
-                console.log('mt ', JSON.stringify(anubisTactic));
-
             }
         } catch (error) {
             // Error retrieving data
@@ -386,11 +382,9 @@ export default function AnubisTactic({tactic, refresh}) {
                     </ImageBackground>
                     <View>
                         <View style={{
-                            // backgroundColor: "#3B3B3B",
                             width: '100%',
                             alignItems: 'center',
                             borderRadius: 10,
-                            // marginVertical: 20,
                             padding: 10,
                         }}>
                             <PlayerTasks player={anubisTactic.playerOneTask} utility={anubisTactic.yellowUtility}

@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
-import MirageTactic from "../mapTactics/MirageTactic";
 import infernoBg from "../../assets/images/maps/inferno.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {infernoLogo} from "../../assets/images/mapLogos/mapLogos";
@@ -30,20 +29,12 @@ const Inferno = ({route, navigation}) => {
                 setAllInfernoTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allInfernoTactics.length)
-        console.log('amtx ', allInfernoTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
     }, [route, refresh])
-
-
-    // useEffect(() => {
-    //     // do something
-    //     console.log("rut dion")
-    // }, [route]);
 
 
     return (
@@ -64,7 +55,6 @@ const Inferno = ({route, navigation}) => {
 
             {allInfernoTactics.length > 0 ?
                 allInfernoTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <InfernoTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -107,7 +97,6 @@ const Inferno = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -152,9 +141,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

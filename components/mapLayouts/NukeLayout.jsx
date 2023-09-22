@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {nukePositions} from "../common/positions";
 
 export default function NukeLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
     const [heavenSmoke, setHeavenSmoke] = useState(false)
     const [outsideHeavenSmoke, setOutsideHeavenSmoke] = useState(false)
     const [lockerSmoke, setLockerSmoke] = useState(false)
@@ -185,7 +182,6 @@ export default function NukeLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -211,7 +207,6 @@ export default function NukeLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -222,7 +217,6 @@ export default function NukeLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -232,8 +226,7 @@ export default function NukeLayout() {
             <ImageBackground source={nukeLayout} style={{marginBottom: 20, width: 360, height: 272}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={heavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeaven} grenadePosition={heavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -243,8 +236,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeOutsideHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={outsideHeavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeOutsideHeaven} grenadePosition={outsideHeavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -254,8 +246,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideHeavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeLocker} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={lockerSmoke}
+                        <SingleGrenade mainStyle={styles.smokeLocker} grenadePosition={lockerSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setLockerSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -265,8 +256,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="lockerSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeVent} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={ventSmoke}
+                        <SingleGrenade mainStyle={styles.smokeVent} grenadePosition={ventSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setVentSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -276,8 +266,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ventSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMain} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={mainSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMain} grenadePosition={mainSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMainSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -287,8 +276,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="mainSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeMainOutside} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={outsideMainSmoke}
+                        <SingleGrenade mainStyle={styles.smokeMainOutside} grenadePosition={outsideMainSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideMainSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -298,8 +286,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideMainSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeSecretOutside} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={outsideSecretSmoke}
+                        <SingleGrenade mainStyle={styles.smokeSecretOutside} grenadePosition={outsideSecretSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideSecretSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -309,8 +296,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideSecretSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeGarage} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={garageSmoke}
+                        <SingleGrenade mainStyle={styles.smokeGarage} grenadePosition={garageSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setGarageSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -320,8 +306,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="garageSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeOutsideRed} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={outsideRedSmoke}
+                        <SingleGrenade mainStyle={styles.smokeOutsideRed} grenadePosition={outsideRedSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideRedSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -331,8 +316,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideRedSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeOutsideRedSecret} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={outsideRedSecretSmoke}
+                        <SingleGrenade mainStyle={styles.smokeOutsideRedSecret} grenadePosition={outsideRedSecretSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideRedSecretSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -342,8 +326,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideRedSecretSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeUnderHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={underHeavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeUnderHeaven} grenadePosition={underHeavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setUnderHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -353,8 +336,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="underHeavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBAquarium} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bAquariumSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBAquarium} grenadePosition={bAquariumSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBAquariumSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -364,8 +346,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bAquariumSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBDoubleDoors} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bDoubleDoorsSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBDoubleDoors} grenadePosition={bDoubleDoorsSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBDoubleDoorsSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -375,8 +356,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bDoubleDoorsSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSingleDoor} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSingleDoorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSingleDoor} grenadePosition={bSingleDoorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSingleDoorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -388,8 +368,7 @@ export default function NukeLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashOutside} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={outsideFlash}
+                        <SingleGrenade mainStyle={styles.flashOutside} grenadePosition={outsideFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setOutsideFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -399,8 +378,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="outsideFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -410,8 +388,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashRamp} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={rampFlash}
+                        <SingleGrenade mainStyle={styles.flashRamp} grenadePosition={rampFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setRampFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -421,8 +398,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="rampFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashMain} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={mainFlash}
+                        <SingleGrenade mainStyle={styles.flashMain} grenadePosition={mainFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMainFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -434,8 +410,7 @@ export default function NukeLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovHutRoof} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={hutRoofMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHutRoof} grenadePosition={hutRoofMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHutRoofMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -445,8 +420,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="hutRoofMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovASite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={aSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovASite} grenadePosition={aSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setASiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -456,8 +430,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovHeaven} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={heavenMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHeaven} grenadePosition={heavenMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHeavenMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -467,8 +440,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovCTVent} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={ctVentMolotov}
+                        <SingleGrenade mainStyle={styles.molotovCTVent} grenadePosition={ctVentMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setCtVentMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -478,8 +450,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="ctVentMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovRed} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={redMolotov}
+                        <SingleGrenade mainStyle={styles.molotovRed} grenadePosition={redMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setRedMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -489,8 +460,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="redMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovSecret} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={secretMolotov}
+                        <SingleGrenade mainStyle={styles.molotovSecret} grenadePosition={secretMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSecretMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -500,8 +470,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="secretMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovRampBox} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={rampBoxMolotov}
+                        <SingleGrenade mainStyle={styles.molotovRampBox} grenadePosition={rampBoxMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setRampBoxMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -511,8 +480,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="rampBoxMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovDark} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={darkMolotov}
+                        <SingleGrenade mainStyle={styles.molotovDark} grenadePosition={darkMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setDarkMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -522,8 +490,7 @@ export default function NukeLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="darkMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBSite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSite} grenadePosition={bSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

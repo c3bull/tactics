@@ -12,10 +12,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import infernoLayout from "../../assets/images/mapLayouts/infernoLayout.png";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
-import smokeImage from "../../assets/images/smokeImg.png";
-import flashImage from "../../assets/images/flashImg.png";
-import molotovImage from "../../assets/images/molotovImg.png";
-import deleteImage from "../../assets/images/delete.webp";
+import smokeImage from "../../assets/images/smoke.png";
+import flashImage from "../../assets/images/flash.png";
+import molotovImage from "../../assets/images/molotov.png";
+import deleteImage from "../../assets/images/delete.png";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {infernoPositions} from "../common/positions";
@@ -36,12 +36,8 @@ export default function InfernoTactic({tactic, refresh}) {
         try {
             const value = await AsyncStorage.getItem(tactic);
             if (value !== null) {
-                console.log('nazwa tatkiyty ', tactic)
                 // We have data!!
                 setInfernoTactic(JSON.parse(value));
-                console.log(JSON.parse(value));
-                console.log('mt ', JSON.stringify(infernoTactic));
-
             }
         } catch (error) {
             // Error retrieving data

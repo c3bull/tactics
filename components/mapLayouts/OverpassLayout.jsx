@@ -1,5 +1,4 @@
 import {
-    Dimensions,
     ImageBackground,
     StyleSheet,
     Text,
@@ -23,8 +22,6 @@ import {overpassPositions} from "../common/positions";
 
 export default function OverpassLayout() {
     const navigation = useNavigation();
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
 
     const [aBankSmoke, setABankSmoke] = useState(false)
     const [aVanSmoke, setAVanSmoke] = useState(false)
@@ -187,7 +184,6 @@ export default function OverpassLayout() {
                     selectedIndex={selectedIndex}
                     onPress={(value) => {
                         setSelectedIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -213,7 +209,6 @@ export default function OverpassLayout() {
                     selectedIndex={selectedGrenadeIndex}
                     onPress={(value) => {
                         setSelectedGrenadeIndex(value);
-                        console.log(value)
                     }}
                     containerStyle={{
                         width: '90%',
@@ -224,7 +219,6 @@ export default function OverpassLayout() {
                     }}
                     selectedButtonStyle={{
                         backgroundColor: "#003636",
-                        // borderRadius: 10,
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
@@ -234,8 +228,7 @@ export default function OverpassLayout() {
             <ImageBackground source={overpassLayout} style={{marginBottom: 20, width: 360, height: 345}}>
                 {selectedGrenadeIndex === 0 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.smokeABank} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aBankSmoke}
+                        <SingleGrenade mainStyle={styles.smokeABank} grenadePosition={aBankSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setABankSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -245,8 +238,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aBankSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeAVan} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aVanSmoke}
+                        <SingleGrenade mainStyle={styles.smokeAVan} grenadePosition={aVanSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAVanSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -256,8 +248,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aVanSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeASite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={aSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeASite} grenadePosition={aSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setASiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -267,8 +258,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeStairs} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={stairsSmoke}
+                        <SingleGrenade mainStyle={styles.smokeStairs} grenadePosition={stairsSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setStairsSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -278,8 +268,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="stairsSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeTruck} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={truckSmoke}
+                        <SingleGrenade mainStyle={styles.smokeTruck} grenadePosition={truckSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTruckSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -289,8 +278,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="truckSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeHeaven} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={heavenSmoke}
+                        <SingleGrenade mainStyle={styles.smokeHeaven} grenadePosition={heavenSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setHeavenSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -300,8 +288,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeAbc} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={abcSmoke}
+                        <SingleGrenade mainStyle={styles.smokeAbc} grenadePosition={abcSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAbcSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -311,8 +298,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="abcSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBridge} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bridgeSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBridge} grenadePosition={bridgeSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBridgeSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -322,8 +308,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bridgeSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBSite} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bSiteSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBSite} grenadePosition={bSiteSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBSiteSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -333,8 +318,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeSqueaky} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={squeakySmoke}
+                        <SingleGrenade mainStyle={styles.smokeSqueaky} grenadePosition={squeakySmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setSqueakySmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -344,8 +328,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="squeakySmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBanana} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bananaSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBanana} grenadePosition={bananaSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBananaSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -355,8 +338,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bananaSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeBathroom} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={bathroomSmoke}
+                        <SingleGrenade mainStyle={styles.smokeBathroom} grenadePosition={bathroomSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBathroomSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -366,8 +348,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bathroomSmoke"/>
 
-                        <SingleGrenade mainStyle={styles.smokeConnector} additionalStyle={styles.selectedSmoke}
-                                       grenadePosition={connectorSmoke}
+                        <SingleGrenade mainStyle={styles.smokeConnector} grenadePosition={connectorSmoke}
                                        grenadeAmountHook={setSmokeAmount} grenadePositionHook={setConnectorSmoke}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -379,8 +360,7 @@ export default function OverpassLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.flashMid} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={midFlash}
+                        <SingleGrenade mainStyle={styles.flashMid} grenadePosition={midFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMidFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -390,8 +370,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="midFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashLong} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={longFlash}
+                        <SingleGrenade mainStyle={styles.flashLong} grenadePosition={longFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setLongFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -401,8 +380,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="longFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashASite} grenadePosition={aSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -412,8 +390,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashASiteLong} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={aSiteLongFlash}
+                        <SingleGrenade mainStyle={styles.flashASiteLong} grenadePosition={aSiteLongFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setASiteLongFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -423,8 +400,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteLongFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashMonster} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={monsterFlash}
+                        <SingleGrenade mainStyle={styles.flashMonster} grenadePosition={monsterFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setMonsterFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -434,8 +410,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="monsterFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashShort} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={shortFlash}
+                        <SingleGrenade mainStyle={styles.flashShort} grenadePosition={shortFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setShortFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -445,8 +420,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="shortFlash"/>
 
-                        <SingleGrenade mainStyle={styles.flashBSite} additionalStyle={styles.selectedFlash}
-                                       grenadePosition={bSiteFlash}
+                        <SingleGrenade mainStyle={styles.flashBSite} grenadePosition={bSiteFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setBSiteFlash}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -458,8 +432,7 @@ export default function OverpassLayout() {
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
-                        <SingleGrenade mainStyle={styles.molotovASite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={aSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovASite} grenadePosition={aSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setASiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -469,8 +442,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovTruck} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={truckMolotov}
+                        <SingleGrenade mainStyle={styles.molotovTruck} grenadePosition={truckMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setTruckMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -480,8 +452,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="truckMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovHeaven} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={heavenMolotov}
+                        <SingleGrenade mainStyle={styles.molotovHeaven} grenadePosition={heavenMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setHeavenMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -491,8 +462,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovPit} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={pitMolotov}
+                        <SingleGrenade mainStyle={styles.molotovPit} grenadePosition={pitMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setPitMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -502,8 +472,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="pitMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBSite} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={bSiteMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBSite} grenadePosition={bSiteMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBSiteMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -513,8 +482,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovWater} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={waterMolotov}
+                        <SingleGrenade mainStyle={styles.molotovWater} grenadePosition={waterMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setWaterMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -524,8 +492,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="waterMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovBarrels} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={barrelsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovBarrels} grenadePosition={barrelsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBarrelsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
@@ -535,8 +502,7 @@ export default function OverpassLayout() {
                                        selectedIndex={selectedIndex}
                                        grenadeName="barrelsMolotov"/>
 
-                        <SingleGrenade mainStyle={styles.molotovSandbags} additionalStyle={styles.selectedMolotov}
-                                       grenadePosition={sandbagsMolotov}
+                        <SingleGrenade mainStyle={styles.molotovSandbags} grenadePosition={sandbagsMolotov}
                                        grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSandbagsMolotov}
                                        yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}

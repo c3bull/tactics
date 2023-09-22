@@ -12,10 +12,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, {useEffect, useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
 import TacticGrenadeDisplay from "../TacticGrenadeDisplay";
-import smokeImage from "../../assets/images/smokeImg.png";
-import flashImage from "../../assets/images/flashImg.png";
-import molotovImage from "../../assets/images/molotovImg.png";
-import deleteImage from "../../assets/images/delete.webp";
+import smokeImage from "../../assets/images/smoke.png";
+import flashImage from "../../assets/images/flash.png";
+import molotovImage from "../../assets/images/molotov.png";
+import deleteImage from "../../assets/images/delete.png";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {miragePositions} from "../common/positions";
@@ -36,12 +36,8 @@ export default function MirageTactic({tactic, refresh}) {
         try {
             const value = await AsyncStorage.getItem(tactic);
             if (value !== null) {
-                console.log('nazwa tatkiyty ', tactic)
                 // We have data!!
                 setMirageTactic(JSON.parse(value));
-                console.log(JSON.parse(value));
-                console.log('mt ', JSON.stringify(mirageTactic));
-
             }
         } catch (error) {
             // Error retrieving data
@@ -450,11 +446,9 @@ export default function MirageTactic({tactic, refresh}) {
                     </ImageBackground>
                     <View>
                         <View style={{
-                            // backgroundColor: "#3B3B3B",
                             width: '100%',
                             alignItems: 'center',
                             borderRadius: 10,
-                            // marginVertical: 20,
                             padding: 10,
                         }}>
                             <PlayerTasks player={mirageTactic.playerOneTask} utility={mirageTactic.yellowUtility}
@@ -553,7 +547,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 245,
         left: 145,
-        // backgroundColor: "#fff",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -562,7 +555,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 215,
         left: 184,
-        // backgroundColor: "#fff",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -571,7 +563,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 215,
         left: 184,
-        // backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -580,7 +571,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 25,
         left: 90,
-        // backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -589,7 +579,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 200,
         left: 200,
-        // backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100
@@ -598,7 +587,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 109,
         left: 127,
-        // backgroundColor: "#FDFFF2",
         width: 18,
         height: 18,
         borderRadius: 100

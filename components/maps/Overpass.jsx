@@ -28,8 +28,6 @@ const Overpass = ({route, navigation}) => {
                 setAllOverpassTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allOverpassTactics.length)
-        console.log('amtx ', allOverpassTactics)
     }
 
 
@@ -55,7 +53,6 @@ const Overpass = ({route, navigation}) => {
 
             {allOverpassTactics.length > 0 ?
                 allOverpassTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <OverpassTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -98,7 +95,6 @@ const Overpass = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -143,9 +139,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

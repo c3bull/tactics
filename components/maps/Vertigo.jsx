@@ -29,21 +29,12 @@ const Vertigo = ({route, navigation}) => {
                 setAllVertigoTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allVertigoTactics.length)
-        console.log('amtx ', allVertigoTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
     }, [route, refresh])
-
-
-    // useEffect(() => {
-    //     // do something
-    //     console.log("rut dion")
-    // }, [route]);
-
 
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
@@ -63,7 +54,6 @@ const Vertigo = ({route, navigation}) => {
 
             {allVertigoTactics.length > 0 ?
                 allVertigoTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <VertigoTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -106,7 +96,6 @@ const Vertigo = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -151,9 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

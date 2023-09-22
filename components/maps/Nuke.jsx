@@ -29,21 +29,12 @@ const Nuke = ({route, navigation}) => {
                 setAllNukeTactics(prevState => [...prevState, keys[i]])
             }
         }
-        console.log('amt ', allNukeTactics.length)
-        console.log('amtx ', allNukeTactics)
     }
 
 
     useEffect(() => {
         getAllTactics()
     }, [route, refresh])
-
-
-    // useEffect(() => {
-    //     // do something
-    //     console.log("rut dion")
-    // }, [route]);
-
 
     return (
         <ScrollView style={{backgroundColor: "#0F1114", flex: 1, marginBottom: 45}}
@@ -63,7 +54,6 @@ const Nuke = ({route, navigation}) => {
 
             {allNukeTactics.length > 0 ?
                 allNukeTactics.map((tactic, key) => (
-                        // console.log('tak ', tactic)
                         <View key={key}>
                             <NukeTactic tactic={tactic} refresh={setRefresh}/>
                         </View>
@@ -106,7 +96,6 @@ const Nuke = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        // padding: 10,
         display: "flex",
         alignItems: 'center',
     },
@@ -151,9 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        // width: "45%",
         width: '80%',
-        // padding: 3,
         height: 50,
         borderWidth: 1,
         borderColor: "#00A4A4",

@@ -1,13 +1,11 @@
-import _ from "lodash";
-import {TouchableOpacity, ToastAndroid, StyleSheet, ImageBackground, View} from "react-native";
+import {TouchableOpacity, StyleSheet, ImageBackground, View} from "react-native";
 import React from "react";
-import smokeImage from "../assets/images/smoke.webp"
-import flashImage from "../assets/images/flash.webp"
-import molotovImage from "../assets/images/molotov.webp"
+import smokeImage from "../assets/images/smoke.png"
+import flashImage from "../assets/images/flash.png"
+import molotovImage from "../assets/images/molotov.png"
 
 export default function SingleGrenade({
                                           mainStyle,
-                                          additionalStyle,
                                           grenadeName,
                                           grenadePosition,
                                           grenadePositionHook,
@@ -26,15 +24,6 @@ export default function SingleGrenade({
                                       }) {
 
     let _ = require('lodash');
-    const showToastWithGravityAndOffset = (text) => {
-        ToastAndroid.showWithGravityAndOffset(
-            text,
-            ToastAndroid.SHORT,
-            ToastAndroid.TOP,
-            125,
-            150,
-        );
-    };
 
     let yellowFlashes = [];
     let maxTwoFlashes = [];
@@ -69,9 +58,7 @@ export default function SingleGrenade({
                                               grenadeAmountHook(prevState => prevState + 1)
                                               yellowUtilityHook(prevState => [...prevState, grenadeName])
                                           } else {
-                                              console.log('tu jelow ', yellowFlashes)
                                               if (yellowFlashes[0] === yellowFlashes[1]) {
-                                                  console.log("dwa")
                                                   yellowUtilityHook(_.without(yellowUtility, yellowFlashes[0]));
                                                   yellowUtilityHook(prevState => [...prevState, yellowFlashes[0]])
                                                   yellowUtilityHook(prevState => [...prevState, grenadeName])
@@ -100,35 +87,26 @@ export default function SingleGrenade({
                                       }
                                   } else {
                                       if (!grenadeName.toLowerCase().includes("flash")) {
-                                          console.log('gn ', grenadeName)
                                           grenadePositionHook(false);
                                           grenadeAmountHook(prevState => prevState - 1)
                                           selectedIndex === 0 && yellowUtilityHook(prevState => _.without(prevState, grenadeName))
                                       } else {
                                           for (let i = 0; i < yellowUtility.length; i++) {
                                               if (yellowUtility[i].toLowerCase().includes("flash")) {
-                                                  console.log('--------')
                                                   maxTwoFlashes.push(yellowUtility[i]);
                                               }
                                           }
-                                          console.log('maxTwoFlashes ', maxTwoFlashes)
                                           if (maxTwoFlashes.length === 2) {
-                                              console.log("jeden")
                                               if (maxTwoFlashes[0] === maxTwoFlashes[1]) {
-                                                  console.log("dwa")
-
                                                   grenadeAmountHook(prevState => prevState - 2)
                                                   selectedIndex === 0 && yellowUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                               } else {
-                                                  console.log("trzy")
-                                                  console.log('gren p ', grenadePosition)
                                                   selectedIndex === 0 && yellowUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                                   grenadeAmountHook(prevState => prevState - 1)
                                               }
                                           } else {
-                                              console.log("ile fleszyy")
                                               grenadeAmountHook(prevState => prevState + 1)
                                               yellowUtilityHook(prevState => [...prevState, grenadeName])
                                           }
@@ -162,9 +140,7 @@ export default function SingleGrenade({
                                               grenadeAmountHook(prevState => prevState + 1)
                                               blueUtilityHook(prevState => [...prevState, grenadeName])
                                           } else {
-                                              console.log('tu jelow ', yellowFlashes)
                                               if (yellowFlashes[0] === yellowFlashes[1]) {
-                                                  console.log("dwa")
                                                   blueUtilityHook(_.without(blueUtility, yellowFlashes[0]));
                                                   blueUtilityHook(prevState => [...prevState, yellowFlashes[0]])
                                                   blueUtilityHook(prevState => [...prevState, grenadeName])
@@ -193,35 +169,26 @@ export default function SingleGrenade({
                                       }
                                   } else {
                                       if (!grenadeName.toLowerCase().includes("flash")) {
-                                          console.log('gn ', grenadeName)
                                           grenadePositionHook(false);
                                           grenadeAmountHook(prevState => prevState - 1)
                                           selectedIndex === 1 && blueUtilityHook(prevState => _.without(prevState, grenadeName))
                                       } else {
                                           for (let i = 0; i < blueUtility.length; i++) {
                                               if (blueUtility[i].toLowerCase().includes("flash")) {
-                                                  console.log('--------')
                                                   maxTwoFlashes.push(blueUtility[i]);
                                               }
                                           }
-                                          console.log('maxTwoFlashes ', maxTwoFlashes)
                                           if (maxTwoFlashes.length === 2) {
-                                              console.log("jeden")
                                               if (maxTwoFlashes[0] === maxTwoFlashes[1]) {
-                                                  console.log("dwa")
-
                                                   grenadeAmountHook(prevState => prevState - 2)
                                                   selectedIndex === 1 && blueUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                               } else {
-                                                  console.log("trzy")
-                                                  console.log('gren p ', grenadePosition)
                                                   selectedIndex === 1 && blueUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                                   grenadeAmountHook(prevState => prevState - 1)
                                               }
                                           } else {
-                                              console.log("ile fleszyy")
                                               grenadeAmountHook(prevState => prevState + 1)
                                               blueUtilityHook(prevState => [...prevState, grenadeName])
                                           }
@@ -255,9 +222,7 @@ export default function SingleGrenade({
                                               grenadeAmountHook(prevState => prevState + 1)
                                               purpleUtilityHook(prevState => [...prevState, grenadeName])
                                           } else {
-                                              console.log('tu jelow ', yellowFlashes)
                                               if (yellowFlashes[0] === yellowFlashes[1]) {
-                                                  console.log("dwa")
                                                   purpleUtilityHook(_.without(purpleUtility, yellowFlashes[0]));
                                                   purpleUtilityHook(prevState => [...prevState, yellowFlashes[0]])
                                                   purpleUtilityHook(prevState => [...prevState, grenadeName])
@@ -286,35 +251,26 @@ export default function SingleGrenade({
                                       }
                                   } else {
                                       if (!grenadeName.toLowerCase().includes("flash")) {
-                                          console.log('gn ', grenadeName)
                                           grenadePositionHook(false);
                                           grenadeAmountHook(prevState => prevState - 1)
                                           selectedIndex === 2 && purpleUtilityHook(prevState => _.without(prevState, grenadeName))
                                       } else {
                                           for (let i = 0; i < purpleUtility.length; i++) {
                                               if (purpleUtility[i].toLowerCase().includes("flash")) {
-                                                  console.log('--------')
                                                   maxTwoFlashes.push(purpleUtility[i]);
                                               }
                                           }
-                                          console.log('maxTwoFlashes ', maxTwoFlashes)
                                           if (maxTwoFlashes.length === 2) {
-                                              console.log("jeden")
                                               if (maxTwoFlashes[0] === maxTwoFlashes[1]) {
-                                                  console.log("dwa")
-
                                                   grenadeAmountHook(prevState => prevState - 2)
                                                   selectedIndex === 2 && purpleUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                               } else {
-                                                  console.log("trzy")
-                                                  console.log('gren p ', grenadePosition)
                                                   selectedIndex === 2 && purpleUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                                   grenadeAmountHook(prevState => prevState - 1)
                                               }
                                           } else {
-                                              console.log("ile fleszyy")
                                               grenadeAmountHook(prevState => prevState + 1)
                                               purpleUtilityHook(prevState => [...prevState, grenadeName])
                                           }
@@ -348,9 +304,7 @@ export default function SingleGrenade({
                                               grenadeAmountHook(prevState => prevState + 1)
                                               greenUtilityHook(prevState => [...prevState, grenadeName])
                                           } else {
-                                              console.log('tu jelow ', yellowFlashes)
                                               if (yellowFlashes[0] === yellowFlashes[1]) {
-                                                  console.log("dwa")
                                                   greenUtilityHook(_.without(greenUtility, yellowFlashes[0]));
                                                   greenUtilityHook(prevState => [...prevState, yellowFlashes[0]])
                                                   greenUtilityHook(prevState => [...prevState, grenadeName])
@@ -379,35 +333,26 @@ export default function SingleGrenade({
                                       }
                                   } else {
                                       if (!grenadeName.toLowerCase().includes("flash")) {
-                                          console.log('gn ', grenadeName)
                                           grenadePositionHook(false);
                                           grenadeAmountHook(prevState => prevState - 1)
                                           selectedIndex === 3 && greenUtilityHook(prevState => _.without(prevState, grenadeName))
                                       } else {
                                           for (let i = 0; i < greenUtility.length; i++) {
                                               if (greenUtility[i].toLowerCase().includes("flash")) {
-                                                  console.log('--------')
                                                   maxTwoFlashes.push(greenUtility[i]);
                                               }
                                           }
-                                          console.log('maxTwoFlashes ', maxTwoFlashes)
                                           if (maxTwoFlashes.length === 2) {
-                                              console.log("jeden")
                                               if (maxTwoFlashes[0] === maxTwoFlashes[1]) {
-                                                  console.log("dwa")
-
                                                   grenadeAmountHook(prevState => prevState - 2)
                                                   selectedIndex === 3 && greenUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                               } else {
-                                                  console.log("trzy")
-                                                  console.log('gren p ', grenadePosition)
                                                   selectedIndex === 3 && greenUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                                   grenadeAmountHook(prevState => prevState - 1)
                                               }
                                           } else {
-                                              console.log("ile fleszyy")
                                               grenadeAmountHook(prevState => prevState + 1)
                                               greenUtilityHook(prevState => [...prevState, grenadeName])
                                           }
@@ -440,9 +385,7 @@ export default function SingleGrenade({
                                               grenadeAmountHook(prevState => prevState + 1)
                                               orangeUtilityHook(prevState => [...prevState, grenadeName])
                                           } else {
-                                              console.log('tu jelow ', yellowFlashes)
                                               if (yellowFlashes[0] === yellowFlashes[1]) {
-                                                  console.log("dwa")
                                                   orangeUtilityHook(_.without(orangeUtility, yellowFlashes[0]));
                                                   orangeUtilityHook(prevState => [...prevState, yellowFlashes[0]])
                                                   orangeUtilityHook(prevState => [...prevState, grenadeName])
@@ -471,35 +414,26 @@ export default function SingleGrenade({
                                       }
                                   } else {
                                       if (!grenadeName.toLowerCase().includes("flash")) {
-                                          console.log('gn ', grenadeName)
                                           grenadePositionHook(false);
                                           grenadeAmountHook(prevState => prevState - 1)
                                           selectedIndex === 4 && orangeUtilityHook(prevState => _.without(prevState, grenadeName))
                                       } else {
                                           for (let i = 0; i < orangeUtility.length; i++) {
                                               if (orangeUtility[i].toLowerCase().includes("flash")) {
-                                                  console.log('--------')
                                                   maxTwoFlashes.push(orangeUtility[i]);
                                               }
                                           }
-                                          console.log('maxTwoFlashes ', maxTwoFlashes)
                                           if (maxTwoFlashes.length === 2) {
-                                              console.log("jeden")
                                               if (maxTwoFlashes[0] === maxTwoFlashes[1]) {
-                                                  console.log("dwa")
-
                                                   grenadeAmountHook(prevState => prevState - 2)
                                                   selectedIndex === 4 && orangeUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                               } else {
-                                                  console.log("trzy")
-                                                  console.log('gren p ', grenadePosition)
                                                   selectedIndex === 4 && orangeUtilityHook(prevState => _.without(prevState, grenadeName))
                                                   grenadePositionHook(false);
                                                   grenadeAmountHook(prevState => prevState - 1)
                                               }
                                           } else {
-                                              console.log("ile fleszyy")
                                               grenadeAmountHook(prevState => prevState + 1)
                                               orangeUtilityHook(prevState => [...prevState, grenadeName])
                                           }
