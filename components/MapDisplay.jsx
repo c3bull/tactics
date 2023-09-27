@@ -36,7 +36,7 @@ const MapDisplay = ({navigation}) => {
                             <LinearGradient
                                 colors={["#00A4A4", "#0F1114"]}
                                 start={[-1, 1]}
-                                end={[-1, 0.3]}
+                                end={[-1, 0]}
                                 style={styles.linearGradientButtons}
                             >
                                 <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
         fontSize: 24,
         height: '100%',
         textAlignVertical: 'center',
-        padding: 5,
+        paddingLeft: 4,
+        paddingTop: 3,
         fontFamily: 'PoppinsMedium',
     },
     headerText: {

@@ -223,7 +223,7 @@ export default function VertigoLayout() {
                         borderColor: "#FFF",
                         borderWidth: 2
                     }}
-                    buttonContainerStyle={{backgroundColor: "#0F1114BB", borderWidth: 1, borderColor: "#0F1114" }}
+                    buttonContainerStyle={{backgroundColor: "#0F1114BB", borderWidth: 1, borderColor: "#0F1114"}}
                 />
             </View>
             <ImageBackground source={vertigoLayout} style={{marginBottom: 20, width: 360, height: 310}}>
@@ -586,7 +586,8 @@ export default function VertigoLayout() {
                     width: '100%',
                     alignItems: 'center',
                     borderRadius: 10,
-                    marginVertical: 20,
+                    marginTop: 20,
+                    marginBottom: 10,
                     // padding: 10,
                 }}>
                     <AddPlayerTask setTaskHook={setPlayerOneTask} utility={yellowUtility} placeholder="Player 1"
@@ -601,9 +602,14 @@ export default function VertigoLayout() {
                                    color="#CD5A00" positions={vertigoPositions}/>
                 </View>
                 <TouchableOpacity
-                    style={{backgroundColor: "#00A225", width: '100%', padding: 15, borderRadius: 10}}
+                    style={styles.addTacticButton}
                     onPress={() => saveTactic()}>
-                    <Text style={{color: "#FFF", textAlign: "center", fontSize: 22}}>
+                    <Text style={{
+                        color: "#FFF", textAlign: "center", fontSize: 20,
+                        fontFamily: "PoppinsMedium",
+                        textTransform: "uppercase",
+                        paddingTop: 2,
+                    }}>
                         Add Tactic!
                     </Text>
                 </TouchableOpacity>
@@ -930,5 +936,20 @@ const styles = StyleSheet.create({
         width: 18,
         height: 18,
         borderRadius: 100
+    },
+    addTacticButton: {
+        backgroundColor: "#00A225",
+        width: '100%',
+        padding: 12,
+        borderRadius: 10,
+        shadowColor: "#00ff00",
+        shadowOffset: {
+            width: 10,
+            height: 15,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 5.00,
+
+        elevation: 10,
     },
 });

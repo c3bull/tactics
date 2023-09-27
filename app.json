@@ -19,7 +19,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0F1114"
+      },
+      "package": "com.c3bull.tactics"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "aec4fc0e-845a-4071-b277-1c5818bb2828"
       }
-    }
+    },
+    "owner": "c3bull"
   }
 }

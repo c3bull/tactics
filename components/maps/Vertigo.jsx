@@ -60,20 +60,21 @@ const Vertigo = ({route, navigation}) => {
                     )
                 )
                 :
-                <View>
+                <View style={{paddingTop: 25, paddingHorizontal: 15, width: '100%'}}>
                     <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
                     <Text style={styles.hidden}>  {setTimeout(() => setNoTacticsSpinner(false), 1000)}</Text>
                     {noTactics && (
                         <View style={styles.noTactics}>
-                            <Text style={{color: "#FFF", fontSize: 22, textTransform: 'uppercase', fontWeight: '500'}}>
-                                No Tactics yet :(</Text>
-                            <TouchableOpacity style={styles.singleTactic} onPress={() => {
+                            <Text style={{color: "#FFF", fontSize: 22, textTransform: 'uppercase', fontFamily: "PoppinsRegular",
+                                textAlign: "center"}}>
+                                You don't have any vertigo tactics yet</Text>
+                            <TouchableOpacity style={styles.addTacticButton} onPress={() => {
                                 navigation.navigate('add-tactic')
                             }}>
                                 <LinearGradient
                                     colors={["#00A4A4", "#0F1114"]}
                                     start={[-1, 1]}
-                                    end={[-1, 0.3]}
+                                    end={[-1, 0]}
                                     style={styles.linearGradientButtons}
                                 >
                                     <View style={{display: "flex", flexDirection: "row", height: '100%'}}>
@@ -133,15 +134,15 @@ const styles = StyleSheet.create({
         overflow: "hidden",
         display: "flex",
     },
-    singleTactic: {
+    addTacticButton: {
         borderRadius: 10,
         overflow: "hidden",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#003636",
-        width: '80%',
-        height: 50,
+        width: '100%',
+        height: 80,
         borderWidth: 1,
         borderColor: "#00A4A4",
     },
@@ -158,8 +159,9 @@ const styles = StyleSheet.create({
         height: '100%',
         textAlignVertical: "center",
         textTransform: "uppercase",
-        fontWeight: '500',
-        fontSize: 20,
+        paddingTop: 3,
+        fontFamily: "PoppinsMedium",
+        fontSize: 26,
     },
 });
 
