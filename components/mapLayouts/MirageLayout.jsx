@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     View,
     Image,
-    TextInput, ToastAndroid,
+    TextInput, ToastAndroid
 } from "react-native";
 import React, {useState} from "react";
 import mirageLayout from "../../assets/images/mapLayouts/mirageLayout.png";
