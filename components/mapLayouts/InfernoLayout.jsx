@@ -41,6 +41,14 @@ export default function InfernoLayout() {
     const [truckSmoke, setTruckSmoke] = useState(false)
     const [miniPitSmoke, setMiniPitSmoke] = useState(false)
     const [pitSmoke, setPitSmoke] = useState(false)
+    const [carSmoke, setCarSmoke] = useState(false)
+    const [bananaSmoke, setBananaSmoke] = useState(false)
+    const [bottomBananaSmoke, setBottomBananaSmoke] = useState(false)
+    const [tRampSmoke, setTRampSmoke] = useState(false)
+    const [bEntranceSmoke, setBEntranceSmoke] = useState(false)
+    const [midSmoke, setMidSmoke] = useState(false)
+    const [secondMidSmoke, setSecondMidSmoke] = useState(false)
+    const [appsSmoke, setAppsSmoke] = useState(false)
 
     const [bCTFlash, setBCTFlash] = useState(false)
     const [bEntranceFlash, setBEntranceFlash] = useState(false)
@@ -50,6 +58,13 @@ export default function InfernoLayout() {
     const [longFlash, setLongFlash] = useState(false)
     const [aAppsFlash, setAAppsFlash] = useState(false)
     const [aSiteFlash, setASiteFlash] = useState(false)
+    const [bottomBananaFlash, setBottomBananaFlash] = useState(false)
+    const [tRampFlash, setTRampFlash] = useState(false)
+    const [midFlash, setMidFlash] = useState(false)
+    const [secondMidFlash, setSecondMidFlash] = useState(false)
+    const [shortFlash, setShortFlash] = useState(false)
+    const [appsFlash, setAppsFlash] = useState(false)
+    const [pitFlash, setPitFlash] = useState(false)
 
     const [bCarMolotov, setBCarMolotov] = useState(false)
     const [bFirstBoxMolotov, setBFirstBoxMolotov] = useState(false)
@@ -62,6 +77,13 @@ export default function InfernoLayout() {
     const [roofMolotov, setRoofMolotov] = useState(false)
     const [miniPitMolotov, setMiniPitMolotov] = useState(false)
     const [pitMolotov, setPitMolotov] = useState(false)
+    const [bStandardMolotov, setBStandardMolotov] = useState(false)
+    const [bPoolMolotov, setBPoolMolotov] = useState(false)
+    const [bEntranceMolotov, setBEntranceMolotov] = useState(false)
+    const [bananaMolotov, setBananaMolotov] = useState(false)
+    const [bottomBananaMolotov, setBottomBananaMolotov] = useState(false)
+    const [aSiteCornerMolotov, setASiteCornerMolotov] = useState(false)
+    const [aSiteDefaultMolotov, setASiteDefaultMolotov] = useState(false)
 
     const [smokeAmount, setSmokeAmount] = useState(0)
     const [flashAmount, setFlashAmount] = useState(0)
@@ -404,6 +426,87 @@ export default function InfernoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="pitSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeCar} grenadePosition={carSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCarSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="carSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBanana} grenadePosition={bananaSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBananaSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bananaSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBottomBanana} grenadePosition={bottomBananaSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBottomBananaSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bottomBananaSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeTRamp} grenadePosition={tRampSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setTRampSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="tRampSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBEntrance} grenadePosition={bEntranceSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBEntranceSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bEntranceSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeMid} grenadePosition={midSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="midSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeSecondMid} grenadePosition={secondMidSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setSecondMidSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="secondMidSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeApps} grenadePosition={appsSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setAppsSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="appsSmoke"/>
+
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
@@ -449,7 +552,7 @@ export default function InfernoLayout() {
 
                         <SingleGrenade mainStyle={styles.flashTopMid} grenadePosition={topMidFlash}
                                        grenadeAmountHook={setFlashAmount} grenadePositionHook={setTopMidFlash}
-                                       yellowUtility={yellowUtility} yellowUtilityHook={setTopMidFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
                                        blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
                                        purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
                                        greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
@@ -486,6 +589,77 @@ export default function InfernoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashBottomBanana} grenadePosition={bottomBananaFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setBottomBananaFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bottomBananaFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashTRamp} grenadePosition={tRampFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setTRampFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="tRampFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashMid} grenadePosition={midFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setMidFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="midFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashSecondMid} grenadePosition={secondMidFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setSecondMidFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="secondMidFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashShort} grenadePosition={shortFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setShortFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="shortFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashApps} grenadePosition={appsFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setAppsFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="appsFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashPit} grenadePosition={pitFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setPitFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="pitFlash"/>
+
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
@@ -598,6 +772,76 @@ export default function InfernoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="pitMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovBStandard} grenadePosition={bStandardMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBStandardMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bStandardMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovBPool} grenadePosition={bPoolMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBPoolMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bPoolMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovBEntrance} grenadePosition={bEntranceMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBEntranceMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bEntranceMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovBanana} grenadePosition={bananaMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBananaMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bananaMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovBottomBanana} grenadePosition={bottomBananaMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setBottomBananaMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bottomBananaMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovASiteCorner} grenadePosition={aSiteCornerMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setASiteCornerMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aSiteCornerMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovASiteDefault} grenadePosition={aSiteDefaultMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setASiteDefaultMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aSiteDefaultMolotov"/>
                     </View>)}
             </ImageBackground>
             <View style={{
@@ -789,6 +1033,78 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeCar: {
+        position: 'absolute',
+        top: 119,
+        left: 162,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBanana: {
+        position: 'absolute',
+        top: 141,
+        left: 152,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBottomBanana: {
+        position: 'absolute',
+        top: 175,
+        left: 147,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeTRamp: {
+        position: 'absolute',
+        top: 194,
+        left: 145,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBEntrance: {
+        position: 'absolute',
+        top: 87,
+        left: 194,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeMid: {
+        position: 'absolute',
+        top: 211,
+        left: 180,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeSecondMid: {
+        position: 'absolute',
+        top: 234,
+        left: 198,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeApps: {
+        position: 'absolute',
+        top: 275,
+        left: 269,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     smokeBCTDeep: {
         position: 'absolute',
         top: 50,
@@ -910,6 +1226,69 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 61,
         left: 210,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashBottomBanana: {
+        position: 'absolute',
+        top: 152,
+        left: 149,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashTRamp: {
+        position: 'absolute',
+        top: 194,
+        left: 145,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashMid: {
+        position: 'absolute',
+        top: 215,
+        left: 198,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashSecondMid: {
+        position: 'absolute',
+        top: 259,
+        left: 198,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashShort: {
+        position: 'absolute',
+        top: 251,
+        left: 260,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashApps: {
+        position: 'absolute',
+        top: 275,
+        left: 269,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashPit: {
+        position: 'absolute',
+        top: 273,
+        left: 302,
         backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
@@ -1072,6 +1451,69 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 263,
         left: 322,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBStandard: {
+        position: 'absolute',
+        top: 43,
+        left: 173,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBPool: {
+        position: 'absolute',
+        top: 44,
+        left: 191,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBEntrance: {
+        position: 'absolute',
+        top: 87,
+        left: 194,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBanana: {
+        position: 'absolute',
+        top: 125,
+        left: 160,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBottomBanana: {
+        position: 'absolute',
+        top: 147,
+        left: 150,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovASiteCorner: {
+        position: 'absolute',
+        top: 207,
+        left: 274,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovASiteDefault: {
+        position: 'absolute',
+        top: 240,
+        left: 286,
         backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
