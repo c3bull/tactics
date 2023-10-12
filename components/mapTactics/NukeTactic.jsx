@@ -20,7 +20,7 @@ import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {nukePositions} from "../common/positions";
 
-export default function NukeTactic({tactic, refresh}) {
+export default function NukeTactic({tactic, refresh, tacticSite}) {
     let _ = require('lodash');
     const [nukeTactic, setNukeTactic] = useState([])
     const [showSmokes, setShowSmokes] = useState(true)
@@ -71,7 +71,7 @@ export default function NukeTactic({tactic, refresh}) {
         ) : (
             <View key={nukeTactic.tacticName}>
                 <TouchableWithoutFeedback onPress={onItemPress}>
-                    <View style={styles.container}>
+                    <View style={[styles.container, tacticSite === "tSite" ? styles.tSiteContainer : styles.ctSiteContainer]}>
                         <View style={styles.textContainer}>
                             <Text style={{
                                 color: "#FFF",
@@ -381,9 +381,14 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         width: 360,
-        backgroundColor: "#272727",
         margin: 2,
         borderRadius: 5,
+    },
+    tSiteContainer: {
+        backgroundColor: "#682525",
+    },
+    ctSiteContainer: {
+        backgroundColor: "#314861",
     },
     image: {
         width: 50,

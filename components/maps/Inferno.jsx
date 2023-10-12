@@ -14,12 +14,16 @@ import infernoBg from "../../assets/images/maps/inferno.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {infernoLogo} from "../../assets/images/mapLogos/mapLogos";
 import InfernoTactic from "../mapTactics/InfernoTactic";
+import tSide from "../../assets/images/tside.webp";
+import ctSide from "../../assets/images/ctside.webp";
 
 const Inferno = ({route, navigation}) => {
     const [allInfernoTactics, setAllInfernoTactics] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [noTactics, setNoTactics] = useState(false);
     const [noTacticsSpinner, setNoTacticsSpinner] = useState(true);
+    const [showTSiteTactics, setShowTSiteTactics] = useState(true);
+    const [showCTSiteTactics, setShowCTSiteTactics] = useState(true);
 
     const getAllTactics = async () => {
         setAllInfernoTactics([])
@@ -52,14 +56,38 @@ const Inferno = ({route, navigation}) => {
                     </LinearGradient>
                 </ImageBackground>
             </View>
-
             {allInfernoTactics.length > 0 ?
-                allInfernoTactics.map((tactic, key) => (
-                        <View key={key}>
-                            <InfernoTactic tactic={tactic} refresh={setRefresh}/>
-                        </View>
-                    )
-                )
+                <View style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <View style={{display: "flex", flexDirection: "row", gap: 12, paddingVertical: 10}}>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={tSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showCTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowCTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={ctSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {allInfernoTactics.map((tactic, key) => (
+                            tactic.includes("attacking_site_tactic_") ?
+                                <View key={key}>
+                                    {showTSiteTactics &&
+                                        <InfernoTactic tactic={tactic} refresh={setRefresh} tacticSite="tSite"/>}
+                                </View> :
+                                <View key={key}>
+                                    {showCTSiteTactics &&
+                                        <InfernoTactic tactic={tactic} refresh={setRefresh} tacticSite="ctSite"/>}
+                                </View>
+                        )
+                    )}
+                </View>
+
                 :
                 <View style={{paddingTop: 25, paddingHorizontal: 15, width: '100%'}}>
                     <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
@@ -112,6 +140,18 @@ const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         marginBottom: 2,
+    },
+    selectedTactic: {
+        borderWidth: 1,
+        borderColor: "#fff",
+        borderRadius: 100,
+        padding: 2,
+    },
+    tacticSiteImage: {
+        borderWidth: 1,
+        borderColor: "#0F1114",
+        borderRadius: 100,
+        padding: 2,
     },
     imgBackground: {
         flex: 1,

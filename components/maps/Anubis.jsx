@@ -14,12 +14,15 @@ import anubisBg from "../../assets/images/maps/anubis.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {anubisLogo} from "../../assets/images/mapLogos/mapLogos";
 import AnubisTactic from "../mapTactics/AnubisTactic";
-
+import tSide from "../../assets/images/tside.webp";
+import ctSide from "../../assets/images/ctside.webp";
 const Anubis = ({route, navigation}) => {
     const [allAnubisTactics, setAllAnubisTactics] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [noTactics, setNoTactics] = useState(false);
     const [noTacticsSpinner, setNoTacticsSpinner] = useState(true);
+    const [showTSiteTactics, setShowTSiteTactics] = useState(true);
+    const [showCTSiteTactics, setShowCTSiteTactics] = useState(true);
 
     const getAllTactics = async () => {
         setAllAnubisTactics([])
@@ -51,14 +54,37 @@ const Anubis = ({route, navigation}) => {
                     </LinearGradient>
                 </ImageBackground>
             </View>
-
             {allAnubisTactics.length > 0 ?
-                allAnubisTactics.map((tactic, key) => (
-                        <View key={key}>
-                            <AnubisTactic tactic={tactic} refresh={setRefresh}/>
-                        </View>
-                    )
-                )
+                <View style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <View style={{display: "flex", flexDirection: "row", gap: 12, paddingVertical: 10}}>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={tSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showCTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowCTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={ctSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {allAnubisTactics.map((tactic, key) => (
+                            tactic.includes("attacking_site_tactic_") ?
+                                <View key={key}>
+                                    {showTSiteTactics &&
+                                        <AnubisTactic tactic={tactic} refresh={setRefresh} tacticSite="tSite"/>}
+                                </View> :
+                                <View key={key}>
+                                    {showCTSiteTactics &&
+                                        <AnubisTactic tactic={tactic} refresh={setRefresh} tacticSite="ctSite"/>}
+                                </View>
+                        )
+                    )}
+                </View>
                 :
                 <View style={{paddingTop: 25, paddingHorizontal: 15, width: '100%'}}>
                     <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
@@ -108,6 +134,18 @@ const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         marginBottom: 2,
+    },
+    selectedTactic: {
+        borderWidth: 1,
+        borderColor: "#fff",
+        borderRadius: 100,
+        padding: 2,
+    },
+    tacticSiteImage: {
+        borderWidth: 1,
+        borderColor: "#0F1114",
+        borderRadius: 100,
+        padding: 2,
     },
     imgBackground: {
         flex: 1,

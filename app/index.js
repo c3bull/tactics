@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import TabNavigation from "../components/TabNavigation";
 import {SafeAreaView, StatusBar} from "react-native";
@@ -28,7 +28,7 @@ export function Navigation() {
                 });
                 // Artificially delay for two seconds to simulate a slow loading
                 // experience. Please remove this if you copy and paste the code!
-                // await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise(resolve => setTimeout(resolve, 1000));
             } catch (e) {
                 console.warn(e);
             } finally {

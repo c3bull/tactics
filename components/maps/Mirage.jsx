@@ -14,12 +14,16 @@ import MirageTactic from "../mapTactics/MirageTactic";
 import mirageBg from "../../assets/images/maps/mirage.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {mirageLogo} from "../../assets/images/mapLogos/mapLogos";
+import tSide from "../../assets/images/tside.webp";
+import ctSide from "../../assets/images/ctside.webp";
 
 const Mirage = ({route, navigation}) => {
     const [allMirageTactics, setAllMirageTactics] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [noTactics, setNoTactics] = useState(false);
     const [noTacticsSpinner, setNoTacticsSpinner] = useState(true);
+    const [showTSiteTactics, setShowTSiteTactics] = useState(true);
+    const [showCTSiteTactics, setShowCTSiteTactics] = useState(true);
 
     const getAllTactics = async () => {
         setAllMirageTactics([])
@@ -51,14 +55,37 @@ const Mirage = ({route, navigation}) => {
                     </LinearGradient>
                 </ImageBackground>
             </View>
-
             {allMirageTactics.length > 0 ?
-                allMirageTactics.map((tactic, key) => (
-                        <View key={key}>
-                            <MirageTactic tactic={tactic} refresh={setRefresh}/>
-                        </View>
-                    )
-                )
+                <View style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <View style={{display: "flex", flexDirection: "row", gap: 12, paddingVertical: 10}}>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={tSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showCTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowCTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={ctSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {allMirageTactics.map((tactic, key) => (
+                            tactic.includes("attacking_site_tactic_") ?
+                                <View key={key}>
+                                    {showTSiteTactics &&
+                                        <MirageTactic tactic={tactic} refresh={setRefresh} tacticSite="tSite"/>}
+                                </View> :
+                                <View key={key}>
+                                    {showCTSiteTactics &&
+                                        <MirageTactic tactic={tactic} refresh={setRefresh} tacticSite="ctSite"/>}
+                                </View>
+                        )
+                    )}
+                </View>
                 :
                 <View style={{paddingTop: 25, paddingHorizontal: 15, width: '100%'}}>
                     <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
@@ -110,6 +137,18 @@ const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         marginBottom: 2,
+    },
+    selectedTactic: {
+        borderWidth: 1,
+        borderColor: "#fff",
+        borderRadius: 100,
+        padding: 2,
+    },
+    tacticSiteImage: {
+        borderWidth: 1,
+        borderColor: "#0F1114",
+        borderRadius: 100,
+        padding: 2,
     },
     imgBackground: {
         flex: 1,

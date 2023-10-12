@@ -14,12 +14,17 @@ import OverpassTactic from "../mapTactics/OverpassTactic";
 import overpassBg from "../../assets/images/maps/overpass.png";
 import {LinearGradient} from "expo-linear-gradient";
 import {overpassLogo} from "../../assets/images/mapLogos/mapLogos";
+import tSide from "../../assets/images/tside.webp";
+import ctSide from "../../assets/images/ctside.webp";
 
 const Overpass = ({route, navigation}) => {
     const [allOverpassTactics, setAllOverpassTactics] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [noTactics, setNoTactics] = useState(false);
     const [noTacticsSpinner, setNoTacticsSpinner] = useState(true);
+    const [showTSiteTactics, setShowTSiteTactics] = useState(true);
+    const [showCTSiteTactics, setShowCTSiteTactics] = useState(true);
+
     const getAllTactics = async () => {
         setAllOverpassTactics([])
         const keys = await AsyncStorage.getAllKeys();
@@ -50,14 +55,37 @@ const Overpass = ({route, navigation}) => {
                     </LinearGradient>
                 </ImageBackground>
             </View>
-
             {allOverpassTactics.length > 0 ?
-                allOverpassTactics.map((tactic, key) => (
-                        <View key={key}>
-                            <OverpassTactic tactic={tactic} refresh={setRefresh}/>
-                        </View>
-                    )
-                )
+                <View style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <View style={{display: "flex", flexDirection: "row", gap: 12, paddingVertical: 10}}>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={tSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={[styles.tacticSiteImage, showCTSiteTactics && styles.selectedTactic]}
+                                          onPress={() => setShowCTSiteTactics(prevState => !prevState)}>
+                            <ImageBackground source={ctSide} resizeMode="contain" style={{
+                                width: 50,
+                                height: 50,
+                            }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {allOverpassTactics.map((tactic, key) => (
+                            tactic.includes("attacking_site_tactic_") ?
+                                <View key={key}>
+                                    {showTSiteTactics &&
+                                        <OverpassTactic tactic={tactic} refresh={setRefresh} tacticSite="tSite"/>}
+                                </View> :
+                                <View key={key}>
+                                    {showCTSiteTactics &&
+                                        <OverpassTactic tactic={tactic} refresh={setRefresh} tacticSite="ctSite"/>}
+                                </View>
+                        )
+                    )}
+                </View>
                 :
                 <View style={{paddingTop: 25, paddingHorizontal: 15, width: '100%'}}>
                     <Text style={styles.hidden}>{setTimeout(() => setNoTactics(true), 1000)}</Text>
@@ -107,6 +135,18 @@ const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         marginBottom: 2,
+    },
+    selectedTactic: {
+        borderWidth: 1,
+        borderColor: "#fff",
+        borderRadius: 100,
+        padding: 2,
+    },
+    tacticSiteImage: {
+        borderWidth: 1,
+        borderColor: "#0F1114",
+        borderRadius: 100,
+        padding: 2,
     },
     imgBackground: {
         flex: 1,

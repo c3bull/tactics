@@ -19,6 +19,9 @@ import AwesomeAlert from "react-native-awesome-alerts";
 import {useNavigation} from '@react-navigation/native';
 import AddPlayerTask from "../addPlayerTask";
 import {nukePositions} from "../common/positions";
+import uuid from "react-native-uuid";
+import ctSide from "../../assets/images/ctside.webp";
+import tSide from "../../assets/images/tside.webp";
 
 export default function NukeLayout() {
     const navigation = useNavigation();
@@ -64,6 +67,7 @@ export default function NukeLayout() {
     const [playerFourTask, setPlayerFourTask] = useState("")
     const [playerFiveTask, setPlayerFiveTask] = useState("")
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedSiteIndex, setSelectedSiteIndex] = useState(0);
     const [selectedGrenadeIndex, setSelectedGrenadeIndex] = useState(0);
 
     const [yellowUtility, setYellowUtility] = useState([]);
@@ -85,8 +89,15 @@ export default function NukeLayout() {
     const [showAlert, setShowAlert] = useState(false)
 
     const saveTactic = () => {
+        let chosenSite = "";
         if (tacticName !== "" && tacticDescription !== "") {
-            let tacticKey = "map_nuke_" + tacticName.toLowerCase().split(" ").join("").concat(tacticDescription.toLowerCase().split(" ").join(""))
+            if (selectedSiteIndex === 0) {
+                chosenSite = "attacking_site_tactic_"
+            } else if (selectedSiteIndex === 1) {
+                chosenSite = "defending_site_tactic_"
+            }
+            let tacticKey = "map_nuke_" + chosenSite + tacticName.toLowerCase().split(" ").join("").concat(tacticDescription.toLowerCase().split(" ").join("")) + uuid.v4()
+
             let tacticObject = {
                 yellowUtility: yellowUtility,
                 blueUtility: blueUtility,
@@ -507,8 +518,39 @@ export default function NukeLayout() {
                 alignItems: 'center',
                 marginBottom: 28,
                 padding: 20,
+                paddingTop: 5,
                 borderRadius: 10,
             }}>
+                <ButtonGroup
+                    buttons={[
+                        <ImageBackground source={tSide} resizeMode="contain" style={{
+                            width: 50,
+                            height: 50,
+                        }}/>,
+                        <ImageBackground source={ctSide} resizeMode="contain" style={{
+                            width: 50,
+                            height: 50,
+                        }}/>,
+                    ]}
+                    selectedIndex={selectedSiteIndex}
+                    onPress={(value) => {
+                        setSelectedSiteIndex(value);
+                    }}
+                    containerStyle={{
+                        width: 130,
+                        height: 65,
+                        backgroundColor: "#0F111400",
+                        borderWidth: 0,
+                        gap: -1
+                    }}
+                    selectedButtonStyle={{
+                        backgroundColor: "#272727",
+                        borderRadius: 100,
+                        borderColor: "#FFF",
+                        borderWidth: 1
+                    }}
+                    buttonContainerStyle={{backgroundColor: "#0F111400", borderWidth: 2, borderColor: "#ffffff00"}}
+                />
                 <TextInput
                     style={{
                         color: "#FFF",
