@@ -232,6 +232,69 @@ export default function OverpassTactic({tactic, refresh, tacticSite}) {
                                                       showPurpleUtility={showPurpleUtility}
                                                       showGreenUtility={showGreenUtility}
                                                       showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"longSmoke"}
+                                                      grenadeStyle={styles.smokeLong}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"diceSmoke"}
+                                                      grenadeStyle={styles.smokeDice}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"bCTSmoke"}
+                                                      grenadeStyle={styles.smokeBCT}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"waterSmoke"}
+                                                      grenadeStyle={styles.smokeWater}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"barrelsSmoke"}
+                                                      grenadeStyle={styles.smokeBarrels}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"sandbagsSmoke"}
+                                                      grenadeStyle={styles.smokeSandbags}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"pipeSmoke"}
+                                                      grenadeStyle={styles.smokePipe}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"monsterSmoke"}
+                                                      grenadeStyle={styles.smokeMonster}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"rampSmoke"}
+                                                      grenadeStyle={styles.smokeRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
@@ -279,6 +342,20 @@ export default function OverpassTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"bSiteFlash"}
                                                       grenadeStyle={styles.flashBSite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"fountainFlash"}
+                                                      grenadeStyle={styles.flashFountain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"lowerTunnelsFlash"}
+                                                      grenadeStyle={styles.flashLowerTunnels}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -338,6 +415,83 @@ export default function OverpassTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"sandbagsMolotov"}
                                                       grenadeStyle={styles.molotovSandbags}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"bankMolotov"}
+                                                      grenadeStyle={styles.molotovBank}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"aStandardMolotov"}
+                                                      grenadeStyle={styles.molotovAStandard}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"bCTMolotov"}
+                                                      grenadeStyle={styles.molotovBCT}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"shortBoostMolotov"}
+                                                      grenadeStyle={styles.molotovShortBoost}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"pipeMolotov"}
+                                                      grenadeStyle={styles.molotovPipe}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"pillarMolotov"}
+                                                      grenadeStyle={styles.molotovPillar}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"monsterMolotov"}
+                                                      grenadeStyle={styles.molotovMonster}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"balloonsMolotov"}
+                                                      grenadeStyle={styles.molotovBalloons}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"rampMolotov"}
+                                                      grenadeStyle={styles.molotovRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"playgroundMolotov"}
+                                                      grenadeStyle={styles.molotovPlayground}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={overpassTactic} grenadeName={"bananaMolotov"}
+                                                      grenadeStyle={styles.molotovBanana}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -568,6 +722,87 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeLong: {
+        position: 'absolute',
+        top: 79,
+        left: 91,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeDice: {
+        position: 'absolute',
+        top: 62,
+        left: 115,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBCT: {
+        position: 'absolute',
+        top: 96,
+        left: 172,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeWater: {
+        position: 'absolute',
+        top: 79,
+        left: 221,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBarrels: {
+        position: 'absolute',
+        top: 88,
+        left: 241,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeSandbags: {
+        position: 'absolute',
+        top: 129,
+        left: 234,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokePipe: {
+        position: 'absolute',
+        top: 166,
+        left: 224,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeMonster: {
+        position: 'absolute',
+        top: 140,
+        left: 262,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeRamp: {
+        position: 'absolute',
+        top: 250,
+        left: 169,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     flashMid: {
         position: 'absolute',
         top: 190,
@@ -627,6 +862,24 @@ const styles = StyleSheet.create({
         top: 100,
         left: 222,
         // backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashFountain: {
+        position: 'absolute',
+        top: 233,
+        left: 138,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashLowerTunnels: {
+        position: 'absolute',
+        top: 173,
+        left: 175,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -699,6 +952,105 @@ const styles = StyleSheet.create({
         top: 130,
         left: 234,
         // backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBank: {
+        position: 'absolute',
+        top: 23,
+        left: 135,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovAStandard: {
+        position: 'absolute',
+        top: 65,
+        left: 130,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBCT: {
+        position: 'absolute',
+        top: 96,
+        left: 172,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovShortBoost: {
+        position: 'absolute',
+        top: 135,
+        left: 192,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovPipe: {
+        position: 'absolute',
+        top: 166,
+        left: 224,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovPillar: {
+        position: 'absolute',
+        top: 109,
+        left: 241,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovMonster: {
+        position: 'absolute',
+        top: 120,
+        left: 265,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBalloons: {
+        position: 'absolute',
+        top: 212,
+        left: 93,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRamp: {
+        position: 'absolute',
+        top: 261,
+        left: 172,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovPlayground: {
+        position: 'absolute',
+        top: 270,
+        left: 152,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBanana: {
+        position: 'absolute',
+        top: 138,
+        left: 149,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
