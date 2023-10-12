@@ -252,11 +252,20 @@ export const nukePositions = {
     bAquariumSmoke: "Aquarium",
     bDoubleDoorsSmoke: "B Double Doors",
     bSingleDoorSmoke: "B Door",
+    underSiloSmoke: "Under Silo",
+    outsideRedCrossSmoke: "Outside Red Cross",
 
     outsideFlash: "Outside",
     aSiteFlash: "A Site",
     rampFlash: "Ramp",
     mainFlash: "Main",
+    hutFlash: "Hut",
+    underSiloFlash: "Under Silo",
+    garageFlash: "Garage",
+    secretFlash: "Secret",
+    lobbyFlash: "Lobby",
+    radioFlash: "Radio",
+    rampEntranceFlash: "Ramp Entrance",
 
     hutRoofMolotov: "Hut Roof",
     aSiteMolotov: "A Site",
@@ -267,6 +276,9 @@ export const nukePositions = {
     rampBoxMolotov: "Ramp Box",
     darkMolotov: "B Dark",
     bSiteMolotov: "B Site",
+    squeakyMolotov: "Squeaky",
+    rampEntranceMolotov: "Ramp Entrance",
+    underSiloMolotov: "Under Silo",
 }
 export const vertigoPositions = {
     generatorSmoke: "Generator",

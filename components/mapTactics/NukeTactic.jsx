@@ -239,6 +239,20 @@ export default function NukeTactic({tactic, refresh, tacticSite}) {
                                                       showPurpleUtility={showPurpleUtility}
                                                       showGreenUtility={showGreenUtility}
                                                       showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"underSiloSmoke"}
+                                                      grenadeStyle={styles.smokeUnderSilo}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"outsideRedCrossSmoke"}
+                                                      grenadeStyle={styles.smokeOutsideRedCross}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
@@ -265,6 +279,55 @@ export default function NukeTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"mainFlash"}
                                                       grenadeStyle={styles.flashMain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"hutFlash"}
+                                                      grenadeStyle={styles.flashHut}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"underSiloFlash"}
+                                                      grenadeStyle={styles.flashUnderSilo}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"garageFlash"}
+                                                      grenadeStyle={styles.flashGarage}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"secretFlash"}
+                                                      grenadeStyle={styles.flashSecret}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"lobbyFlash"}
+                                                      grenadeStyle={styles.flashLobby}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"radioFlash"}
+                                                      grenadeStyle={styles.flashRadio}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"rampEntranceFlash"}
+                                                      grenadeStyle={styles.flashRampEntrance}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -331,6 +394,27 @@ export default function NukeTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"bSiteMolotov"}
                                                       grenadeStyle={styles.molotovBSite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"squeakyMolotov"}
+                                                      grenadeStyle={styles.molotovSqueaky}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"rampEntranceMolotov"}
+                                                      grenadeStyle={styles.molotovRampEntrance}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={nukeTactic} grenadeName={"underSiloMolotov"}
+                                                      grenadeStyle={styles.molotovUnderSilo}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -570,6 +654,24 @@ const styles = StyleSheet.create({
         height: 14,
         borderRadius: 100
     },
+    smokeUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    smokeOutsideRedCross: {
+        position: 'absolute',
+        top: 242,
+        left: 180,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
     flashOutside: {
         position: 'absolute',
         top: 235,
@@ -601,6 +703,69 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 213,
         left: 193,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashHut: {
+        position: 'absolute',
+        top: 188,
+        left: 179,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashGarage: {
+        position: 'absolute',
+        top: 231,
+        left: 248,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashSecret: {
+        position: 'absolute',
+        top: 253,
+        left: 229,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashLobby: {
+        position: 'absolute',
+        top: 178,
+        left: 167,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashRadio: {
+        position: 'absolute',
+        top: 160,
+        left: 158,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashRampEntrance: {
+        position: 'absolute',
+        top: 135,
+        left: 169,
         // backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 14,
         height: 14,
@@ -682,6 +847,33 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 90,
         left: 57,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovSqueaky: {
+        position: 'absolute',
+        top: 203,
+        left: 181,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovRampEntrance: {
+        position: 'absolute',
+        top: 135,
+        left: 169,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
         // backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 14,
         height: 14,

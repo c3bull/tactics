@@ -39,11 +39,20 @@ export default function NukeLayout() {
     const [bAquariumSmoke, setBAquariumSmoke] = useState(false)
     const [bDoubleDoorsSmoke, setBDoubleDoorsSmoke] = useState(false)
     const [bSingleDoorSmoke, setBSingleDoorSmoke] = useState(false)
+    const [underSiloSmoke, setUnderSiloSmoke] = useState(false)
+    const [outsideRedCrossSmoke, setOutsideRedCrossSmoke] = useState(false)
 
     const [outsideFlash, setOutsideFlash] = useState(false)
     const [aSiteFlash, setASiteFlash] = useState(false)
     const [rampFlash, setRampFlash] = useState(false)
     const [mainFlash, setMainFlash] = useState(false)
+    const [hutFlash, setHutFlash] = useState(false)
+    const [underSiloFlash, setUnderSiloFlash] = useState(false)
+    const [garageFlash, setGarageFlash] = useState(false)
+    const [secretFlash, setSecretFlash] = useState(false)
+    const [lobbyFlash, setLobbyFlash] = useState(false)
+    const [radioFlash, setRadioFlash] = useState(false)
+    const [rampEntranceFlash, setRampEntranceFlash] = useState(false)
 
     const [hutRoofMolotov, setHutRoofMolotov] = useState(false)
     const [aSiteMolotov, setASiteMolotov] = useState(false)
@@ -54,6 +63,9 @@ export default function NukeLayout() {
     const [rampBoxMolotov, setRampBoxMolotov] = useState(false)
     const [darkMolotov, setDarkMolotov] = useState(false)
     const [bSiteMolotov, setBSiteMolotov] = useState(false)
+    const [squeakyMolotov, setSqueakyMolotov] = useState(false)
+    const [rampEntranceMolotov, setRampEntranceMolotov] = useState(false)
+    const [underSiloMolotov, setUnderSiloMolotov] = useState(false)
 
     const [smokeAmount, setSmokeAmount] = useState(0)
     const [flashAmount, setFlashAmount] = useState(0)
@@ -376,6 +388,26 @@ export default function NukeLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSingleDoorSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeUnderSilo} grenadePosition={underSiloSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setUnderSiloSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="underSiloSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeOutsideRedCross} grenadePosition={outsideRedCrossSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setOutsideRedCrossSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="outsideRedCrossSmoke"/>
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
@@ -418,6 +450,76 @@ export default function NukeLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="mainFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashHut} grenadePosition={hutFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setHutFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="hutFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashUnderSilo} grenadePosition={underSiloFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setUnderSiloFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="underSiloFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashGarage} grenadePosition={garageFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setGarageFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="garageFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashSecret} grenadePosition={secretFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setSecretFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="secretFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashLobby} grenadePosition={lobbyFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setLobbyFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="lobbyFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashRadio} grenadePosition={radioFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setRadioFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="radioFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashRampEntrance} grenadePosition={rampEntranceFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setRampEntranceFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="rampEntranceFlash"/>
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
@@ -510,6 +612,36 @@ export default function NukeLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="bSiteMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovSqueaky} grenadePosition={squeakyMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setSqueakyMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="squeakyMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovRampEntrance} grenadePosition={rampEntranceMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setRampEntranceMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="rampEntranceMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovUnderSilo} grenadePosition={underSiloMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setUnderSiloMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="underSiloMolotov"/>
                     </View>)}
             </ImageBackground>
             <View style={{
@@ -802,6 +934,24 @@ const styles = StyleSheet.create({
         height: 14,
         borderRadius: 100
     },
+    smokeUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    smokeOutsideRedCross: {
+        position: 'absolute',
+        top: 242,
+        left: 180,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
     flashOutside: {
         position: 'absolute',
         top: 235,
@@ -833,6 +983,69 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 213,
         left: 193,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashHut: {
+        position: 'absolute',
+        top: 188,
+        left: 179,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashGarage: {
+        position: 'absolute',
+        top: 231,
+        left: 248,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashSecret: {
+        position: 'absolute',
+        top: 253,
+        left: 229,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashLobby: {
+        position: 'absolute',
+        top: 178,
+        left: 167,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashRadio: {
+        position: 'absolute',
+        top: 160,
+        left: 158,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    flashRampEntrance: {
+        position: 'absolute',
+        top: 135,
+        left: 169,
         backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 14,
         height: 14,
@@ -914,6 +1127,33 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 90,
         left: 57,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovSqueaky: {
+        position: 'absolute',
+        top: 203,
+        left: 181,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovRampEntrance: {
+        position: 'absolute',
+        top: 135,
+        left: 169,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 14,
+        height: 14,
+        borderRadius: 100
+    },
+    molotovUnderSilo: {
+        position: 'absolute',
+        top: 245,
+        left: 166,
         backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 14,
         height: 14,
