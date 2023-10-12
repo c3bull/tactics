@@ -239,6 +239,41 @@ export default function AncientTactic({tactic, refresh, tacticSite}) {
                                                       showPurpleUtility={showPurpleUtility}
                                                       showGreenUtility={showGreenUtility}
                                                       showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"aMainSmoke"}
+                                                      grenadeStyle={styles.smokeAMain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"aMainDeepSmoke"}
+                                                      grenadeStyle={styles.smokeAMainDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"elbowSmoke"}
+                                                      grenadeStyle={styles.smokeElbow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"tUpperSmoke"}
+                                                      grenadeStyle={styles.smokeTUpper}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"rampSmoke"}
+                                                      grenadeStyle={styles.smokeRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
@@ -293,6 +328,34 @@ export default function AncientTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"longFlash"}
                                                       grenadeStyle={styles.flashLong}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"rampFlash"}
+                                                      grenadeStyle={styles.flashRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"rampDeepFlash"}
+                                                      grenadeStyle={styles.flashRampDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"highwayFlash"}
+                                                      grenadeStyle={styles.flashHighway}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"aMainFlash"}
+                                                      grenadeStyle={styles.flashAMain}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -359,6 +422,55 @@ export default function AncientTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"longMolotov"}
                                                       grenadeStyle={styles.molotovLong}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"elbowMolotov"}
+                                                      grenadeStyle={styles.molotovElbow}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"heavenMolotov"}
+                                                      grenadeStyle={styles.molotovHeaven}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"tUpperMolotov"}
+                                                      grenadeStyle={styles.molotovTUpper}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"caveMolotov"}
+                                                      grenadeStyle={styles.molotovCave}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"rampMolotov"}
+                                                      grenadeStyle={styles.molotovRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"rampDeepMolotov"}
+                                                      grenadeStyle={styles.molotovRampDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={ancientTactic} grenadeName={"donutMolotov"}
+                                                      grenadeStyle={styles.molotovDonut}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -598,6 +710,51 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeAMain: {
+        position: 'absolute',
+        top: 97,
+        left: 36,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeAMainDeep: {
+        position: 'absolute',
+        top: 135,
+        left: 56,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeElbow: {
+        position: 'absolute',
+        top: 180,
+        left: 128,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeTUpper: {
+        position: 'absolute',
+        top: 185,
+        left: 252,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeRamp: {
+        position: 'absolute',
+        top: 144,
+        left: 304,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     flashAEntrance: {
         position: 'absolute',
         top: 72,
@@ -666,6 +823,42 @@ const styles = StyleSheet.create({
         top: 50,
         left: 290,
         // backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashRamp: {
+        position: 'absolute',
+        top: 160,
+        left: 308,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashRampDeep: {
+        position: 'absolute',
+        top: 182,
+        left: 308,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashHighway: {
+        position: 'absolute',
+        top: 187,
+        left: 238,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashAMain: {
+        position: 'absolute',
+        top: 109,
+        left: 36,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100
@@ -747,6 +940,69 @@ const styles = StyleSheet.create({
         top: 95,
         left: 304,
         // backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovElbow: {
+        position: 'absolute',
+        top: 184,
+        left: 117,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovHeaven: {
+        position: 'absolute',
+        top: 183,
+        left: 195,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovTUpper: {
+        position: 'absolute',
+        top: 184,
+        left: 253,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovCave: {
+        position: 'absolute',
+        top: 160,
+        left: 236,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRamp: {
+        position: 'absolute',
+        top: 147,
+        left: 304,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRampDeep: {
+        position: 'absolute',
+        top: 178,
+        left: 308,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovDonut: {
+        position: 'absolute',
+        top: 144,
+        left: 78,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
         borderRadius: 100

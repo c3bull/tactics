@@ -201,6 +201,11 @@ export const ancientPositions = {
     bLongSmoke: "B Long",
     bAlleySmoke: "B Alley",
     houseSmoke: "House",
+    aMainSmoke: "A Main",
+    aMainDeepSmoke: "A Main Deep",
+    elbowSmoke: "Elbow",
+    tUpperSmoke: "T Upper",
+    rampSmoke: "Ramp",
 
     aEntranceFlash: "A Entrance",
     aSiteFlash: "A Site",
@@ -210,6 +215,10 @@ export const ancientPositions = {
     bSiteFlash: "B Site",
     windowFlash: "Window",
     longFlash: "Long",
+    rampFlash: "Ramp",
+    rampDeepFlash: "Ramp Deep",
+    highwayFlash: "Highway",
+    aMainFlash: "A Main",
 
     cubbyMolotov: "Cubby",
     behindASiteMolotov: "Behind A Site",
@@ -220,6 +229,13 @@ export const ancientPositions = {
     ninjaMolotov: "Ninja",
     bSiteMolotov: "B Site",
     longMolotov: "Long",
+    elbowMolotov: "Elbow",
+    heavenMolotov: "Heaven / Catwalk",
+    tUpperMolotov: "T Upper",
+    caveMolotov: "Cave",
+    rampMolotov: "Ramp",
+    rampDeepMolotov: "Ramp Deep",
+    donutMolotov: "Donut",
 }
 export const nukePositions = {
     heavenSmoke: "Heaven",
