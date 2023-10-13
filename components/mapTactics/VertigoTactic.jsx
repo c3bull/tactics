@@ -232,6 +232,48 @@ export default function VertigoTactic({tactic, refresh, tacticSite}) {
                                                       showPurpleUtility={showPurpleUtility}
                                                       showGreenUtility={showGreenUtility}
                                                       showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"bCrossSmoke"}
+                                                      grenadeStyle={styles.smokeBCross}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"bEntrySmoke"}
+                                                      grenadeStyle={styles.smokeBEntry}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"midSmoke"}
+                                                      grenadeStyle={styles.smokeMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"ctSmoke"}
+                                                      grenadeStyle={styles.smokeCt}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"bottomRampSmoke"}
+                                                      grenadeStyle={styles.smokeBottomRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"stairsSmoke"}
+                                                      grenadeStyle={styles.smokeStairs}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
@@ -279,6 +321,20 @@ export default function VertigoTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"aSiteFlash"}
                                                       grenadeStyle={styles.flashASite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"tMidFlash"}
+                                                      grenadeStyle={styles.flashTMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"sidewalkFlash"}
+                                                      grenadeStyle={styles.flashSidewalk}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -352,6 +408,48 @@ export default function VertigoTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"heavenMolotov"}
                                                       grenadeStyle={styles.molotovHeaven}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"stairsMolotov"}
+                                                      grenadeStyle={styles.molotovStairs}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"tMidMolotov"}
+                                                      grenadeStyle={styles.molotovTMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"scaffoldMolotov"}
+                                                      grenadeStyle={styles.molotovScaffold}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"rampMolotov"}
+                                                      grenadeStyle={styles.molotovRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"aDefaultMolotov"}
+                                                      grenadeStyle={styles.molotovADefault}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={vertigoTactic} grenadeName={"aElevatorMolotov"}
+                                                      grenadeStyle={styles.molotovAElevator}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -582,6 +680,60 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeBCross: {
+        position: 'absolute',
+        top: 40,
+        left: 64,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBEntry: {
+        position: 'absolute',
+        top: 124,
+        left: 81,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeMid: {
+        position: 'absolute',
+        top: 141,
+        left: 132,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeCt: {
+        position: 'absolute',
+        top: 81,
+        left: 194,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBottomRamp: {
+        position: 'absolute',
+        top: 224,
+        left: 229,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeStairs: {
+        position: 'absolute',
+        top: 114,
+        left: 44,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     flashBSite: {
         position: 'absolute',
         top: 32,
@@ -640,6 +792,24 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 180,
         left: 280,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashTMid: {
+        position: 'absolute',
+        top: 174,
+        left: 100,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashSidewalk: {
+        position: 'absolute',
+        top: 197,
+        left: 225,
         // backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
@@ -730,6 +900,60 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 123,
         left: 283,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovStairs: {
+        position: 'absolute',
+        top: 152,
+        left: 64,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovTMid: {
+        position: 'absolute',
+        top: 174,
+        left: 97,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovScaffold: {
+        position: 'absolute',
+        top: 246,
+        left: 207,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRamp: {
+        position: 'absolute',
+        top: 232,
+        left: 229,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovADefault: {
+        position: 'absolute',
+        top: 200,
+        left: 277,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovAElevator: {
+        position: 'absolute',
+        top: 150,
+        left: 258,
         // backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,

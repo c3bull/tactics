@@ -294,6 +294,12 @@ export const vertigoPositions = {
     heavenSmoke: "Heaven",
     aCTSmoke: "A CT",
     gapSmoke: "Gap",
+    bCrossSmoke: "B Site Cross",
+    bEntrySmoke: "B Entry",
+    midSmoke: "Mid",
+    ctSmoke: "Mid CT",
+    bottomRampSmoke: "Bottom Ramp",
+    stairsSmoke: "B Stairs",
 
     bSiteFlash: "B Site",
     windowFlash: "Window / Boost",
@@ -302,6 +308,8 @@ export const vertigoPositions = {
     gapFlash: "Gap",
     rampFlash: "Upper Ramp",
     aSiteFlash: "A Site",
+    tMidFlash: "T Mid",
+    sidewalkFlash: "Sidewalk",
 
     bSiteMolotov: "B Site",
     tetrisMolotov: "Tetris",
@@ -313,6 +321,12 @@ export const vertigoPositions = {
     sidewalkMolotov: "Sidewalk",
     headshotMolotov: "Headshot",
     heavenMolotov: "Heaven",
+    stairsMolotov: "B Stairs",
+    tMidMolotov: "T Mid",
+    scaffoldMolotov: "Scaffold",
+    rampMolotov: "Ramp",
+    aDefaultMolotov: "A Default",
+    aElevatorMolotov: "A Elevator",
 }
 export const anubisPositions = {
     streetSmoke: "Street",

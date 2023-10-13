@@ -38,6 +38,12 @@ export default function VertigoLayout() {
     const [heavenSmoke, setHeavenSmoke] = useState(false)
     const [aCTSmoke, setACTSmoke] = useState(false)
     const [gapSmoke, setGapSmoke] = useState(false)
+    const [bCrossSmoke, setBCrossSmoke] = useState(false)
+    const [bEntrySmoke, setBEntrySmoke] = useState(false)
+    const [midSmoke, setMidSmoke] = useState(false)
+    const [ctSmoke, setCtSmoke] = useState(false)
+    const [bottomRampSmoke, setBottomRampSmoke] = useState(false)
+    const [stairsSmoke, setStairsSmoke] = useState(false)
 
     const [bSiteFlash, setBSiteFlash] = useState(false)
     const [windowFlash, setWindowFlash] = useState(false)
@@ -46,6 +52,8 @@ export default function VertigoLayout() {
     const [gapFlash, setGapFlash] = useState(false)
     const [rampFlash, setRampFlash] = useState(false)
     const [aSiteFlash, setASiteFlash] = useState(false)
+    const [tMidFlash, setTMidFlash] = useState(false)
+    const [sidewalkFlash, setSidewalkFlash] = useState(false)
 
     const [bSiteMolotov, setBSiteMolotov] = useState(false)
     const [tetrisMolotov, setTetrisMolotov] = useState(false)
@@ -57,6 +65,12 @@ export default function VertigoLayout() {
     const [sidewalkMolotov, setSidewalkMolotov] = useState(false)
     const [headshotMolotov, setHeadshotMolotov] = useState(false)
     const [heavenMolotov, setHeavenMolotov] = useState(false)
+    const [stairsMolotov, setStairsMolotov] = useState(false)
+    const [tMidMolotov, setTMidMolotov] = useState(false)
+    const [scaffoldMolotov, setScaffoldMolotov] = useState(false)
+    const [rampMolotov, setRampMolotov] = useState(false)
+    const [aDefaultMolotov, setADefaultMolotov] = useState(false)
+    const [aElevatorMolotov, setAElevatorMolotov] = useState(false)
 
     const [smokeAmount, setSmokeAmount] = useState(0)
     const [flashAmount, setFlashAmount] = useState(0)
@@ -369,6 +383,66 @@ export default function VertigoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="gapSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBCross} grenadePosition={bCrossSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBCrossSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bCrossSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBEntry} grenadePosition={bEntrySmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBEntrySmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bEntrySmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeMid} grenadePosition={midSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setMidSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="midSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeCt} grenadePosition={ctSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setCtSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="ctSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeBottomRamp} grenadePosition={bottomRampSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setBottomRampSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="bottomRampSmoke"/>
+
+                        <SingleGrenade mainStyle={styles.smokeStairs} grenadePosition={stairsSmoke}
+                                       grenadeAmountHook={setSmokeAmount} grenadePositionHook={setStairsSmoke}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="stairsSmoke"/>
                     </View>)}
                 {selectedGrenadeIndex === 1 && (
                     <View>
@@ -441,6 +515,26 @@ export default function VertigoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="aSiteFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashTMid} grenadePosition={tMidFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setTMidFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="tMidFlash"/>
+
+                        <SingleGrenade mainStyle={styles.flashSidewalk} grenadePosition={sidewalkFlash}
+                                       grenadeAmountHook={setFlashAmount} grenadePositionHook={setSidewalkFlash}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="sidewalkFlash"/>
                     </View>)}
                 {selectedGrenadeIndex === 2 && (
                     <View>
@@ -543,6 +637,66 @@ export default function VertigoLayout() {
                                        orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
                                        selectedIndex={selectedIndex}
                                        grenadeName="heavenMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovStairs} grenadePosition={stairsMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setStairsMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="stairsMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovTMid} grenadePosition={tMidMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setTMidMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="tMidMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovScaffold} grenadePosition={scaffoldMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setScaffoldMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="scaffoldMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovRamp} grenadePosition={rampMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setRampMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="rampMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovADefault} grenadePosition={aDefaultMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setADefaultMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aDefaultMolotov"/>
+
+                        <SingleGrenade mainStyle={styles.molotovAElevator} grenadePosition={aElevatorMolotov}
+                                       grenadeAmountHook={setMolotovAmount} grenadePositionHook={setAElevatorMolotov}
+                                       yellowUtility={yellowUtility} yellowUtilityHook={setYellowUtility}
+                                       blueUtility={blueUtility} blueUtilityHook={setBlueUtility}
+                                       purpleUtility={purpleUtility} purpleUtilityHook={setPurpleUtility}
+                                       greenUtility={greenUtility} greenUtilityHook={setGreenUtility}
+                                       orangeUtility={orangeUtility} orangeUtilityHook={setOrangeUtility}
+                                       selectedIndex={selectedIndex}
+                                       grenadeName="aElevatorMolotov"/>
                     </View>)}
             </ImageBackground>
             <View style={{
@@ -826,6 +980,60 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeBCross: {
+        position: 'absolute',
+        top: 40,
+        left: 64,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBEntry: {
+        position: 'absolute',
+        top: 124,
+        left: 81,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeMid: {
+        position: 'absolute',
+        top: 141,
+        left: 132,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeCt: {
+        position: 'absolute',
+        top: 81,
+        left: 194,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeBottomRamp: {
+        position: 'absolute',
+        top: 224,
+        left: 229,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeStairs: {
+        position: 'absolute',
+        top: 114,
+        left: 44,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     flashBSite: {
         position: 'absolute',
         top: 32,
@@ -884,6 +1092,24 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 180,
         left: 280,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashTMid: {
+        position: 'absolute',
+        top: 174,
+        left: 100,
+        backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashSidewalk: {
+        position: 'absolute',
+        top: 197,
+        left: 225,
         backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
@@ -974,6 +1200,60 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 123,
         left: 283,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovStairs: {
+        position: 'absolute',
+        top: 152,
+        left: 64,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovTMid: {
+        position: 'absolute',
+        top: 174,
+        left: 97,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovScaffold: {
+        position: 'absolute',
+        top: 246,
+        left: 207,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRamp: {
+        position: 'absolute',
+        top: 232,
+        left: 229,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovADefault: {
+        position: 'absolute',
+        top: 200,
+        left: 277,
+        backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovAElevator: {
+        position: 'absolute',
+        top: 150,
+        left: 258,
         backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
