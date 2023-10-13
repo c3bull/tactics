@@ -343,6 +343,11 @@ export const anubisPositions = {
     platformSmoke: "Platform",
     aStairsSmoke: "A Stairs",
     aMainSmoke: "A Main",
+    bMainSmoke: "B Main",
+    topMidSmoke: "Top Mid",
+    rampSmoke: "Ramp",
+    upperSmoke: "Upper",
+    aMainDeepSmoke: "A Main Deep",
 
     bSiteFlash: "B Site",
     bEntranceFlash: "B Entrance",
@@ -351,6 +356,11 @@ export const anubisPositions = {
     connectorFlash: "Connector",
     aMainFlash: "A Main",
     aSiteFlash: "A Site",
+    topMidFlash: "Top Mid",
+    bMainFlash: "B Main",
+    waterFlash: "A Water",
+    doubleDoorsFlash: "Double Doors",
+    midWalkwayFlash: "Mid Walkway",
 
     bPillarMolotov: "B Pillar",
     bBacksiteMolotov: "B Backsite",
@@ -364,4 +374,9 @@ export const anubisPositions = {
     aSiteMolotov: "A Site",
     heavenMolotov: "Heaven",
     fountainMolotov: "Fountain",
+    bMainMolotov: "B Main",
+    connectorMolotov: "Connector",
+    rampMolotov: "Ramp",
+    aMainDeepMolotov: "A Main Deep",
+    midPalaceMolotov: "Mid Palace",
 }

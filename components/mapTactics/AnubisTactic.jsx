@@ -239,6 +239,41 @@ export default function AnubisTactic({tactic, refresh, tacticSite}) {
                                                       showPurpleUtility={showPurpleUtility}
                                                       showGreenUtility={showGreenUtility}
                                                       showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"bMainSmoke"}
+                                                      grenadeStyle={styles.smokeBMain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"topMidSmoke"}
+                                                      grenadeStyle={styles.smokeTopMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"rampSmoke"}
+                                                      grenadeStyle={styles.smokeRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"upperSmoke"}
+                                                      grenadeStyle={styles.smokeUpper}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"aMainDeepSmoke"}
+                                                      grenadeStyle={styles.smokeAMainDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
                             </View>)}
                         {showFlashes && (
                             <View>
@@ -286,6 +321,41 @@ export default function AnubisTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"aSiteFlash"}
                                                       grenadeStyle={styles.flashASite}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"topMidFlash"}
+                                                      grenadeStyle={styles.flashTopMid}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"bMainFlash"}
+                                                      grenadeStyle={styles.flashBMain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"waterFlash"}
+                                                      grenadeStyle={styles.flashWater}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"doubleDoorsFlash"}
+                                                      grenadeStyle={styles.flashDoubleDoors}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"midWalkwayFlash"}
+                                                      grenadeStyle={styles.flashMidWalkway}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -373,6 +443,41 @@ export default function AnubisTactic({tactic, refresh, tacticSite}) {
                                                       showOrangeUtility={showOrangeUtility}/>
                                 <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"fountainMolotov"}
                                                       grenadeStyle={styles.molotovFountain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"bMainMolotov"}
+                                                      grenadeStyle={styles.molotovBMain}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"connectorMolotov"}
+                                                      grenadeStyle={styles.molotovConnector}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"rampMolotov"}
+                                                      grenadeStyle={styles.molotovRamp}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"aMainDeepMolotov"}
+                                                      grenadeStyle={styles.molotovAMainDeep}
+                                                      showYellowUtility={showYellowUtility}
+                                                      showBlueUtility={showBlueUtility}
+                                                      showPurpleUtility={showPurpleUtility}
+                                                      showGreenUtility={showGreenUtility}
+                                                      showOrangeUtility={showOrangeUtility}/>
+                                <TacticGrenadeDisplay tactic={anubisTactic} grenadeName={"midPalaceMolotov"}
+                                                      grenadeStyle={styles.molotovMidPalace}
                                                       showYellowUtility={showYellowUtility}
                                                       showBlueUtility={showBlueUtility}
                                                       showPurpleUtility={showPurpleUtility}
@@ -610,6 +715,51 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    smokeBMain: {
+        position: 'absolute',
+        top: 181,
+        left: 74,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeTopMid: {
+        position: 'absolute',
+        top: 207,
+        left: 172,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeRamp: {
+        position: 'absolute',
+        top: 213,
+        left: 233,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeUpper: {
+        position: 'absolute',
+        top: 169,
+        left: 264,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    smokeAMainDeep: {
+        position: 'absolute',
+        top: 147,
+        left: 272,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     flashBSite: {
         position: 'absolute',
         top: 165,
@@ -668,6 +818,51 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 80,
         left: 260,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashTopMid: {
+        position: 'absolute',
+        top: 215,
+        left: 172,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashBMain: {
+        position: 'absolute',
+        top: 193,
+        left: 63,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashWater: {
+        position: 'absolute',
+        top: 155,
+        left: 247,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashDoubleDoors: {
+        position: 'absolute',
+        top: 170,
+        left: 196,
+        // backgroundColor: 'rgba(253, 255, 242,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashMidWalkway: {
+        position: 'absolute',
+        top: 122,
+        left: 196,
         // backgroundColor: 'rgba(253, 255, 242,0.5)',
         width: 18,
         height: 18,
@@ -776,6 +971,51 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 78,
         left: 293,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovBMain: {
+        position: 'absolute',
+        top: 181,
+        left: 74,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovConnector: {
+        position: 'absolute',
+        top: 190,
+        left: 133,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovRamp: {
+        position: 'absolute',
+        top: 213,
+        left: 233,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovAMainDeep: {
+        position: 'absolute',
+        top: 147,
+        left: 272,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    molotovMidPalace: {
+        position: 'absolute',
+        top: 100,
+        left: 180,
         // backgroundColor: 'rgba(255, 236, 236,0.5)',
         width: 18,
         height: 18,
