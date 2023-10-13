@@ -7,8 +7,8 @@
     "plugins": [
       "expo-router"
     ],
-    "name": "tacti-cs",
-    "slug": "tacti-cs",
+    "name": "TactiCS",
+    "slug": "TactiCS",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
