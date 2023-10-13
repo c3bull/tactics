@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0F1114"
       },
-      "package": "com.c3bull.tactics"
+      "package": "com.c3bull.tactics",
+      "versionCode": 2
     },
     "extra": {
       "router": {
