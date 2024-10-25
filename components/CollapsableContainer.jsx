@@ -1,37 +1,38 @@
-import React, {useState} from "react";
-import {View, Dimensions} from "react-native";
+import React, { useState } from "react";
+import { View, Dimensions } from "react-native";
 import Animated, {
     useAnimatedStyle,
+    useDerivedValue,
     useSharedValue,
     withTiming,
 } from "react-native-reanimated";
 
-export const CollapsableContainer = ({
-                                         children,
-                                         expanded,
-                                     }) => {
-    const [height, setHeight] = useState(0);
-    const animatedHeight = useSharedValue(0);
-    const width = Dimensions.get('window').width;
-    const onLayout = (event) => {
-        const onLayoutHeight = event.nativeEvent.layout.height;
+export const CollapsableContainer = ({ expanded, children, viewKey, style, }) => {
 
-        if (onLayoutHeight > 0 && height !== onLayoutHeight) {
-            setHeight(onLayoutHeight);
+    const height = useSharedValue(0);
+
+    const derivedHeight = useDerivedValue(() =>
+        withTiming(height.value)
+    );
+    const bodyStyle = useAnimatedStyle(() => ({
+        height: expanded ? withTiming(derivedHeight.value) : withTiming(0),
+    }));
+
+    const onLayout = (event) => {
+        height.value = event.nativeEvent.layout.height;
+
+        if (height.value > 0 && height !== height.value) {
+            height.value
         }
     };
 
-    const collapsableStyle = useAnimatedStyle(() => {
-        animatedHeight.value = expanded ? withTiming(height) : withTiming(0);
-
-        return {
-            height: animatedHeight.value,
-        };
-    }, [expanded]);
-
     return (
-        <Animated.View style={[collapsableStyle, {overflow: 'hidden', width: 360}]}>
-            <View style={{position: "absolute"}} onLayout={onLayout}>
+        <Animated.View
+            key={`accordionItem_${viewKey}`}
+            style={[{overflow: 'hidden', width: '100%'}, bodyStyle, style]}>
+            <View
+                onLayout={onLayout}
+                style={{position: "absolute"}}>
                 {children}
             </View>
         </Animated.View>

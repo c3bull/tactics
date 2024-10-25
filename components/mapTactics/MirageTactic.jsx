@@ -19,6 +19,7 @@ import deleteImage from "../../assets/images/delete.png";
 import {CollapsableContainer} from "../CollapsableContainer";
 import PlayerTasks from "../PlayerTasks";
 import {miragePositions} from "../common/positions";
+import Collapsible from 'react-native-collapsible';
 
 export default function MirageTactic({tactic, refresh, tacticSite}) {
     let _ = require('lodash');
@@ -89,7 +90,7 @@ export default function MirageTactic({tactic, refresh, tacticSite}) {
                         </TouchableOpacity>
                     </View>
                 </TouchableWithoutFeedback>
-                <CollapsableContainer expanded={expanded}>
+                <CollapsableContainer expanded={expanded} >
                     <Text style={{
                         color: "#FFF",
                         fontSize: 22,
@@ -815,6 +816,33 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    flashRamp: {
+        position: 'absolute',
+        top: 176,
+        left: 235,
+        // backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashRampDeep: {
+        position: 'absolute',
+        top: 186,
+        left: 257,
+        // backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashPalace: {
+        position: 'absolute',
+        top: 232,
+        left: 222,
+        // backgroundColor: "#FDFFF2",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     smokeStairs: {
         position: 'absolute',
         top: 180,
@@ -986,6 +1014,15 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    flashBApps: {
+        position: 'absolute',
+        top: 3,
+        left: 97,
+        // backgroundColor: 'rgba(255,255,255,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     smokeBAppsDeep: {
         position: 'absolute',
         top: 17,
@@ -1042,7 +1079,7 @@ const styles = StyleSheet.create({
     },
     smokeAPalace: {
         position: 'absolute',
-        top: 232,
+        top: 237,
         left: 222,
         // backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
@@ -1166,6 +1203,15 @@ const styles = StyleSheet.create({
         height: 18,
         borderRadius: 100
     },
+    flashLadder: {
+        position: 'absolute',
+        top: 72,
+        left: 134,
+        // backgroundColor: "#FFECEC",
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
     molotovNinja: {
         position: 'absolute',
         top: 239,
@@ -1230,6 +1276,15 @@ const styles = StyleSheet.create({
         borderRadius: 100
     },
     molotovTopMidBoxes: {
+        position: 'absolute',
+        top: 110,
+        left: 251,
+        // backgroundColor: 'rgba(255, 236, 236,0.5)',
+        width: 18,
+        height: 18,
+        borderRadius: 100
+    },
+    flashBehindMidBoxes: {
         position: 'absolute',
         top: 110,
         left: 251,

@@ -1493,7 +1493,7 @@ const styles = StyleSheet.create({
     },
     smokeAPalace: {
         position: 'absolute',
-        top: 232,
+        top: 237,
         left: 222,
         backgroundColor: 'rgba(255,255,255,0.5)',
         width: 18,
